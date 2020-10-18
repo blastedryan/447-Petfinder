@@ -1,16 +1,16 @@
 # 447-Petfinder
 
-##Installing
+## Installing
 
-###Install Python
+### Install Python
 Go to the [Python website](https://www.python.org/downloads/) and install Python **3.7** or **3.8**   
 
 **3.9 does not work!**
 
-###Install Dependencies
+### Install Dependencies
 Type `pip install -r requirements.txt` to install other dependencies
 
-##Opening Site
+## Opening Site
 Open your console and navigate to the directory.
 
 Navigate into the folder petsite.
@@ -21,14 +21,14 @@ If on Mac/Linux, run `python manage.py runserver`
 
 Go to your browser and put in the address `http://127.0.0.1:8000/petsite`
 
-##Running Tests
+## Running Tests
 Set up two new environment variables
 
 
-####Instructions for setting up environment variables in windows 
+#### Instructions for setting up environment variables in windows 
 https://www.computerhope.com/issues/ch000549.htm
 
-####Instructions for setting up environment variables in mac
+#### Instructions for setting up environment variables in mac
 1. Open terminal
 2. Run “nano ~/.bash_profile”
 3. Scroll to the bottom of the file and add these two lines, replacing ``<key>`` and ``<secret key>`` with the key you're given
