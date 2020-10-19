@@ -22,7 +22,8 @@ Run `python manage.py runserver` or `py manage.py runserver`
 Go to your browser and put in the address `http://127.0.0.1:8000/petfinder`
 
 ## Running Tests
-Set up two new environment variables
+Set up two new environment variables: PETFINDER_KEY & PETFINDER_SECRET_KEY  
+The values for the two variables can be found in the google drive folder.
 
 
 #### Instructions for setting up environment variables in windows 
@@ -48,3 +49,15 @@ Pytest documentation for terminal commands can be found here: https://docs.pytes
 
 The current supported tests, test the basic functionality of retrieving petfinder data. As we add the functionality for searching for specific criteria in future iterations, other tests in the suite will be added, testing said criteria 
 (ie. a test exhausting the location formats when we work on a user story involving location)
+
+#### Running Selenium Tests 
+1. Open terminal
+2. Go into the tests directory.
+3. To run the selenium tests you must first install selenium by going to https://www.selenium.dev/downloads/. 
+4. Then you must install a chrome webdriver from https://chromedriver.chromium.org/downloads. (Make sure it is compatible
+with your version of Chrome ie. 87, 86, or 85) 
+5. Once that is done you must put the path to webdriver and html (tests/Petfinder_template.html) into the global 
+variables driverPath and htmlPath. You can find the html path easily by opening the file in chrome  and copying the link
+at the top.
+6. Once that is done you can just run tests/testStyle.py with pytest and it should open up a web browser with the html link displayed on it. 
+The current tests just test if the web page opens correctly and if the accordion table acts appropriately.
