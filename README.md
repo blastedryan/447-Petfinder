@@ -22,7 +22,7 @@ Run `python manage.py runserver` or `py manage.py runserver`
 Go to your browser and put in the address `http://127.0.0.1:8000/petfinder`
 
 ## Running Tests
-Set up two new environment variables: PETFINDER_KEY & PETFINDER_SECRET_KEY
+Set up two new environment variables: PETFINDER_KEY & PETFINDER_SECRET_KEY  
 The values for the two variables can be found in the google drive folder.
 
 
