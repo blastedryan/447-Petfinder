@@ -49,8 +49,11 @@ Pytest documentation for terminal commands can be found here: https://docs.pytes
 The current supported tests, test the basic functionality of retrieving petfinder data. As we add the functionality for searching for specific criteria in future iterations, other tests in the suite will be added, testing said criteria 
 (ie. a test exhausting the location formats when we work on a user story involving location)
 
-####Running Selenium Tests ####
-Go into the app_style/tests directory.
-
-To run the selenium tests you must first install selenium by going to https://www.selenium.dev/downloads/. Then you must install a chrome webdriver from https://chromedriver.chromium.org/downloads. Once that is done you must put the path to webdriver and html (Petfinder_template.html) into lines 8 and 9 of test.py respectively. Once that is done you can just run test.py like a normal python file and it should open up a web browser with the html link displayed on it. 
+#### Running Selenium Tests 
+1. Open terminal
+2. Go into the app_style/tests directory.
+3. To run the selenium tests you must first install selenium by going to https://www.selenium.dev/downloads/. 
+4. Then you must install a chrome webdriver from https://chromedriver.chromium.org/downloads. 
+5. Once that is done you must put the path to webdriver and html (Petfinder_template.html) into lines 8 and 9 of test.py respectively. 
+6. Once that is done you can just run test.py like a normal python file and it should open up a web browser with the html link displayed on it. 
 The current tests just test if the web page opens correctly and if the accordion table acts appropriately.
