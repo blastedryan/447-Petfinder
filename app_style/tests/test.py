@@ -1,13 +1,14 @@
 import unittest
 import time
 from selenium import webdriver
-
+driverPath = webdriver.Chrome('')
+htmlPath = ''
 class FirstTest(unittest.TestCase):
     def test_first_selenium_test(self):
         #put the path to the chrome here
-        self.driver = webdriver.Chrome('')  # Optional argument, if not specified will search path.
+        self.driver = driverPath  # Optional argument, if not specified will search path.
         #put the path to the html (Petfinder_Template.html) here
-        self.driver.get('');
+        self.driver.get(htmlPath);
         #See if it just opens the web page
         time.sleep(3)
         #See if it opens the first accordian section
