@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 #Ex driverPath = webdriver.Chrome('/Users/jameskinter/Downloads/chromdriver')
 driverPath = webdriver.Chrome('')
-#Ex htmlPath = 'file:///Users/jameskinter/PycharmProjects/Petfinder/Petfinder.html'
+#Ex htmlPath = 'file:///Users/jameskinter/PycharmProjects/447-Petfinder/Petfinder-Template.html'
 htmlPath = ''
 class FirstTest(unittest.TestCase):
     def test_first_selenium_test(self):
