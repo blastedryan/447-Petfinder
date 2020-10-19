@@ -4,9 +4,10 @@ from selenium import webdriver
 
 class FirstTest(unittest.TestCase):
     def test_first_selenium_test(self):
-        #get the web driver and html file from the local repository
-        self.driver = webdriver.Chrome('/Users/Owner/Downloads/chromedriver')  # Optional argument, if not specified will search path.
-        self.driver.get('file:///Users/jameskinter/PycharmProjects/Petfinder/Petfinder.html');
+        #put the path to the chrome here
+        self.driver = webdriver.Chrome('')  # Optional argument, if not specified will search path.
+        #put the path to the html (Petfinder_Template.html) here
+        self.driver.get('');
         #See if it just opens the web page
         time.sleep(3)
         #See if it opens the first accordian section
