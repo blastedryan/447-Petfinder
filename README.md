@@ -59,5 +59,5 @@ with your version of Chrome ie. 87, 86, or 85)
 5. Once that is done you must put the path to webdriver and html (tests/Petfinder_template.html) into the global 
 variables driverPath and htmlPath. You can find the html path easily by opening the file in chrome  and copying the link
 at the top.
-6. Once that is done you can just run test.py like a normal python file and it should open up a web browser with the html link displayed on it. 
+6. Once that is done you can just run tests/testStyle.py with pytest and it should open up a web browser with the html link displayed on it. 
 The current tests just test if the web page opens correctly and if the accordion table acts appropriately.
