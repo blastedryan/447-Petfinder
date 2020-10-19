@@ -54,6 +54,6 @@ The current supported tests, test the basic functionality of retrieving petfinde
 2. Go into the app_style/tests directory.
 3. To run the selenium tests you must first install selenium by going to https://www.selenium.dev/downloads/. 
 4. Then you must install a chrome webdriver from https://chromedriver.chromium.org/downloads. 
-5. Once that is done you must put the path to webdriver and html (Petfinder_template.html) into lines 8 and 9 of test.py respectively. 
+5. Once that is done you must put the path to webdriver and html (Petfinder_template.html) into the global variables driverPath and htmlPath. 
 6. Once that is done you can just run test.py like a normal python file and it should open up a web browser with the html link displayed on it. 
 The current tests just test if the web page opens correctly and if the accordion table acts appropriately.
