@@ -53,6 +53,3 @@ Pytest documentation for terminal commands can be found here: https://docs.pytes
 
 The current supported tests, test the basic functionality of retrieving petfinder data. As we add the functionality for searching for specific criteria in future iterations, other tests in the suite will be added, testing said criteria 
 (ie. a test exhausting the location formats when we work on a user story involving location)
-
-#### Testing the MapBox Map
-Selenium is used to test MapBox Map. Navigate to ``tests/test_map``, insert the MapBox API key as previously specified.
