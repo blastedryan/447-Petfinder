@@ -36,6 +36,7 @@ https://www.computerhope.com/issues/ch000549.htm
 
     * `export PETFINDER_KEY=<key>`
     * `export PETFINDER_SECRET_KEY=<secret key>`
+    * `export PETSITE_SECRET_KEY=<secret key>`
 
 4. Type “CONTROL+X”, then “Y” and “enter”
 5. Restart your ide or terminal and the variables should be setup properly
