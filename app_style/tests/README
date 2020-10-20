@@ -1,0 +1,4 @@
+To run test.py you must first install selenium, then install a webdriver (chrome, firefox, safarii). To make this test
+work you must put the path to the webdriver in the line that says self.driver = webdriver. section. Then you
+must put the path to the html file where it says self.driver.get. This gets both the webdriver and the html file into
+selenium and allows it to run
