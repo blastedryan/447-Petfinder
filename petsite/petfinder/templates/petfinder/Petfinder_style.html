@@ -19,26 +19,20 @@
 	#map {
             position: absolute;
 	}
-	
-	.marker {
-	    background-image: url('https://toppng.com/uploads/preview/dog-icon-infographic-corgi-icon-11553428947r2ex82lptv.png');
-	    background-size: cover;
-	    width: 25px;
-	    height: 25px;
-	    border-radius: 50%;
-	    cursor: pointer;
-	}
-	
-	.mapboxgl-popup {
-	    max-width: 200px;
-	}
-	
+
+
+    .mapboxgl-popup {
+        max-width: 400px;
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+
+  	
 	.mapboxgl-popup-content {
 	    text-align: center;
 	    font-family: 'Open Sans', sans-serif;
 	    
-
-
+	}
+  
 	
     </style>
     </head>
@@ -269,60 +263,106 @@
     </div>
     
     <script>
-      
-      mapboxgl.accessToken = 'pk.eyJ1IjoibW9uYWxpc2EyMTkiLCJhIjoiY2tnYmJoMTZ6MGZoMTJ1dGhrM2FrdzhsZCJ9.75_O19vodCc387cy4sZv-A';
+
+      mapboxgl.accessToken ='<insert key here>'
       
       
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/streets-v11',
-	  center: [-96, 37.8],
-	  zoom: 3
+	  center:[-77.04, 38.907],
+	  zoom: 11.5
       });
-      
-      var geojson = {
-	  type: 'FeatureCollection',
-	  features: [{
-	      type: 'Feature',
-	      geometry: {
-		  type: 'Point',
-		  coordinates: [-77.032, 38.913]
-	      },
-	      properties: {
-		  title: 'Walter - Pembroke Welsh Corgi',
-		  description: 'Washington, D.C.'
-	      }
-	  },
-		     {
-			 type: 'Feature',
-			 geometry: {
-			     type: 'Point',
-			     coordinates: [-122.414, 37.776]
-			 },
-			 properties: {
-			     title: 'Gwyneth - King Charles Cocker Spaniel',
-			     description: 'San Francisco, California'
-			 }
-		     }]
-      };
-      
-      // add markers to map
-      geojson.features.forEach(function(marker) {
-	  
-	  // create a HTML element for each feature
-	  var el = document.createElement('div');
-	  el.className = 'marker';
-	  
-	  // make a marker for each feature and add to the map
-	  new mapboxgl.Marker(el)
-	      .setLngLat(marker.geometry.coordinates)
-	      .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-			.setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
-	      .addTo(map);
-      });
-            
-      </script>
 
+
+
+      map.on('load', function () {
+	  map.loadImage(
+	      'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+	      
+	      // Add an image to use as a custom marker
+	      function (error, image) {
+		  if (error) throw error;
+		  map.addImage('custom-marker', image);
+		  
+		  map.addSource('places', {
+		      'type': 'geojson',
+		      'data': {
+			  'type': 'FeatureCollection',
+			  'features': [
+			      {
+				  'type': 'Feature',
+				  'properties': {
+				      'description':
+				      '<strong>Walter - Pembroke Welsh Corgi</strong>'
+				  },
+				  'geometry': {
+				      'type': 'Point',
+				      'coordinates': [-77.038659, 38.931567]
+				  }
+			      },
+			      {
+				  'type': 'Feature',
+				  'properties': {
+				      'description':
+				      '<strong>Gwyneth - King Charles Cocker Spaniel</strong>'
+				  },
+				  'geometry': {
+				      'type': 'Point',
+				      'coordinates': [-77.090372, 38.881189]
+				  }
+			      }
+			  ]
+		      }
+		  });
+		  
+		  // Add a layer showing the places.
+		  map.addLayer({
+		      'id': 'places',
+		      'type': 'symbol',
+		      'source': 'places',
+		      'layout': {
+			  'icon-image': 'custom-marker',
+			  'icon-allow-overlap': true
+		      }
+		  });
+	      }
+	  );
+	  
+	  // Create a popup, but don't add it to the map yet.
+	  var popup = new mapboxgl.Popup({
+	      closeButton: false,
+	      closeOnClick: false
+	  });
+	  
+	  map.on('mouseenter', 'places', function (e) {
+	      // Change the cursor style as a UI indicator.
+	      map.getCanvas().style.cursor = 'pointer';
+	      
+	      var coordinates = e.features[0].geometry.coordinates.slice();
+	      var description = e.features[0].properties.description;
+	      
+	      // If the map is zoomed out such that multiple
+	      // copies of the feature are visible, the popup appears
+	      // over the copy being pointed to.
+	      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+		  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+	      }
+	      
+	      // Populate the popup and set its coordinates
+	      // based on the feature found.
+	      popup.setLngLat(coordinates).setHTML(description).addTo(map);
+	  });
+	  
+	  map.on('mouseleave', 'places', function () {
+	      map.getCanvas().style.cursor = '';
+	      popup.remove();
+	  });
+      });
+
+
+    </script>
+    
    <!--Scripts for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
