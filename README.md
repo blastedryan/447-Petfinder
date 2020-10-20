@@ -10,6 +10,9 @@ Go to the [Python website](https://www.python.org/downloads/) and install Python
 ### Install Dependencies
 Type `pip install -r requirements.txt` to install other dependencies
 
+### Retrieving MapBox API Key
+In order for the map to render, you must use the MapBox API key that is found in our team's Google Drive. Upon retrieving the key, insert the key on line 267, `mapboxgl.accessToken ='<insert key here>'`. Only after updating the key will the map become visible. In later iterations, a more secure method of key encryption will be available.
+
 ## Opening Site
 Open your console and navigate to the directory.
 
@@ -22,9 +25,9 @@ Run `python manage.py runserver` or `py manage.py runserver`
 Go to your browser and put in the address `http://127.0.0.1:8000/petfinder`
 
 ## Running Tests
-Set up two new environment variables: PETFINDER_KEY & PETFINDER_SECRET_KEY  
-The values for the two variables can be found in the google drive folder.
 
+Set up new environment variables: PETFINDER_KEY , PETFINDER_SECRET_KEY , PETSITE_SECRET_KEY
+The values for the variables can be found in the google drive folder.
 
 #### Instructions for setting up environment variables in windows 
 https://www.computerhope.com/issues/ch000549.htm
@@ -62,3 +65,5 @@ variables driverPath and htmlPath. You can find the html path easily by opening 
 at the top.
 6. Once that is done you can just run tests/testStyle.py with pytest and it should open up a web browser with the html link displayed on it. 
 The current tests just test if the web page opens correctly and if the accordion table acts appropriately.
+
+In order to test the MapBox API, follow the same instructions with the python file in tests/test_map. The map should render at the bottom of the web page. You should be able to hover your mouse over two markers, and you should see windows popup over those markers with information of two dogs. This is purely for Iteration 1 testing purposes, as later iterations will have more markers on the map, based on search results. Before testing, you must first insert the MapBox API Key, as specified in the "Retrieving MapBox API Key" section above.
