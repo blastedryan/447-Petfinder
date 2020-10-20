@@ -65,3 +65,5 @@ variables driverPath and htmlPath. You can find the html path easily by opening 
 at the top.
 6. Once that is done you can just run tests/testStyle.py with pytest and it should open up a web browser with the html link displayed on it. 
 The current tests just test if the web page opens correctly and if the accordion table acts appropriately.
+
+In order to test the MapBox API, follow the same instructions with the python file in tests/test_map. The map should render at the bottom of the web page. You should be able to hover your mouse over two markers, and you should see windows popup over those markers with information of two dogs. This is purely for Iteration 1 testing purposes, as later iterations will have more markers on the map, based on search results.
