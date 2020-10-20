@@ -10,6 +10,6 @@ class HTMLTest(unittest.TestCase):
         time.sleep(3)
         self.driver.find_element_by_tag_name("input")
         time.sleep(3)
-        self.driver.find_element_by("label")
+        self.driver.find_element_by_tag_name("label")
         time.sleep(3)
-        self.dirver.find_element_by("button")
+        self.driver.find_element_by_tag_name("button")
