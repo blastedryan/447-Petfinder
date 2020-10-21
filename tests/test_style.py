@@ -1,17 +1,10 @@
-import unittest
 import time
-from selenium import webdriver
-#Ex driverPath = webdriver.Chrome('/Users/jameskinter/Downloads/chromdriver')
-driverPath = webdriver.Chrome('')
-#Ex htmlPath = 'file:///Users/jameskinter/PycharmProjects/447-Petfinder/Petfinder-Template.html'
-htmlPath = ''
-class FirstTest(unittest.TestCase):
+from tests.webtests import WebTests
+
+class FirstTest(WebTests):
     def test_first_selenium_test(self):
-        #put the path to the chrome here
-        self.driver = driverPath  # Optional argument, if not specified will search path.
-        #put the path to the html (Petfinder_Template.html) here
-        self.driver.get(htmlPath);
         #See if it just opens the web page
+        self.driver.get(self.htmlPath)
         time.sleep(3)
         #See if it opens the first accordian section
         testBreed = self.driver.find_element_by_id('headingOne')
@@ -56,4 +49,3 @@ class FirstTest(unittest.TestCase):
         testShelter = self.driver.find_element_by_id('headingTen')
         testShelter.click()
         time.sleep(2)
-        self.driver.quit()
