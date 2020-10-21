@@ -59,7 +59,8 @@ The current supported tests, test the basic functionality of retrieving petfinde
 2. Go into the tests directory.
 3. To run the selenium tests you must first install selenium by going to https://www.selenium.dev/downloads/. 
 4. Then you must install a chrome webdriver from https://chromedriver.chromium.org/downloads. (Make sure it is compatible
-with your version of Chrome ie. 87, 86, or 85) 
+with your version of Chrome ie. 87, 86, or 85)
+5. You can run selenium tests with either Pytest or Unittest depending on your preference 
 
 
 In order to test the MapBox API: The map should render at the bottom of the web page. You should be able to hover your mouse over two markers, and you should see windows popup over those markers with information of two dogs. This is purely for Iteration 1 testing purposes, as later iterations will have more markers on the map, based on search results. Before testing, you must first insert the MapBox API Key, as specified in the "Retrieving MapBox API Key" section above.

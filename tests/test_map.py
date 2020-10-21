@@ -1,5 +1,5 @@
 import time
-from .webtests import WebTests
+from tests.webtests import WebTests
 
 class MapTests(WebTests):
 

@@ -1,4 +1,4 @@
-from .webtests import WebTests
+from tests.webtests import WebTests
 
 class WebBones(WebTests):
     def test_web_bones(self):
