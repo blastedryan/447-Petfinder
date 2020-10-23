@@ -80,6 +80,7 @@
         
         <label for="age">Age:</label>
         <select name="age">
+            <option value=""></option>
             <option value="young">Young</option>
             <option value="medium">Medium</option>
             <option value="old">Old</option>
@@ -110,6 +111,7 @@
         <label for="size_large">Large</label>
         <input type="checkbox" name="size" value="xlarge" id="size_xlarge">
         <label for="size_xlarge">Extra-Large</label>
+
       </div>
     </div>
   </div>
@@ -127,9 +129,9 @@
       <div class="card-body">
         
         Gender:
-        <input type="checkbox" name="male">
+        <input type="checkbox" name="male" value="male" id="male">
         <label for="male">Male</label>
-        <input type="checkbox" name="female">
+        <input type="checkbox" name="female" value="female" id="female">
         <label for="female">Female</label>
 
       </div>
@@ -149,12 +151,14 @@
       <div class="card-body">
         
         Good With:
-        <input type="checkbox" name="kids">
+        <input type="checkbox" name="kids" value="kids">
         <label for="kids">Kids</label>
-        <input type="checkbox" name="dogs">
+        <input type="checkbox" name="dogs" value="dogs">
         <label for="dogs">Dogs</label>
-        <input type="checkbox" name="cats">
+        <input type="checkbox" name="cats" value="cats">
         <label for="cats">Cats</label>
+
+
       </div>
     </div>
   </div>
@@ -171,9 +175,9 @@
     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
       <div class="card-body">
         Coat Length
-        <input type="checkbox" name="long">
+        <input type="checkbox" name="long" value="long">
         <label for="long">Long</label>     
-        <input type="checkbox" name="short">
+        <input type="checkbox" name="short" value="short">
         <label for="short">Short</label>   
       </div>
     </div>
@@ -191,10 +195,11 @@
     <div id="collapseSeven" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
       
-        <input type="checkbox" name="blonde">
+        <input type="checkbox" name="blonde" value="blonde">
         <label for="blonde">Blonde</label>     
-        <input type="checkbox" name="black">
-        <label for="black">Black</label>   
+        <input type="checkbox" name="black" value="black">
+        <label for="black">Black</label> 
+
       </div>
     </div>
   </div>
@@ -226,13 +231,15 @@
     </div>
     <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
       <div class="card-body">
+
         Days on Petfinder
-        <input type="radio" name="days">
+        <input type="radio" name="days" value="1day">
         <label for="1day">1 Day</label>     
-        <input type="radio" name="days">
+        <input type="radio" name="days" value="15day">
         <label for="15day">15 Days</label>  
-        <input type="radio" name="days">
+        <input type="radio" name="days" value="30day">
         <label for="30day">30 Days</label>
+
       </div>
     </div>
   </div>
