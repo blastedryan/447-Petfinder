@@ -44,13 +44,13 @@
             <p>Search for pets in your area based on your specifications</p>
         </div>
     </div>
-    <div id="accordion">
-  
+  <div id="accordion">
+  <form  method="GET" action="">
   <!--Breed-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           Breed
         </button>
       </h5>
@@ -70,7 +70,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingTwo">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           Age
         </button>
       </h5>
@@ -93,7 +93,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           Size
         </button>
       </h5>
@@ -102,14 +102,14 @@
       <div class="card-body">
        
         Size:
-        <input type="checkbox" name="small">
-        <label for="small">Small</label>
-        <input type="checkbox" name="medium">
-        <label for="medium">Medium</label>
-        <input type="checkbox" name="large">
-        <label for="large">Large</label>
-        <input type="checkbox" name="xlarge">
-        <label for="xlarge">Extra-Large</label>
+        <input type="checkbox" name="size" value="small" id="size_small">
+        <label for="id_small">Small</label>
+        <input type="checkbox" name="size" value="medium" id="size_medium">
+        <label for="size_medium">Medium</label>
+        <input type="checkbox" name="size" value="large" id="size_large">
+        <label for="size_large">Large</label>
+        <input type="checkbox" name="size" value="xlarge" id="size_xlarge">
+        <label for="size_xlarge">Extra-Large</label>
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@
  <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingFour">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           Gender
         </button>
       </h5>
@@ -140,7 +140,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingFive">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
           Good With
         </button>
       </h5>
@@ -163,7 +163,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingSix">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
           Coat Length
         </button>
       </h5>
@@ -183,7 +183,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingSeven">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
           Color
         </button>
       </h5>
@@ -203,7 +203,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingEight">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
           Care+Behavior
         </button>
       </h5>
@@ -219,7 +219,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingNine">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
           Days on Petfinder
         </button>
       </h5>
@@ -239,7 +239,7 @@
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingTen">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+        <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
           Shelter
         </button>
       </h5>
@@ -251,8 +251,15 @@
     </div>
   </div>
   
-  <button type="submit">Search</button>
-    </div>
+  <input type="submit" value="search">
+  </form>
+{% if search_query %}
+  <p>The most recent search is:
+{% for field, value in search_query.items %}
+  <span style="font-weight: bold;">{{field}}</span>: {{value}} 
+{% endfor %}
+{% endif %}
+</p>
 
     <div class = "container">
       <h2 class = "text-center">
