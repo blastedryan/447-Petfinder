@@ -46,6 +46,7 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
                 actual_compatible[i] = True
 
     org_ids = None
+    searches = 0
     if org_name is not None:
         """
         To do: Create a method that searches for the full name of an org. If the name cannot be found, slice the string
@@ -53,21 +54,23 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
         value.
         """
         org_ids = __get_org_ids(pf, org_name)
+        searches += 1
         if not org_ids:
-            return 0
+            return 0, searches
     try:
         pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender, age=age,
                       color=color, coat=coat, distance=distance, name=name, good_with_cats=actual_compatible[0],
                       good_with_dogs=actual_compatible[1], good_with_children=actual_compatible[2],
-                      results_per_page=100, organization_id=org_ids, pages=1, sort=sort, return_df=True)
+                      results_per_page=50, organization_id=org_ids, pages=1, sort=sort, return_df=True)
+        searches += 1
     except:
-        return 0
+        return 0, searches
 
     if house_trained is not None:
         pets = pets.loc[pets['attributes.house_trained'] == True]
     if special_needs is not None:
         pets = pets.loc[pets['attributes.special_needs'] == True]
-    return pets
+    return pets, searches
 
 """
 Returns a pandas dataframe of organization ids to be used in find_pets() to find pets based on organizations

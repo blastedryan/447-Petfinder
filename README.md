@@ -10,6 +10,11 @@ Go to the [Python website](https://www.python.org/downloads/) and install Python
 ### Install Dependencies
 Type `pip install -r requirements.txt` to install other dependencies
 
+### Install Geopandas (Not included in requirements.txt)  
+Please use the instructions at this link to install geopandas  
+https://geopandas.org/install.html  
+We highly recommend using a conda environment for this, otherwise you will need to setup more dependencies.
+
 ### Retrieving MapBox API Key
 In order for the map to render, you must use the MapBox API key that is found in our team's Google Drive. Upon retrieving the key, navigate to `447-Petfinder/petsite/petfinder/templates/petfinder/Petfinder_style.html` and insert the key on line 267, `mapboxgl.accessToken ='<insert key here>'`. Only after updating the key will the map become visible. In later iterations, a more secure method of key encryption will be available.
 
