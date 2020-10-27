@@ -13,10 +13,10 @@ on:
 jobs:
   build:
     env:
-      PETSITE_SECRET_KEY: ${{Secrets.PETSITE_SECRET_KEY}} 
-      PETFINDER_SECRET_KEY: ${{Secrets.PETFINDER_SECRET_KEY}} 
-      PETFINDER_KEY: ${{Secrets.PETFINDER_KEY}} 
-      ACCESS_KEY: ${{Secrets.ACCESS_KEY}} 
+      PETSITE_SECRET_KEY: ${{secrets.PETSITE_SECRET_KEY}} 
+      PETFINDER_SECRET_KEY: ${{secrets.PETFINDER_SECRET_KEY}} 
+      PETFINDER_KEY: ${{secrets.PETFINDER_KEY}} 
+      ACCESS_KEY: ${{secrets.ACCESS_KEY}} 
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
