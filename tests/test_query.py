@@ -13,7 +13,7 @@ def test_authenticate_success():
 
 def test_authenticate_fail():
     with pytest.raises(PetfinderInvalidCredentials):
-        pf = authenticate('hello','hello')
+        pf = authenticate('hello', 'hello')
 
 def test_petfind():
     pets, _ = find_pets(pf)

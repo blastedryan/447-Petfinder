@@ -9,13 +9,14 @@ import os
 from petpy.api import Petfinder
 from pandas import Series, concat
 
-
 key = os.environ.get('PETFINDER_KEY')
 secret_key = os.environ.get('PETFINDER_SECRET_KEY')
 
 """
 Authenticates the credentials of the developer to utilize Petfinder API
 """
+
+
 def authenticate(key_val, secret_key_val):
     pf = Petfinder(key=key_val, secret=secret_key_val)
     return pf
@@ -37,12 +38,14 @@ returns 0 on failure or if the pet/org could not be found
 
 Currently only 50 pets max will be returned but in the future more can be returned based on the Map API implementation
 """
+
+
 def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=None, gender=None, age=None, color=None,
               coat=None, org_name=None, distance=None, name=None, good_with=[], house_trained=None, special_needs=None,
               sort=None):
     # Create a boolean list of values related to what the animal is good_with
     actual_compatible = [None, None, None]
-    possible_compatible = ['cat','dog', 'children']
+    possible_compatible = ['cat', 'dog', 'children']
     if len(good_with) != 0:
         for i in range(len(possible_compatible)):
             if possible_compatible[i] in good_with:
@@ -82,10 +85,11 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
     pets_list = []
     for ids in org_ids:
         try:
-            pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender, age=age,
-                          color=color, coat=coat, distance=distance, name=name, good_with_cats=actual_compatible[0],
-                          good_with_dogs=actual_compatible[1], good_with_children=actual_compatible[2],
-                          results_per_page=50, organization_id=ids, pages=1, sort=sort, return_df=True)
+            pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender,
+                              age=age, color=color, coat=coat, distance=distance, name=name,
+                              good_with_cats=actual_compatible[0], good_with_dogs=actual_compatible[1],
+                              good_with_children=actual_compatible[2], results_per_page=50, organization_id=ids,
+                              pages=1, sort=sort, return_df=True)
             pets_list.append(pets)
             animals_in = True
             search_count += 1
@@ -105,6 +109,7 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
 
     return ret_pets, search_count
 
+
 """
 Returns a pandas dataframe of organization ids to be used in find_pets() to find pets based on organizations
 Input: A string representing partial or full organization name
@@ -114,6 +119,8 @@ The output can fail depending on the string inputted even if the organization is
 
 The only consistent output is when only one word is inputted
 """
+
+
 def __get_org_ids(pf: Petfinder, orgname=None):
     try:
         orgs = pf.organizations(name=orgname, results_per_page=10, pages=1, return_df=True)
