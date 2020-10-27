@@ -7,6 +7,8 @@ Credit goes to https://github.com/aschleg/petpy for Petfinder Python Wrapper
 """
 import os
 from petpy.api import Petfinder
+from geopy.geocoders import Nominatim
+import numpy as np
 
 
 key = os.environ.get('PETFINDER_KEY')
@@ -58,7 +60,7 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
         if not org_ids:
             return 0, searches
     try:
-        pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender, age=age,
+        ret_pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender, age=age,
                       color=color, coat=coat, distance=distance, name=name, good_with_cats=actual_compatible[0],
                       good_with_dogs=actual_compatible[1], good_with_children=actual_compatible[2],
                       results_per_page=50, organization_id=org_ids, pages=1, sort=sort, return_df=True)
@@ -67,10 +69,10 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
         return 0, searches
 
     if house_trained is not None:
-        pets = pets.loc[pets['attributes.house_trained'] == True]
+        ret_pets = ret_pets.loc[pets['attributes.house_trained'] == True]
     if special_needs is not None:
-        pets = pets.loc[pets['attributes.special_needs'] == True]
-    return pets, searches
+        ret_pets = ret_pets.loc[pets['attributes.special_needs'] == True]
+    return ret_pets, searches
 
 """
 Returns a pandas dataframe of organization ids to be used in find_pets() to find pets based on organizations

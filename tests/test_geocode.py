@@ -5,6 +5,14 @@ from pandas import DataFrame
 
 pf = authenticate(key, secret_key)
 
+'''
+This test retrieves dogs within 25 miles of Baltimore, MD. Next, it combines the address information into one column 
+called 'contact.address.address'. It then geocodes the lat and long of each animals location and stores it under two 
+new columns called 'contact.address.lat' and 'contact.address.long'. This test's functionality will be used to implement
+geolocation information into the dataframe returned from find_pets that will later be used to send to the Map API. A useful
+optimization that was added to this test is geolocating only on unique addresses as some of them overlap. This saves time
+as the geolocator can take seconds to run depending on how many locations it has to process.
+'''
 def test_geocode():
     locator = Nominatim(user_agent='myGeocoder')
     pets, _ = find_pets(pf, animal_type='dog', location='Baltimore, MD', distance=25)
