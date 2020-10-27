@@ -9,14 +9,17 @@ import os
 from petpy.api import Petfinder
 from geopy.geocoders import Nominatim
 import numpy as np
-
+from pandas import DataFrame
 
 key = os.environ.get('PETFINDER_KEY')
 secret_key = os.environ.get('PETFINDER_SECRET_KEY')
+locator = Nominatim(user_agent='myGeocoder')
 
 """
 Authenticates the credentials of the developer to utilize Petfinder API
 """
+
+
 def authenticate(key_val, secret_key_val):
     pf = Petfinder(key=key_val, secret=secret_key_val)
     return pf
@@ -37,11 +40,13 @@ returns 0 on failure or if the pet/org could not be found
 
 Currently only 100 pets max will be returned but in the future more can be returned based on the Map API implementation
 """
+
+
 def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=None, gender=None, age=None, color=None,
               coat=None, org_name=None, distance=None, name=None, good_with=[], house_trained=None, special_needs=None,
               sort=None):
     actual_compatible = [None, None, None]
-    possible_compatible = ['cat','dog', 'children']
+    possible_compatible = ['cat', 'dog', 'children']
     if len(good_with) != 0:
         for i in range(len(possible_compatible)):
             if possible_compatible[i] in good_with:
@@ -60,19 +65,23 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
         if not org_ids:
             return 0, searches
     try:
-        ret_pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender, age=age,
-                      color=color, coat=coat, distance=distance, name=name, good_with_cats=actual_compatible[0],
-                      good_with_dogs=actual_compatible[1], good_with_children=actual_compatible[2],
-                      results_per_page=50, organization_id=org_ids, pages=1, sort=sort, return_df=True)
+        ret_pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender,
+                              age=age,
+                              color=color, coat=coat, distance=distance, name=name, good_with_cats=actual_compatible[0],
+                              good_with_dogs=actual_compatible[1], good_with_children=actual_compatible[2],
+                              results_per_page=50, organization_id=org_ids, pages=1, sort=sort, return_df=True)
         searches += 1
     except:
         return 0, searches
 
     if house_trained is not None:
-        ret_pets = ret_pets.loc[pets['attributes.house_trained'] == True]
+        ret_pets = ret_pets.loc[ret_pets['attributes.house_trained'] == True]
     if special_needs is not None:
-        ret_pets = ret_pets.loc[pets['attributes.special_needs'] == True]
+        ret_pets = ret_pets.loc[ret_pets['attributes.special_needs'] == True]
+
+    ret_pets = __add_coords_col(ret_pets)
     return ret_pets, searches
+
 
 """
 Returns a pandas dataframe of organization ids to be used in find_pets() to find pets based on organizations
@@ -85,12 +94,42 @@ string 'Davis Dog and Cat Adoptions' but fails to find it with the full string.
 
 The only consistent output is when only one word is inputted
 """
+
+
 def __get_org_ids(pf: Petfinder, orgname=None):
     try:
         orgs = pf.organizations(name=orgname, results_per_page=100, pages=1, return_df=True)
-        print(orgs['name'][0:5])
-        print(orgs.shape)
+        # print(orgs['name'][0:5])
+        # print(orgs.shape)
         return orgs['id']
     except:
-        print('Failed')
+        # print('Failed')
+        return 0
+
+
+'''
+Returns a pandas dataframe with a combined address, lat, and long column added.
+Input: A pandas dataframe of pets with address columns included
+Output: A pandas dataframe with 'contact.address.address', 'contact.address.lat', and 'contact.address.long' columns 
+        added or 0 on error
+
+Optimized to only find lat and long of unique addresses and replicate the output to duplicates
+'''
+
+
+def __add_coords_col(pets: DataFrame):
+    try:
+        pets['contact.address.address'] = pets['contact.address.city'].fillna('') + ', ' + \
+                                          pets['contact.address.state'].fillna('') + ', ' + \
+                                          pets['contact.address.postcode'].fillna('')
+        unique_addresses = pets['contact.address.address'].unique()
+        location_list = np.array([locator.geocode(x) for x in unique_addresses], dtype=object)
+        lat_long_tup = np.array(location_list[:, 1])
+        for i in range(len(unique_addresses)):
+            pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+                                                                              'contact.address.long']] = \
+                lat_long_tup[i][0], lat_long_tup[i][1]
+
+        return pets
+    except:
         return 0
