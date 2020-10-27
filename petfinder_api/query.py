@@ -99,9 +99,9 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
     ret_pets = concat(pets_list)
 
     if house_trained is not None:
-        ret_pets = pets.loc[pets['attributes.house_trained'] == True]
+        ret_pets = ret_pets.loc[pets['attributes.house_trained'] == True]
     if special_needs is not None:
-        ret_pets = pets.loc[pets['attributes.special_needs'] == True]
+        ret_pets = ret_pets.loc[pets['attributes.special_needs'] == True]
 
     return ret_pets, search_count
 
