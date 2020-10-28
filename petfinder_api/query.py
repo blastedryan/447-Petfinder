@@ -111,7 +111,7 @@ def __get_org_ids(pf: Petfinder, orgname=None):
 Returns a pandas dataframe with a combined address, lat, and long column added.
 Input: A pandas dataframe of pets with address columns included
 Output: A pandas dataframe with 'contact.address.address', 'contact.address.lat', and 'contact.address.long' columns 
-        added or 0 on error
+        added or -1 on error
 
 Optimized to only find lat and long of unique addresses and replicate the output to duplicates
 '''
@@ -132,4 +132,4 @@ def __add_coords_col(pets: DataFrame):
 
         return pets
     except:
-        return 0
+        return -1
