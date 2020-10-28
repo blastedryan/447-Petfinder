@@ -7,7 +7,10 @@ Credit goes to https://github.com/aschleg/petpy for Petfinder Python Wrapper
 """
 import os
 from petpy.api import Petfinder
-from pandas import Series, concat
+from pandas import Series, concat, DataFrame, merge
+import numpy as np
+from functools import reduce
+from itertools import chain
 
 key = os.environ.get('PETFINDER_KEY')
 secret_key = os.environ.get('PETFINDER_SECRET_KEY')
@@ -83,24 +86,32 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
     else:
         org_ids = [None]
     pets_list = []
-    for ids in org_ids:
+    for i in range(len(org_ids)):
         try:
-            pets = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender,
+            pets: DataFrame = pf.animals(location=location, animal_type=animal_type, breed=breed, size=size, gender=gender,
                               age=age, color=color, coat=coat, distance=distance, name=name,
                               good_with_cats=actual_compatible[0], good_with_dogs=actual_compatible[1],
-                              good_with_children=actual_compatible[2], results_per_page=50, organization_id=ids,
+                              good_with_children=actual_compatible[2], results_per_page=50, organization_id=org_ids[i],
                               pages=1, sort=sort, return_df=True)
-            pets_list.append(pets)
+            if i == 0:
+                pets_list = pets
+            else:
+                pets_list = pets_list.loc[:, ~pets_list.columns.duplicated()]
+                pets = pets.loc[:, ~pets.columns.duplicated()]
+                # Add pets from org i to total pets dataframe
+                pets_list = concat([pets_list, pets], ignore_index=True, axis=0)
+            # pets_list.append(pets)
             animals_in = True
             search_count += 1
-        except:
+        except KeyError:
             continue
 
     if not animals_in:
         return 0, search_count
 
-    # Combine all of the pets from the various orgs into one dataframe
-    ret_pets = concat(pets_list)
+    # list_of_dicts = [cur_df.T.to_dict().values() for cur_df in pets_list]
+    # ret_pets = DataFrame(list(chain(*list_of_dicts)))
+    ret_pets = pets_list
 
     if house_trained is not None:
         ret_pets = ret_pets.loc[ret_pets['attributes.house_trained'] == True]
@@ -127,6 +138,6 @@ def __get_org_ids(pf: Petfinder, orgname=None):
         # print(orgs['name'][0:5])
         # print(orgs.shape)
         return orgs['id']
-    except:
+    except KeyError:
         # print('Failed')
         return 0
