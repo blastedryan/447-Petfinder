@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---Stylesheet for bootstrap --->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/da734a3e1f.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: 'Archivo Narrow',"Times New Roman",serif;font-size: 22px;
+        }
+        [type = "button"] {
+
+            width: 260px;
+            height: 260px;
+
+        }
+        .btn{
+            width: 260px;
+            height: 260px;
+        }
+        .horizontal-scrollable{
+            overflow:auto;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class = "jumbotron jumbotron-fluid text-center">
+        <div class = "container">
+            <h1>Petfinder Geospatial Search</h1>
+            <p>Search for Pets in your Area</p>
+        </div>
+    </div>
+    <div class = "container horizontal-scrollable">
+        <a href = "Petfinder_style.html" class = "btn btn-outline-dark btn-lg">Dog
+            <br>
+            <i class = "fas fa-dog fa-lg"></i>
+
+        </a>
+        <a href = "Cats.html" class = "btn btn-outline-dark btn-lg">Cat
+            <br>
+            <i class = "fas fa-cat fa-lg"></i>
+        </a>
+        <a href = "Birds.html" class = "btn btn-outline-dark btn-lg">Birds
+            <br>
+            <i class = "fas fa-crow fa-lg"></i>
+        </a>
+        <a href = "Scales.html" class = "btn btn-outline-dark btn-lg">Fish,Reptiles,Amphibians
+            <br>
+            <i class = "fas fa-fish fa-lg"></i>
+        </a>
+        <a href = "Rabbits.html" class = "btn btn-outline-dark btn-lg">Rabbits
+            <br>
+            <i class = "fas fa-carrot fa-lg"></i>
+        </a>
+    </div>
+</body>
+</html>
