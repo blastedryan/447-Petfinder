@@ -7,13 +7,14 @@ Credit goes to https://github.com/aschleg/petpy for Petfinder Python Wrapper
 """
 import os
 from petpy.api import Petfinder
-from pandas import Series, concat, DataFrame, merge
-import numpy as np
-from functools import reduce
-from itertools import chain
+from pandas import Series, concat, DataFrame
+# import numpy as np
+# from functools import reduce
+# from itertools import chain
 
 key = os.environ.get('PETFINDER_KEY')
 secret_key = os.environ.get('PETFINDER_SECRET_KEY')
+MAX_PETS = 50
 
 """
 Authenticates the credentials of the developer to utilize Petfinder API
@@ -118,7 +119,8 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
     if special_needs is not None:
         ret_pets = ret_pets.loc[ret_pets['attributes.special_needs'] == True]
 
-    return ret_pets, search_count
+    # Only MAX_PETS number of rows returned from dataframe
+    return ret_pets.head(n=MAX_PETS), search_count
 
 
 """
