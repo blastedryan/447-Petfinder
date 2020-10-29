@@ -124,4 +124,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+CACHES = {
+   'default': {
+      'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+      'LOCATION': 'cachetable',
+      'TIMEOUT': 86400,#1 day
+      'OPTIONS': {
+        'MAX_ENTRIES': 1000
+    }
+   }
+}
