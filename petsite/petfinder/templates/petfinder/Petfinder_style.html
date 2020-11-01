@@ -3,7 +3,7 @@
 <head>
     <!---Stylesheet for bootstrap --->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/dog.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     
@@ -21,6 +21,16 @@
         .body-btn{
           width: 220px;
           height:220px;
+        }
+        .verticalcenter{
+          display: inline;
+          height:100px;
+          width: 100px;
+          vertical-align: middle;
+        }
+        img{
+          width:100px;
+          height:100px;
         }
 
 	#map {
@@ -87,18 +97,20 @@
       <div class="card-body">
         <h3 style="text-align:center">Age</h3>
         <div class = "container-fluid">
-          <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "young">Young
+          <!--This allows the buttons to be clickable and still serve as a checkbox -->
+          <div class="btn" data-toggle="buttons">
+            <label class = "puppy_btn btn btn-outline-dark btn-lg" for = "young">Young
               <input type = "checkbox" aria-checked = "false" id = "young" name = "young">
             </label>
           </div>
+
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "mediumAge">Medium
+            <label class = "medium_age_btn btn btn-outline-dark btn-lg" for = "mediumAge">Medium
               <input type = "checkbox" aria-checked = "false" id = "mediumAge" name = "medium">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "old">Old
+            <label class = "old_age_btn btn btn-outline-dark btn-lg" for = "old">Old
               <input type = "checkbox" aria-checked = "false" id = "old" name = "old">
             </label>
           </div>
@@ -122,29 +134,28 @@
         <h3 style = "text-align: center">Size</h3>
         <div class = "container-fluid"></div>
           <div class = "btn" data-toggle="buttons">
-              <label class = "body-btn btn btn-outline-dark btn-lg" for = "small">Small
+              <label class = "small_size_btn btn btn-outline-dark btn-lg" for = "small">Small
                 <input type = "checkbox" aria-checked = "false" id = "small" name = "cats">
               </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-              <label class = "body-btn btn btn-outline-dark btn-lg" for = "medium">Medium
+              <label class = "medium_size_btn btn btn-outline-dark btn-lg" for = "medium">Medium
                 <input type = "checkbox" aria-checked = "false" id = "medium" name = "cats">
               </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-              <label class = "body-btn btn btn-outline-dark btn-lg" for = "large">Large
+              <label class = "lg_size_btn btn btn-outline-dark btn-lg" for = "large">Large
                 <input type = "checkbox" aria-checked = "false" id = "large" name = "cats">
               </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-              <label class = "body-btn btn btn-outline-dark btn-lg" for = "xlarge">Extra-Large
+              <label class = "xl_size_btn btn btn-outline-dark btn-lg" for = "xlarge">Extra-Large
                 <input type = "checkbox" aria-checked = "false" id = "xlarge" name = "cats">
               </label>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
   <!--Gender-->
  <div class="card">
@@ -161,12 +172,12 @@
         <h3 style = "text-align: center">Gender</h3>
         <div class = "container-fluid">
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "male">Male
+            <label class = "gender_male_btn btn btn-outline-dark btn-lg" for = "male">Male
               <input type = "checkbox" aria-checked = "false" id = "male" name = "male">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "female">Female
+            <label class = "gender_female_btn btn btn-outline-dark btn-lg" for = "female">Female
               <input type = "checkbox" aria-checked = "false" id = "female" name = "female">
             </label>
           </div>
@@ -190,17 +201,17 @@
         <h3 style = "text-align:center">Good With:</h3>
         <div class = "container-fluid horizontal scrollable">
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "kids">Kids
+            <label class = "good_with_kids_btn btn btn-outline-dark btn-lg" for = "kids">Kids
               <input type = "checkbox" aria-checked="false"  id = "kids" name = "kids">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "dogs">Dogs
+            <label class = "good_with_dogs_btn btn btn-outline-dark btn-lg" for = "dogs">Dogs
               <input type = "checkbox" aria-checked = "false" id = "dogs" name = "dogs">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "cats">Cats
+            <label class = "good_with_cats_btn btn btn-outline-dark btn-lg" for = "cats">Cats
               <input type = "checkbox" aria-checked = "false" id = "cats" name = "cats">
             </label>
           </div>
@@ -224,32 +235,32 @@
         <h3 style = "text-align:center">Coat Length</h3>
         <div class = "container-fluid">
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "hairless">Hairless
+            <label class = "hairless_coat_length_btn btn btn-outline-dark btn-lg" for = "hairless">Hairless
               <input type = "checkbox" aria-checked = "false" id = "hairless" name = "hairless">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "short">Short
+            <label class = "short_coat_length_btn btn btn-outline-dark btn-lg" for = "short">Short
               <input type = "checkbox" aria-checked = "false" id = "short" name = "short_hair">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "mediumHair">Medium
+            <label class = "medium_coat_length_btn btn btn-outline-dark btn-lg" for = "mediumHair">Medium
               <input type = "checkbox" aria-checked = "false" id = "mediumHair" name = "mediumHair">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "long">Long
+            <label class = "long_coat_length_btn btn btn-outline-dark btn-lg" for = "long">Long
               <input type = "checkbox" aria-checked = "false" id = "long" name = "longHair">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "wire">Wire
+            <label class = "wire_coat_length_btn btn btn-outline-dark btn-lg" for = "wire">Wire
               <input type = "checkbox" aria-checked = "false" id = "wire" name = "wire">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "curly">Curly
+            <label class = "curly_coat_length_btn btn btn-outline-dark btn-lg" for = "curly">Curly
               <input type = "checkbox" aria-checked = "false" id = "curly" name = "curly">
             </label>
           </div>
@@ -272,77 +283,77 @@
         <h3 style = "text-align:center">Coat Color</h3>
         <div class="container-fluid">
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "apricot">Apricot/ Beige
+            <label class = "apricot_btn btn btn-outline-dark btn-lg" for = "apricot">Apricot/ Beige
               <input type = "checkbox" aria-checked = "false" id = "apricot" name = "apricot">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "bicolor">Bicolor
+            <label class = "bicolor_btn btn btn-outline-dark btn-lg" for = "bicolor">Bicolor
               <input type = "checkbox" aria-checked = "false" id = "bicolor" name = "bicolor">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "black">Black
+            <label class = "black_color_btn btn btn-outline-dark btn-lg" for = "black">Black
               <input type = "checkbox" aria-checked = "false" id = "black" name = "black">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "brindle">Brindle
+            <label class = "brindle_color_btn btn btn-outline-dark btn-lg" for = "brindle">Brindle
               <input type = "checkbox" aria-checked = "false" id = "brindle" name = "brindle">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "brown">Brown/ Chocolate
+            <label class = "brown_color_btn btn btn-outline-dark btn-lg" for = "brown">Brown/ Chocolate
               <input type = "checkbox" aria-checked = "false" id = "brown" name = "brown">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "golden">Golden
+            <label class = "golden_color_btn btn btn-outline-dark btn-lg" for = "golden">Golden
               <input type = "checkbox" aria-checked = "false" id = "golden" name = "golden">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "gray">Gray/ Blue/ Silver
+            <label class = "gray_color_btn btn btn-outline-dark btn-lg" for = "gray">Gray/ Blue/ Silver
               <input type = "checkbox" aria-checked = "false" id = "gray" name = "gray/blue/silver">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "harlequin">Harlequin
+            <label class = "harlequin_color_btn btn btn-outline-dark btn-lg" for = "harlequin">Harlequin
               <input type = "checkbox" aria-checked = "false" id = "harlequin" name = "harlequin">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "merleRed">Merle (Red)
+            <label class = "merle_red_btn btn btn-outline-dark btn-lg" for = "merleRed">Merle (Red)
               <input type = "checkbox" aria-checked = "false" id = "merleRed" name = "merle_red">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "merleBlue">Merle (Blue)
+            <label class = "merle_blue_btn btn btn-outline-dark btn-lg" for = "merleBlue">Merle (Blue)
               <input type = "checkbox" aria-checked = "false" id = "merleBlue" name = "merle_blue">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "red">Red/ Chestnut/ Orange
+            <label class = "orange_color_btn btn btn-outline-dark btn-lg" for = "red">Red/ Chestnut/ Orange
               <input type = "checkbox" aria-checked = "false" id = "red" name = "red_chestnut_orange">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "sable">Sable
+            <label class = "sable_color_btn btn btn-outline-dark btn-lg" for = "sable">Sable
               <input type = "checkbox" aria-checked = "false" id = "sable" name = "sable">
             </label>
           </div>
         <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "tricolor">Tricolor (Brown,Black, & White)
+            <label class = "tricolor_color_btn btn btn-outline-dark btn-lg" for = "tricolor">Tricolor (Brown,Black, & White)
               <input type = "checkbox" aria-checked = "false" id = "tricolor" name = "tricolor">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "white">White/ Cream
+            <label class = "white_color_btn btn btn-outline-dark btn-lg" for = "white">White/ Cream
               <input type = "checkbox" aria-checked = "false" id = "white" name = "white_cream">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons">
-            <label class = "body-btn btn btn-outline-dark btn-lg" for = "yellow">Yellow/ Tan/ Blond/ Fawn
+            <label class = "yellow_color_btn btn btn-outline-dark btn-lg" for = "yellow">Yellow/ Tan/ Blond/ Fawn
               <input type = "checkbox" aria-checked = "false" id = "yellow" name = "yellow_tan_blond_fawn">
             </label>
         </div>
@@ -364,12 +375,12 @@
         <h3 style = "text-align: center">Care+Behavior</h3>
         <div class = "container-fluid">
           <div class = "btn" data-toggle="buttons">
-              <label class = "body-btn btn btn-outline-dark btn-lg" for = "house-trained">House Trained
+              <label class = "house_trained_btn btn btn-outline-dark btn-lg" for = "house-trained">House Trained
                 <input type = "checkbox" aria-checked = "false" id = "house-trained" name = "house-trained">
               </label>
           </div>
           <div class = "btn" data-toggle="buttons">
-              <label class = "body-btn btn btn-outline-dark btn-lg" for = "special needs">Special Needs
+              <label class = "special_needs_btn btn btn-outline-dark btn-lg" for = "special needs">Special Needs
                 <input type = "checkbox" aria-checked = "false" id = "special needs" name = "special needs">
               </label>
           </div>
@@ -447,9 +458,25 @@
         <input type = "text" class="form-control" placeholder="Enter the name of the pet you wish to search for" aria-label="small">
       </div>
     </div>
+    <div class="card">
+      <div class="card-header text-center bg-dark text-white" id = "headingTwelve">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+            Location
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
+        <div class="card-body">
+          <h3 style = "text-align:center">Location:</h3>
+          <input type = "text" class="form-control" placeholder="Enter Your Location" aria-label="small">
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   <button type="submit">Search</button>
-    </div>
+  </div>
 
     <div class = "container">
       <h2 class = "text-center">
