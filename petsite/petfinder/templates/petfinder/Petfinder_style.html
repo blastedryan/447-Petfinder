@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/dog.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    
+
     <meta charset="UTF-8">
     <title>Title</title>
     <!---To get custom fonts --->
@@ -49,8 +49,8 @@
 	    font-family: 'Open Sans', sans-serif;
 
 	}
-  
-	
+
+
     </style>
     </head>
 <body>
@@ -63,7 +63,7 @@
     </div>
     <h3 class ="text-center">Searching for: Dogs</h3>
     <div id="accordion">
-  
+
   <!--Breed-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingOne">
@@ -76,7 +76,7 @@
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-       
+
         <label for="breed">Breed:</label>
          <input type="text" id = "breed" name="breed">
       </div>
@@ -130,7 +130,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-       
+
         <h3 style = "text-align: center">Size</h3>
         <div class = "container-fluid"></div>
           <div class = "btn" data-toggle="buttons">
@@ -168,7 +168,7 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        
+
         <h3 style = "text-align: center">Gender</h3>
         <div class = "container-fluid">
           <div class = "btn" data-toggle="buttons">
@@ -197,7 +197,7 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-        
+
         <h3 style = "text-align:center">Good With:</h3>
         <div class = "container-fluid horizontal scrollable">
           <div class = "btn" data-toggle="buttons">
@@ -482,15 +482,15 @@
       <h2 class = "text-center">
 	Pets within 10 mile radius
       </h2>
-      
+
       <div id='map' style='width: 800px; height: 600px;'></div>
     </div>
-    
+
     <script>
 
       mapboxgl.accessToken ='<insert key here>'
-      
-      
+
+
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/streets-v11',
@@ -503,12 +503,12 @@
       map.on('load', function () {
 	  map.loadImage(
 	      'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-	      
+
 	      // Add an image to use as a custom marker
 	      function (error, image) {
 		  if (error) throw error;
 		  map.addImage('custom-marker', image);
-		  
+
 		  map.addSource('places', {
 		      'type': 'geojson',
 		      'data': {
@@ -539,7 +539,7 @@
 			  ]
 		      }
 		  });
-		  
+
 		  // Add a layer showing the places.
 		  map.addLayer({
 		      'id': 'places',
@@ -552,32 +552,32 @@
 		  });
 	      }
 	  );
-	  
+
 	  // Create a popup, but don't add it to the map yet.
 	  var popup = new mapboxgl.Popup({
 	      closeButton: false,
 	      closeOnClick: false
 	  });
-	  
+
 	  map.on('mouseenter', 'places', function (e) {
 	      // Change the cursor style as a UI indicator.
 	      map.getCanvas().style.cursor = 'pointer';
-	      
+
 	      var coordinates = e.features[0].geometry.coordinates.slice();
 	      var description = e.features[0].properties.description;
-	      
+
 	      // If the map is zoomed out such that multiple
 	      // copies of the feature are visible, the popup appears
 	      // over the copy being pointed to.
 	      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 		  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 	      }
-	      
+
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
 	      popup.setLngLat(coordinates).setHTML(description).addTo(map);
 	  });
-	  
+
 	  map.on('mouseleave', 'places', function () {
 	      map.getCanvas().style.cursor = '';
 	      popup.remove();
@@ -586,12 +586,12 @@
 
 
     </script>
-    
+
    <!--Scripts for bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
-    
+
 </body>
 </html>
