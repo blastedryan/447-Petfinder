@@ -2,13 +2,17 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 import json
-
+import pathlib
 # Create your views here.
 def index(request):
     # Form requests as a dictionary
+
+    parent_dir = pathlib.Path(__file__).parent.parent.parent.absolute()
+    filepath = parent_dir / 'tests' / 'search.json'
     query = {k: v for k,v in request.GET.lists()}
-    with open('search.json', 'w') as fp:
+    with open(filepath, 'w') as fp:
         json.dump(query, fp)
+
     template = loader.get_template('petfinder/Petfinder_style.html')
 
     return HttpResponse(template.render({"search_query":query}, request))
