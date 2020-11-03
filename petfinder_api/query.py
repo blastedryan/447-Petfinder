@@ -161,23 +161,23 @@ Optimized to only find lat and long of unique addresses and replicate the output
 
 
 def __add_coords_col(pets: DataFrame):
-    # try:
-    pets['contact.address.address'] = pets['contact.address.city'].fillna('') + ', ' + \
-                                      pets['contact.address.state'].fillna('') + ', ' + \
-                                      pets['contact.address.postcode'].fillna('')
-    unique_addresses = pets['contact.address.address'].unique()
-    location_list = np.array([geocode(x) for x in unique_addresses], dtype=object)
-    lat_long_tup = location_list
-    for i in range(len(unique_addresses)):
-        if not (lat_long_tup[i] is None):
-            pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
-                                                                          'contact.address.long']] = \
-            lat_long_tup[i][1][0], lat_long_tup[i][1][1]
-        else:
-            pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+    try:
+        pets['contact.address.address'] = pets['contact.address.city'].fillna('') + ', ' + \
+                                          pets['contact.address.state'].fillna('') + ', ' + \
+                                          pets['contact.address.postcode'].fillna('')
+        unique_addresses = pets['contact.address.address'].unique()
+        location_list = np.array([geocode(x) for x in unique_addresses], dtype=object)
+        lat_long_tup = location_list
+        for i in range(len(unique_addresses)):
+            if not (lat_long_tup[i] is None):
+                pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
                                                                               'contact.address.long']] = \
-                np.NaN, np.NaN
+                lat_long_tup[i][1][0], lat_long_tup[i][1][1]
+            else:
+                pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+                                                                                  'contact.address.long']] = \
+                    np.NaN, np.NaN
 
-    return pets
-    # except:
-    #     return -1
+        return pets
+    except:
+        return -1
