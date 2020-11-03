@@ -13,7 +13,7 @@ def index(request):
     with open(filepath, 'w') as fp:
         json.dump(query, fp)
 
-    template = loader.get_template('petfinder/Petfinder_style.html')
+    template = loader.get_template('petfinder/HomePage.html')
 
     return HttpResponse(template.render({"search_query":query}, request))
 
