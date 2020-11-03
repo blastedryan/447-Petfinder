@@ -21,21 +21,22 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
     else:
         pets = cache.get('default')
         # search cache
+
         if animal_type is not None and pets.shape[0] > num_results:
             pets = pets.where(pets['animal_type'] == animal_type)
 
         # other attributes...
 
         # if there are not enough results in the cache, run query and cache results
-        if pets.shape[0] < num_results:
-            pets, _ = find_pets(pf, location, animal_type, breed, size, gender, age, color,
-              coat, org_name, distance, name, good_with, house_trained, special_needs, sort)
-            temp = cache.get('default')
-            pets = pets.append(temp,ignore_index=True)
-            pets = pets.drop_duplicates()
-            cache.set('default', pets)
-        else:
-            # if more results than wanted, drop bottom values until there are proper number of results
-            while pets.shape[0] != num_results:
-                pets.drop(pets.index[num_results])
+        # if pets.shape[0] < num_results:
+        #     pets, _ = find_pets(pf, location, animal_type, breed, size, gender, age, color,
+        #       coat, org_name, distance, name, good_with, house_trained, special_needs, sort)
+        #     temp = cache.get('default')
+        #     pets = pets.append(temp,ignore_index=True)
+        #     pets = pets.drop_duplicates()
+        #     cache.set('default', pets)
+        # else:
+        #     # if more results than wanted, drop bottom values until there are proper number of results
+        #     while pets.shape[0] != num_results:
+        #         pets.drop(pets.index[num_results])
     return pets
