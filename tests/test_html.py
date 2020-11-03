@@ -16,7 +16,7 @@ class WebBones(WebTests):
         self.driver.get(self.htmlPath)
         self.driver.find_element_by_id('headingOne').click()
         time.sleep(2)
-        self.driver.find_element_by_xpath("//input[@name='breed']").send_keys("Golden Doodle")
+        self.driver.find_element_by_xpath("//input[@name='breed']").send_keys("Boxer")
 
 
         time.sleep(2)
@@ -39,7 +39,7 @@ class WebBones(WebTests):
         with open('search.json', 'r') as fp:
             search = json.load(fp)
 
-        assert search["breed"] == ["Golden Doodle"]
+        assert search["breed"] == ["Boxer"]
         assert search["young"] == ['on']
 
         
