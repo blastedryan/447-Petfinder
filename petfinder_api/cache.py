@@ -1,27 +1,30 @@
-'''
-This is the cache database that holds all query results in the past 24 hours
+"""
+This is a cache database that holds all query results in the past 24 hours
 This is basically my first time writing python code so don't expect anything out of it
-'''
+"""
+import os
 from django.core.cache import cache
 from petfinder_api.query import find_pets, authenticate, key, secret_key
+from petpy.api import Petfinder
 
-num_results = 100 #number of results we want
+num_results = 100  # number of results we want
+
 
 def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=None, size=None, gender=None, age=None, color=None,
               coat=None, org_name=None, distance=None, name=None, good_with=[], house_trained=None, special_needs=None,
               sort=None):
-    #if cache is empty fill with query
+    # if cache is empty fill with query
     if cache.get('default') is None:
         pets = find_pets(pf, location, animal_type, breed, size, gender, age, color,
               coat, org_name, distance, name, good_with, house_trained, special_needs, sort)
         cache.set('default',pets)
     else:
         pets = cache.get('default')
-        #search cache
+        # search cache
         if animal_type is not None and pets.shape[0] > num_results:
             pets = pets.where(pets['animal_type'] == animal_type)
 
-        #other attributes...
+        # other attributes...
 
         # if there are not enough results in the cache, run query and cache results
         if pets.shape[0] < num_results:
@@ -32,7 +35,7 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
             pets = pets.drop_duplicates()
             cache.set('default', pets)
         else:
-            #if more results than wanted, drop bottom values until there are proper number of results
+            # if more results than wanted, drop bottom values until there are proper number of results
             while pets.shape[0] != num_results:
                 pets.drop(pets.index[num_results])
     return pets
