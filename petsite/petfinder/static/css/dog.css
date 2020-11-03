@@ -1,7 +1,8 @@
+/* Added a class for each button selection as this allows them to be formatted with the correct background image */
 .puppy_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/puppy.jpg");
+      background-image: url("Dogs_Images/puppy.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -10,7 +11,7 @@
 .medium_age_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Middle_Age.jpg");
+      background-image: url("Dogs_Images/Middle_Age.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -20,7 +21,7 @@
 .old_age_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Old_dog_Real.jpg");
+      background-image: url("Dogs_Images/Old_dog_Real.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -29,7 +30,7 @@
 .small_size_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/short.jpg");
+      background-image: url("Dogs_Images/Short.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -38,7 +39,7 @@
 .medium_size_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Medium_Size.jpg");
+      background-image: url("Dogs_Images/Medium_Size.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -47,7 +48,7 @@
 .lg_size_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Large_Dog.jpg");
+      background-image: url("Dogs_Images/Large_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -56,7 +57,7 @@
 .xl_size_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Extra-Large_Dog.jpg");
+      background-image: url("Dogs_Images/Extra-Large_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -65,7 +66,7 @@
 .gender_male_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Male_Dog.jpg");
+      background-image: url("Dogs_Images/Male_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -75,7 +76,7 @@
 .gender_female_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Girl_Dog.jpg");
+      background-image: url("Dogs_Images/Girl_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -85,7 +86,7 @@
 .good_with_kids_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Dog_with_Baby.jpg");
+      background-image: url("Dogs_Images/Dog_with_Baby.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -95,7 +96,7 @@
 .good_with_cats_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Dog_Cat.jpg");
+      background-image: url("Dogs_Images/Dog_Cat.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -105,7 +106,7 @@
 .good_with_dogs_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Dog_with_Dog.jpg");
+      background-image: url("Dogs_Images/Dog_with_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -115,7 +116,7 @@
 .hairless_coat_length_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Hairless_Dog.jpg");
+      background-image: url("Dogs_Images/Hairless_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -125,7 +126,7 @@
 .short_coat_length_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Short_Hair_Dog.jpg");
+      background-image: url("Dogs_Images/Short_Hair_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -135,7 +136,7 @@
 .medium_coat_length_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Medium_Hair_Dog.jpg");
+      background-image: url("Dogs_Images/Medium_Hair_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -145,7 +146,7 @@
 .long_coat_length_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Long_Hair_Dog.jpg");
+      background-image: url("Dogs_Images/Long_Hair_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -155,7 +156,7 @@
 .wire_coat_length_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Wire_Hair_Dog.jpg");
+      background-image: url("Dogs_Images/Wire_Hair_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -165,7 +166,7 @@
 .curly_coat_length_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Curly_Hair_Dog.jpg");
+      background-image: url("Dogs_Images/Curly_Hair_Dog.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -175,7 +176,7 @@
 .apricot_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Apricot.jpg");
+      background-image: url("Dog_Colors/Apricot.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -185,7 +186,7 @@
 .bicolor_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Apricot.jpg");
+      background-image: url("Dog_Colors/Apricot.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -195,7 +196,7 @@
 .black_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Black.jpg");
+      background-image: url("Dog_Colors/Black.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -205,7 +206,7 @@
 .brindle_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Brindle.jpg");
+      background-image: url("Dog_Colors/Brindle.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -215,7 +216,7 @@
 .brown_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Brown.png");
+      background-image: url("Dog_Colors/Brown.png");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -225,7 +226,7 @@
 .golden_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Golden.png");
+      background-image: url("Dog_Colors/Golden.png");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -235,7 +236,7 @@
 .gray_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Gray.png");
+      background-image: url("Dog_Colors/Gray.png");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -245,7 +246,7 @@
 .harlequin_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Harelquin.jpg");
+      background-image: url("Dog_Colors/Harelquin.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -255,7 +256,7 @@
 .merle_red_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Merle Red.jpg");
+      background-image: url("Dog_Colors/Merle Red.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -265,7 +266,7 @@
 .merle_blue_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Merle_Blue.jpg");
+      background-image: url("Dog_Colors/Merle_Blue.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -275,7 +276,7 @@
 .orange_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Merle Red.jpg");
+      background-image: url("Dog_Colors/Merle Red.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -285,7 +286,7 @@
 .sable_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Sable.jpg");
+      background-image: url("Dog_Colors/Sable.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -295,7 +296,7 @@
 .tricolor_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Tricolor.jpg");
+      background-image: url("Dog_Colors/Tricolor.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -305,7 +306,7 @@
 .white_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/White.jpg");
+      background-image: url("Dog_Colors/White.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -315,7 +316,7 @@
 .yellow_color_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dog_Colors/Yellow.jpg");
+      background-image: url("Dog_Colors/Yellow.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -325,7 +326,7 @@
 .house_trained_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/House Trained.jpg");
+      background-image: url("Dogs_Images/House Trained.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
@@ -335,7 +336,7 @@
 .special_needs_btn{
       width:220px;
       height: 220px;
-      background-image: url("static/Dogs_Images/Special Needs.jpg");
+      background-image: url("Dogs_Images/Special Needs.jpg");
       background-size: 100px 100px;
       background-repeat: no-repeat;
       padding-left:41px;
