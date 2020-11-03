@@ -10,13 +10,15 @@ from petpy.api import Petfinder
 from geopy.geocoders import Nominatim
 import numpy as np
 from pandas import DataFrame, Series, concat, DataFrame
-# import numpy as np
+from geopy.extra.rate_limiter import RateLimiter
+import numpy as np
 # from functools import reduce
 # from itertools import chain
 
 key = os.environ.get('PETFINDER_KEY')
 secret_key = os.environ.get('PETFINDER_SECRET_KEY')
 locator = Nominatim(user_agent='myGeocoder')
+geocode = RateLimiter(locator.geocode, min_delay_seconds=0.1)
 MAX_PETS = 50
 
 """
@@ -164,12 +166,17 @@ def __add_coords_col(pets: DataFrame):
                                           pets['contact.address.state'].fillna('') + ', ' + \
                                           pets['contact.address.postcode'].fillna('')
         unique_addresses = pets['contact.address.address'].unique()
-        location_list = np.array([locator.geocode(x) for x in unique_addresses], dtype=object)
-        lat_long_tup = np.array(location_list[:, 1])
+        location_list = np.array([geocode(x) for x in unique_addresses], dtype=object)
+        lat_long_tup = location_list
         for i in range(len(unique_addresses)):
-            pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+            if not (lat_long_tup[i] is None):
+                pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
                                                                               'contact.address.long']] = \
-                lat_long_tup[i][0], lat_long_tup[i][1]
+                lat_long_tup[i][1][0], lat_long_tup[i][1][1]
+            else:
+                pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+                                                                                  'contact.address.long']] = \
+                    np.NaN, np.NaN
 
         return pets
     except:
