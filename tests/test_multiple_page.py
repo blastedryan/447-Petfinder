@@ -22,10 +22,32 @@ class TestHome(unittest.TestCase):
         testDog.click()
         time.sleep(3)
         #just a click to make sure the accordion can still be clicked
+        #opened all twelve to see if the images loaded
         testClick = self.driver.find_element_by_id('headingOne')
         testClick.click()
         time.sleep(3)
-    #This tests to see if the cat button will correctly link to the cat petfinder page
+        testClick = self.driver.find_element_by_id('headingTwo')
+        testClick.click()
+        time.sleep(3)
+        testClick = self.driver.find_element_by_id('headingThree')
+        testClick.click()
+        time.sleep(3)
+        testClick = self.driver.find_element_by_id('headingFour')
+        testClick.click()
+        time.sleep(3)
+        testClick = self.driver.find_element_by_id('headingFive')
+        testClick.click()
+        time.sleep(3)
+        testClick = self.driver.find_element_by_id('headingSix')
+        testClick.click()
+        time.sleep(3)
+        testClick = self.driver.find_element_by_id('headingSeven')
+        testClick.click()
+        time.sleep(3)
+        testClick = self.driver.find_element_by_id('headingEight')
+        testClick.click()
+        time.sleep(3)
+        #This tests to see if the cat button will correctly link to the cat petfinder page
     def test_Cat(self):
         self.driver = driverPath
         self.driver.get(htmlPath)
