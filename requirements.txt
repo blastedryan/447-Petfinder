@@ -2,3 +2,4 @@ Django==3.1.2
 petpy==2.2.1
 pytest==6.1.1
 selenium==3.141.0
+geopy==2.0.0
