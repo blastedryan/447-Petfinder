@@ -38,7 +38,7 @@ def test_petfind_json_breed():
     with open(search_json_path, 'r') as fp:
         search = json.load(fp)
 
-    pets = find_pets(pf, breed=search['breed'])
+    pets, _ = find_pets(pf, breed=search['breed'])
 
     assert isinstance(search, dict)
     assert isinstance(pets, DataFrame)
