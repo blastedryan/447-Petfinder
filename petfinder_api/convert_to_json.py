@@ -45,4 +45,4 @@ def main():
         output_file.write('{}'.format(geojson_str))
 
 
-main(
+main()
