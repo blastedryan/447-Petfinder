@@ -8,7 +8,7 @@ from petfinder_api.query import find_pets, authenticate, key, secret_key
 from petpy.api import Petfinder
 
 num_results = 100  # number of results we want
-
+os.environ['DJANGO_SETTINGS_MODULE'] = 'petsite.petsite.settings'
 
 def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=None, size=None, gender=None, age=None, color=None,
               coat=None, org_name=None, distance=None, name=None, good_with=[], house_trained=None, special_needs=None,
