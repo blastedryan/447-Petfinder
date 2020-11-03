@@ -22,17 +22,17 @@ class WebBones(WebTests):
         time.sleep(2)
         self.driver.find_element_by_id('headingTwo').click()
         time.sleep(2)
-        select = Select(self.driver.find_element_by_xpath("//select[@name='age']"))
-        select.select_by_visible_text('Young')
 
+        self.driver.find_element_by_id('young-btn').click()
         time.sleep(2)
+
         self.driver.find_element_by_id('headingThree').click()
         time.sleep(2)
-        self.driver.find_element_by_id('size_small').click()
-        self.driver.find_element_by_id('size_large').click()
+        self.driver.find_element_by_id('btn-small').click()
+        self.driver.find_element_by_id('btn-large').click()
 
 
-        submit = self.driver.find_element_by_id("search")
+        submit = self.driver.find_element_by_xpath("//input[@value='search']")
         submit.click()
 
         search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/search.json')
@@ -40,7 +40,6 @@ class WebBones(WebTests):
             search = json.load(fp)
 
         assert search["breed"] == ["Golden Doodle"]
-        assert search["age"] == ['young']
-        assert set(search["size"]) == set(["small", "large"])
+        assert search["young"] == ['on']
 
         
