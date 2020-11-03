@@ -7,7 +7,7 @@ import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'petsite.petsite.settings'
 
 pf = authenticate(key, secret_key)
-num_results = 100  # number of results we want
+num_results = 50  # number of results we want
 
 
 def test_petfind_with_cache():

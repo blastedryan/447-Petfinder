@@ -7,7 +7,7 @@ from django.core.cache import cache
 from petfinder_api.query import find_pets, authenticate, key, secret_key
 from petpy.api import Petfinder
 
-num_results = 100  # number of results we want
+num_results = 50  # number of results we want
 os.environ['DJANGO_SETTINGS_MODULE'] = 'petsite.petsite.settings'
 
 def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=None, size=None, gender=None, age=None, color=None,
@@ -15,7 +15,7 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
               sort=None):
     # if cache is empty fill with query
     if cache.get('default') is None:
-        pets = find_pets(pf, location, animal_type, breed, size, gender, age, color,
+        pets, _ = find_pets(pf, location, animal_type, breed, size, gender, age, color,
               coat, org_name, distance, name, good_with, house_trained, special_needs, sort)
         cache.set('default',pets)
     else:
@@ -28,7 +28,7 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
 
         # if there are not enough results in the cache, run query and cache results
         if pets.shape[0] < num_results:
-            pets = find_pets(pf, location, animal_type, breed, size, gender, age, color,
+            pets, _ = find_pets(pf, location, animal_type, breed, size, gender, age, color,
               coat, org_name, distance, name, good_with, house_trained, special_needs, sort)
             temp = cache.get('default')
             pets = pets.append(temp,ignore_index=True)
