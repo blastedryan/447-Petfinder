@@ -26,8 +26,10 @@ Open your console and navigate to the directory.
 
 Navigate into the folder petsite.
 
-Run `python manage.py migrate` if it is your first time running the site.
+If it is your first time running the site.
+Run `python manage.py migrate` and `python manage.py createcachetable`
 
+Otherwise,
 Run `python manage.py runserver` or `py manage.py runserver`
 
 Go to your browser and put in the address `http://127.0.0.1:8000/petfinder`
