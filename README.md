@@ -52,7 +52,7 @@ https://www.computerhope.com/issues/ch000549.htm
 4. Type “CONTROL+X”, then “Y” and “enter”
 5. Restart your ide or terminal and the variables should be setup properly
 
-Using Pytest either in Pycharm or Terminal you can run every test in the file tests/test_query.py or individual tests. 
+Run the tests for test_html.py before this test. Using Pytest either in Pycharm or Terminal you can run every test in the file tests/test_query.py or individual tests. 
 
 Each test is its own function inside of the file starting with the word ‘test’. 
 

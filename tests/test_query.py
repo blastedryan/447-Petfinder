@@ -2,6 +2,8 @@ from petfinder_api.query import find_pets, authenticate, key, secret_key
 from pandas import DataFrame, Series
 import pytest
 from petpy.exceptions import PetfinderInvalidCredentials
+import json
+import os
 
 pf = authenticate(key, secret_key)
 MAX_PETS = 50
@@ -30,6 +32,16 @@ def test_petfind_complex():
 def test_petfind_goodwith():
     pets, _ = find_pets(pf, good_with=['cat', 'dog'])
     assert all(pets['environment.cats']) and all(pets['environment.dogs'])
+
+def test_petfind_json_location():
+    search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'tests/search.json')
+    with open(search_json_path, 'r') as fp:
+        search = json.load(fp)
+
+    pets, _ = find_pets(pf, location=search['location'], distance=25)
+
+    assert isinstance(search, dict)
+    assert isinstance(pets, DataFrame)
 
 def test_petfind_orgname():
     # Single word organization should not need slicing
