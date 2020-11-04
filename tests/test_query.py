@@ -33,12 +33,12 @@ def test_petfind_goodwith():
     pets, _ = find_pets(pf, good_with=['cat', 'dog'])
     assert all(pets['environment.cats']) and all(pets['environment.dogs'])
 
-def test_petfind_json_breed():
+def test_petfind_json_location():
     search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'tests/search.json')
     with open(search_json_path, 'r') as fp:
         search = json.load(fp)
 
-    pets, _ = find_pets(pf, breed=search['breed'])
+    pets, _ = find_pets(pf, location=search['location'], distance=25)
 
     assert isinstance(search, dict)
     assert isinstance(pets, DataFrame)
