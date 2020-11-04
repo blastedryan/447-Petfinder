@@ -7,6 +7,7 @@ import json
 class WebBones(WebTests):
     def test_web_bones(self):
         self.driver.get(self.htmlPath)
+        self.driver.find_element_by_id("dog_button").click()
         self.driver.find_element_by_tag_name("input")
         self.driver.find_element_by_tag_name("label")
         self.driver.find_element_by_tag_name("button")
@@ -14,6 +15,7 @@ class WebBones(WebTests):
     
     def test_search(self):
         self.driver.get(self.htmlPath)
+        self.driver.find_element_by_id("dog_button").click()
         self.driver.find_element_by_id('headingOne').click()
         time.sleep(2)
         self.driver.find_element_by_xpath("//input[@name='breed']").send_keys("Boxer")
@@ -30,16 +32,25 @@ class WebBones(WebTests):
         time.sleep(2)
         self.driver.find_element_by_id('btn-small').click()
         self.driver.find_element_by_id('btn-large').click()
+        time.sleep(2)
+
+        self.driver.find_element_by_id('headingTwelve').click()
+        time.sleep(2)
+        self.driver.find_element_by_xpath("//input[@name='location']").send_keys("Baltimore, MD")
 
 
         submit = self.driver.find_element_by_xpath("//input[@value='search']")
         submit.click()
 
+        
+
         search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/search.json')
         with open('search.json', 'r') as fp:
             search = json.load(fp)
 
+        time.sleep(3)
         assert search["breed"] == ["Boxer"]
         assert search["young"] == ['on']
+        assert search ["location"] == ["Baltimore, MD"]
 
         

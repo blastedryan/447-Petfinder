@@ -102,7 +102,7 @@
 
           <div class="btn" data-toggle="buttons" id='dog_button'>
 
-            <label class = "puppy_btn btn btn-outline-dark btn-lg" for = "young">Young
+            <label class = "puppy_btn btn btn-outline-dark btn-lg" id="young-btn" for = "young">Young
               <input type = "checkbox" aria-checked = "false" id = "young" name = "young">
             </label>
           </div>
@@ -481,7 +481,7 @@
       <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
         <div class="card-body">
           <h3 style = "text-align:center">Location:</h3>
-          <input type = "text" class="form-control" placeholder="Enter Your Location" aria-label="small">
+          <input type = "text" class="form-control" placeholder="Enter Your Location" aria-label="small" name="location">
         </div>
       </div>
     </div>
@@ -492,13 +492,13 @@
 
   <input type="submit" value="search">
   </form>
-{% if search_query %}
-  <p>The most recent search is:
-{% for field, value in search_query.items %}
-  <span style="font-weight: bold;">{{field}}</span>: {{value}}
-{% endfor %}
-{% endif %}
-</p>
+  {% if search_query %}
+    <p>The most recent search is:
+  {% for field, value in search_query.items %}
+    <span style="font-weight: bold;">{{field}}</span>: {{value}}
+  {% endfor %}
+  {% endif %}
+  </p>
 
     <div class = "container">
       <h2 class = "text-center">
