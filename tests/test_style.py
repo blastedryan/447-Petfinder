@@ -6,6 +6,9 @@ class FirstTest(WebTests):
         #See if it just opens the web page
         self.driver.get(self.htmlPath)
         time.sleep(3)
+        testDog = self.driver.find_element_by_id('dog_button')
+        testDog.click()
+        time.sleep(3)
         #See if it opens the first accordian section
         testBreed = self.driver.find_element_by_id('headingOne')
         testBreed.click()
