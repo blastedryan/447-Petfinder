@@ -1,22 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
-    <!---Stylesheet for bootstrap --->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    
     <meta charset="UTF-8">
     <title>Title</title>
-    <!---To get custom fonts --->
     <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
     <style>
         body{
-            font-family: 'Archivo Narrow',"Times New Roman";font-size: 22px;
+            font-family: 'Archivo Narrow',"Times New Roman",serif;font-size: 22px;
         }
 
-	#map {
+        #map {
             position: absolute;
 	}
 
@@ -26,16 +23,19 @@
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     }
 
-  	
+
 	.mapboxgl-popup-content {
 	    text-align: center;
 	    font-family: 'Open Sans', sans-serif;
-	    
+
 	}
-  
-	
+
+	img{
+            width: 100px;
+            height: auto;
+        }
     </style>
-    </head>
+</head>
 <body>
     <!-- Code to get the accordian file working-->
     <div class = "jumbotron jumbotron-fluid text-center">
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div id="accordion">
-  
+  <h3 class = "text-center">Searching for: Rabbits</h3>
   <!--Breed-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingOne">
@@ -58,9 +58,9 @@
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-       
+
         <label for="breed">Breed:</label>
-         <input type="text" name="breed">
+         <input type="text" id = "breed" name="breed">
       </div>
     </div>
   </div>
@@ -77,12 +77,13 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        
+
         <label for="age">Age:</label>
-        <select name="age">
+        <select name="age" id = "age">
+            <option value="baby">Baby</option>
             <option value="young">Young</option>
-            <option value="medium">Medium</option>
-            <option value="old">Old</option>
+            <option value="adult">Adult</option>
+            <option value = "senior">Senior</option>
         </select>
 
       </div>
@@ -100,15 +101,15 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-       
+
         Size:
-        <input type="checkbox" name="small">
+        <input type="checkbox" id = "small" name="small">
         <label for="small">Small</label>
-        <input type="checkbox" name="medium">
+        <input type="checkbox"  id = "medium" name="medium">
         <label for="medium">Medium</label>
-        <input type="checkbox" name="large">
+        <input type="checkbox" id = "large" name="large">
         <label for="large">Large</label>
-        <input type="checkbox" name="xlarge">
+        <input type="checkbox" id = "xlarge" name="xlarge">
         <label for="xlarge">Extra-Large</label>
       </div>
     </div>
@@ -125,11 +126,11 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        
+
         Gender:
-        <input type="checkbox" name="male">
+        <input type="checkbox" id = "male" name="male">
         <label for="male">Male</label>
-        <input type="checkbox" name="female">
+        <input type="checkbox" id = "female" name="female">
         <label for="female">Female</label>
 
       </div>
@@ -147,13 +148,13 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-        
+
         Good With:
-        <input type="checkbox" name="kids">
+        <input type="checkbox" id = "kids" name="kids">
         <label for="kids">Kids</label>
-        <input type="checkbox" name="dogs">
+        <input type="checkbox" id = "dogs" name="dogs">
         <label for="dogs">Dogs</label>
-        <input type="checkbox" name="cats">
+        <input type="checkbox" id = "cats" name="cats">
         <label for="cats">Cats</label>
       </div>
     </div>
@@ -171,10 +172,10 @@
     <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
       <div class="card-body">
         Coat Length
-        <input type="checkbox" name="long">
-        <label for="long">Long</label>     
-        <input type="checkbox" name="short">
-        <label for="short">Short</label>   
+        <input type="checkbox" id = "long" name="long">
+        <label for="long">Long</label>
+        <input type="checkbox" id = "short" name="short">
+        <label for="short">Short</label>
       </div>
     </div>
   </div>
@@ -190,11 +191,11 @@
     </div>
     <div id="collapseSeven" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-      
-        <input type="checkbox" name="blonde">
-        <label for="blonde">Blonde</label>     
-        <input type="checkbox" name="black">
-        <label for="black">Black</label>   
+
+        <input type="checkbox" id = "blonde" name="blonde" value = "a">
+        <label for="blonde">Blonde</label>
+        <input type="checkbox" id = "black" name="black">
+        <label for="black">Black</label>
       </div>
     </div>
   </div>
@@ -210,7 +211,10 @@
     </div>
     <div id="collapseEight" class="collapse" aria-labelledby="headingeight" data-parent="#accordion">
       <div class="card-body">
-        (?)
+        <input type="checkbox" value = "bruh" id = "house-trained" name = "House Trained">
+        <label for= "house-trained">House Trained</label>
+        <input type = "checkbox" id = "Special Needs" name = "Special Needs">
+        <label for="Special Needs">Special Needs</label>
       </div>
     </div>
   </div>
@@ -227,11 +231,11 @@
     <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
       <div class="card-body">
         Days on Petfinder
-        <input type="radio" name="days">
-        <label for="1day">1 Day</label>     
-        <input type="radio" name="days">
-        <label for="15day">15 Days</label>  
-        <input type="radio" name="days">
+        <input type="radio" id = "1day" name="days">
+        <label for="1day">1 Day</label>
+        <input type="radio" id = "15day"name="days">
+        <label for="15day">15 Days</label>
+        <input type="radio" id = "30day" name="days">
         <label for="30day">30 Days</label>
       </div>
     </div>
@@ -246,27 +250,29 @@
     </div>
     <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
       <div class="card-body">
-        <input type="checkbox" name="shelter_rescue">
+        Name of Shelter or Rescue Organization:
+        <input type="text" class = "form-control" aria-label = "small">
       </div>
     </div>
   </div>
-  
-  <button type="submit">Search</button>
     </div>
+
+  <button type="submit">Search</button>
 
     <div class = "container">
       <h2 class = "text-center">
 	Pets within 10 mile radius
       </h2>
-      
+
       <div id='map' style='width: 800px; height: 600px;'></div>
     </div>
-    
+
     <script>
 
-      mapboxgl.accessToken = '<insert key here>'
-      
-      
+
+      mapboxgl.accessToken ='<--insert API key here-->'
+
+
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/streets-v11',
@@ -279,69 +285,102 @@
       map.on('load', function () {
 	  map.loadImage(
 	      'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-	      
+
 	      // Add an image to use as a custom marker
 	      function (error, image) {
 		  if (error) throw error;
 		  map.addImage('custom-marker', image);
-		  
-		  map.addSource('places', {
-		      'type': 'geojson',
-		      'data': {
-			  'type': 'FeatureCollection',
-			  'features': [
-			      {
-				  'type': 'Feature',
-				  'properties': {
-				      'description':
-				      '<strong>Walter - Pembroke Welsh Corgi</strong>'
-				  },
-				  'geometry': {
-				      'type': 'Point',
-				      'coordinates': [-77.038659, 38.931567]
-				  }
-			      },
-			      {
-				  'type': 'Feature',
-				  'properties': {
-				      'description':
-				      '<strong>Gwyneth - King Charles Cocker Spaniel</strong>'
-				  },
-				  'geometry': {
-				      'type': 'Point',
-				      'coordinates': [-77.090372, 38.881189]
-				  }
-			      }
+
+		  map.addSource('pets', {
+		      type: 'geojson',
+		      data:"{% static 'js/pet_results.geojson' %}",
+		      cluster: true,
+		      clusterMaxZoom: 14, // Max zoom to cluster points on
+		      clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
+		  });
+
+
+
+
+		  map.addLayer({
+		      id: 'clusters',
+		      type: 'circle',
+		      source: 'pets',
+		      filter: ['has', 'point_count'],
+		      paint: {
+			  // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+			  // with three steps to implement three types of circles:
+			  //   * Blue, 20px circles when point count is less than 100
+			  //   * Yellow, 30px circles when point count is between 100 and 750
+			  //   * Pink, 40px circles when point count is greater than or equal to 750
+			  'circle-color': [
+			      'step',
+			      ['get', 'point_count'],
+			      '#51bbd6',
+			      3,
+			      '#f1f075',
+			      10,
+			      '#f28cb1'
+			  ],
+			  'circle-radius': [
+			      'step',
+			      ['get', 'point_count'],
+			      20,
+			      100,
+			      30,
+			      750,
+			      40
 			  ]
 		      }
 		  });
-		  
+
+
+
+
+		  map.addLayer({
+		      id: 'cluster-count',
+		      type: 'symbol',
+		      source: 'pets',
+		      filter: ['has', 'point_count'],
+		      layout: {
+			  'text-field': '{point_count_abbreviated}',
+			  'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+			  'text-size': 12
+		      }
+		  });
+
+
 		  // Add a layer showing the places.
 		  map.addLayer({
-		      'id': 'places',
+		      'id': 'pets_found',
 		      'type': 'symbol',
-		      'source': 'places',
+		      'source': 'pets',
+		      'filter':['!', ['has', 'point_count']],
 		      'layout': {
 			  'icon-image': 'custom-marker',
 			  'icon-allow-overlap': true
 		      }
 		  });
+
+
+
 	      }
 	  );
-	  
+
 	  // Create a popup, but don't add it to the map yet.
 	  var popup = new mapboxgl.Popup({
 	      closeButton: false,
 	      closeOnClick: false
 	  });
 	  
-	  map.on('mouseenter', 'places', function (e) {
+	  map.on('mouseenter', 'pets_found', function (e) {
 	      // Change the cursor style as a UI indicator.
 	      map.getCanvas().style.cursor = 'pointer';
 	      
 	      var coordinates = e.features[0].geometry.coordinates.slice();
 	      var description = e.features[0].properties.description;
-	      
+	      var image = e.features[0].properties.image;
+
 	      // If the map is zoomed out such that multiple
 	      // copies of the feature are visible, the popup appears
 	      // over the copy being pointed to.
@@ -351,23 +390,26 @@
 	      
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
-	      popup.setLngLat(coordinates).setHTML(description).addTo(map);
+	      popup.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
 	  });
 	  
-	  map.on('mouseleave', 'places', function () {
+	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
 	      popup.remove();
 	  });
       });
 
 
-    </script>
-    
-   <!--Scripts for bootstrap-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
-    
+
+
+
+
+
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
 </html>
