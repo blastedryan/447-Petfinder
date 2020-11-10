@@ -181,3 +181,27 @@ def __add_coords_col(pets: DataFrame):
         return pets
     except:
         return -1
+
+
+'''
+Returns a numpy array of animal types available
+Input: A petfinder object pf
+Output: A list of animal types
+'''
+
+def get_animal_types(pf: Petfinder):
+    animal_types = pf.animal_types()
+    animal_list = []
+    for animal in animal_types['types']:
+        animal_list.append(animal['name'])
+
+    return np.array(animal_list)
+
+'''
+Returns a numpy array of breeds for a specific animal
+Input: A petfinder object pf and string representing pet type
+Output: a numpy array of breeds
+'''
+
+def get_animal_breeds(pf: Petfinder, pet_type: str):
+    return np.array(pf.breeds(pet_type, return_df=True)['name'])
