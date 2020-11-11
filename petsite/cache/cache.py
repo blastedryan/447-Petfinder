@@ -4,7 +4,7 @@ This is basically my first time writing python code so don't expect anything out
 """
 import os
 from django.core.cache import cache
-from petfinder_api.query import find_pets, authenticate, key, secret_key
+from petsite.petfinder_api.query import find_pets, authenticate, key, secret_key
 from petpy.api import Petfinder
 
 num_results = 50  # number of results we want

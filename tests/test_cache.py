@@ -1,4 +1,4 @@
-from petfinder_api.query import authenticate, key, secret_key
+from petsite.petfinder_api.query import authenticate, key, secret_key
 from petsite.cache.cache import find_pets_with_cache
 from pandas import DataFrame
 from django.core.cache import cache

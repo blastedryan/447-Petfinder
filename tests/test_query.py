@@ -1,4 +1,4 @@
-from petfinder_api.query import find_pets, authenticate, key, secret_key
+from petsite.petfinder_api.query import find_pets, authenticate, key, secret_key
 from pandas import DataFrame, Series
 import pytest
 from petpy.exceptions import PetfinderInvalidCredentials

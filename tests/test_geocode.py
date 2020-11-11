@@ -1,4 +1,4 @@
-from petfinder_api.query import find_pets, authenticate, key, secret_key
+from petsite.petfinder_api.query import find_pets, authenticate, key, secret_key
 from geopy.geocoders import Nominatim
 import numpy as np
 from pandas import DataFrame

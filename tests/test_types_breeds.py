@@ -1,4 +1,4 @@
-from petfinder_api.query import get_animal_breeds, get_animal_types, authenticate, key, secret_key
+from petsite.petfinder_api.query import get_animal_breeds, get_animal_types, authenticate, key, secret_key
 import pytest
 import numpy as np
 
