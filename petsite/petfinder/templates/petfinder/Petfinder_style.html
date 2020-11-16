@@ -23,6 +23,15 @@
           width: 220px;
           height:220px;
         }
+        .young_dog_btn{
+            width:220px;
+            height: 220px;
+            background-image: url("/petsite/petfinder/static/css/Dogs_Images/young.jfif");
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            padding-left:41px;
+            background-position: center bottom;
+        }
         .verticalcenter{
           display: inline;
           height:100px;
@@ -99,26 +108,36 @@
         <h3 style="text-align:center">Age</h3>
         <div class = "container-fluid">
           <!--This allows the buttons to be clickable and still serve as a checkbox -->
+          <div class="btn" data-toggle="buttons" id='puppy-btn'>
 
-          <div class="btn" data-toggle="buttons" id='dog_button'>
+            <label class = "puppy_btn btn btn-outline-dark btn-lg" id="puppy_btn" for = "puppy">Puppy
+              <input type = "checkbox" aria-checked = "false" id = "puppy" name = "puppy">
+            </label>
+          </div>
+         <div class = "btn" data-toggle="buttons" id='young_dog_btn'>
 
-            <label class = "puppy_btn btn btn-outline-dark btn-lg" id="young-btn" for = "young">Young
+            <label class = "young_dog_btn btn btn-outline-dark btn-lg" for = "young">Young
               <input type = "checkbox" aria-checked = "false" id = "young" name = "young">
             </label>
           </div>
 
 
-          <div class = "btn" data-toggle="buttons" id='medium-btn'>
+          <div class = "btn" data-toggle="buttons" id='adult-btn'>
 
-            <label class = "medium_age_btn btn btn-outline-dark btn-lg" for = "mediumAge">Medium
+            <label class = "medium_age_btn btn btn-outline-dark btn-lg" for = "mediumAge">Adult
               <input type = "checkbox" aria-checked = "false" id = "mediumAge" name = "medium">
             </label>
           </div>
 
           <div class = "btn" data-toggle="buttons" id='old-btn'>
-            <label class = "old_age_btn btn btn-outline-dark btn-lg" for = "old">Old
+            <label class = "old_age_btn btn btn-outline-dark btn-lg" for = "old">Senior
               <input type = "checkbox" aria-checked = "false" id = "old" name = "old">
             </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id = 'bruh_btn'>
+              <label class="bruh_btn btn btn-outline-dark btn-lg" for="test">Bruh
+                <input type = "checkbox" aria-checked = "false" id = "test" name="test">
+              </label>
           </div>
         </div>
       </div>
@@ -470,27 +489,22 @@
         <input type = "text" class="form-control" placeholder="Enter the name of the pet you wish to search for" aria-label="small">
       </div>
     </div>
-    <div class="card">
-      <div class="card-header text-center bg-dark text-white" id = "headingTwelve">
-        <h5 class="mb-0">
-          <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
-            Location
-          </button>
-        </h5>
-      </div>
-      <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
-        <div class="card-body">
-          <h3 style = "text-align:center">Location:</h3>
-          <input type = "text" class="form-control" placeholder="Enter Your Location" aria-label="small" name="location">
-        </div>
-      </div>
+   </div>
     </div>
   </div>
-  </div>
-  </div>
-
-
+      <div class = "card-body">
+        <h3>Location</h3>
+        <input type = "text" class="form-control" placeholder="Enter Your Location" aria-label="small" name="location" id = 'location'>
+      </div>
+  <script>
+    function blockSearch(){
+      document.getElementById('location').required = true
+      document.getElementById('invalid').innerHTML = "Please enter a valid location"
+    }
+  </script>
+  <button onclick = "blockSearch()">
   <input type="submit" value="search">
+  </button>
   </form>
   {% if search_query %}
     <p>The most recent search is:
@@ -499,7 +513,6 @@
   {% endfor %}
   {% endif %}
   </p>
-
     <div class = "container">
       <h2 class = "text-center">
 	Pets within 10 mile radius

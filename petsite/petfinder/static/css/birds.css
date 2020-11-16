@@ -1,0 +1,445 @@
+.baby_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/baby.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.young_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/young.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.adult_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/adult.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.senior_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/old.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.small_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/small.jpeg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.medium_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/medium.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.lg_size_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.extra_lg_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/extra large.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.boy_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/boy.png");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.girl_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/girl.jpeg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_kids_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/good with kid.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_dogs_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/good with dog.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_cats_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/good with cat.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.house_trained_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/house trained.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+.special_needs_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/special needs.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.black_color_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.blue_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.brown_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.buff_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.gray_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.gray_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.green_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.olive_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.orange_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.pink_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.purple_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.red_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.rust_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.tan_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+.white_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.yellow_bird_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.button_quail_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/button quail.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.chicken_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/chicken.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.dove_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/dove.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.duck_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/duck.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.emu_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/emu.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.finch_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/finch.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.goose_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/goose.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.guinea_fowl_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/guinea fowl.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.ostrich_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/ostrich.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.parakeet_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/parakeet.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.parrot_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/parrot.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.peacock_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/peacokc.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.pheasant_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/phesant.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.quail_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/quial.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.rhea_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/rhea.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.swan_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/swan.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.toucan_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/toucan.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.turkey_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Bird Images/turkey.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+

@@ -1,0 +1,410 @@
+.foal_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/foal.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.young_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/young.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.adult_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/adult.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.senior_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/old.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.small_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/small.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.medium_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/medium.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.lg_size_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.extra_lg_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/extra large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.boy_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/boy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.girl_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/girl.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_kids_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/good with kid.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_dogs_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/good with dog.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_cats_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/good with cat.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.house_trained_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/house trained.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+.special_needs_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/special needs.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.appaloosa_color_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.bay_color_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.bay_roan_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.black_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.blue_roan_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.brown_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.buckskin_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.champagne_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.chestnut_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.cremello_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.dapple_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.dun_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.gray_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.grullo_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.liver_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.paint_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.palomino_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.perlino_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.piebald_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.pinto_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.red_roan_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.silver_bay_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.silver_buckskin_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.silver_dapple_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.white_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.donkey_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/donkey.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.horse_species_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/horse.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.mini_horse_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/mini.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.mule_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/mule.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.pony_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Horse Images/pony.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+
+
+
