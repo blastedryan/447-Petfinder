@@ -22,14 +22,12 @@ def test_petfind_with_cache():
 
 def test_petfind_complex_with_cache():
     cache.clear()
-    pets = find_pets_with_cache(pf, location='Baltimore, MD', animal_type='dog', breed='beagle', distance=50,
-                                name='Bayla',
-                                age='young', size='small', gender='female', coat='short')
+    pets = find_pets_with_cache(pf, location='Baltimore, MD', animal_type='dog', breed='beagle', distance=50, name='Bayla',
+                     age='young', size='small', gender='female', coat='short')
     cache_result = cache.get('default')
     assert isinstance(pets, DataFrame)
     assert cache_result['name'][0] == 'Bayla'
-    find_pets_with_cache(pf, location='Baltimore, MD', animal_type='dog', breed='beagle', distance=50,
-                         name='John', age='young', size='small', gender='female', coat='short')
-    pets2 = find_pets_with_cache(pf, location='Baltimore, MD', animal_type='dog', breed='beagle', distance=50,
-                                 name='Bayla', age='young', size='small', gender='female', coat='short')
+    find_pets_with_cache(pf)
+    pets2 = find_pets_with_cache(pf, location='Baltimore, MD', animal_type='dog', breed='beagle', distance=50, name='Bayla',
+                     age='young', size='small', gender='female', coat='short')
     assert pets.equals(pets2)
