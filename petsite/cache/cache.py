@@ -25,21 +25,21 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
         # search cache doesnt work yet
 
         if animal_type is not None and pets.shape[0] >= num_results:
-            pets = pets.where(pets['animal_type'] == animal_type)
+            pets = pets.loc[pets['animal_type'] == animal_type]
         if breed is not None and pets.shape[0] >= num_results:
-            pets = pets.where(pets['breed'] == breed)
+            pets = pets.loc[pets['breeds'] == breed]
         if size is not None and pets.shape[0] >= num_results:
-            pets = pets.where(pets['size'] == size)
+            pets = pets.loc[pets['size'] == size]
         if gender is not None and pets.shape[0] >= num_results:
-                pets = pets.where(pets['gender'] == gender)
+                pets = pets.loc[pets['gender'] == gender]
         if age is not None and pets.shape[0] >= num_results:
-            pets = pets.where(pets['age'] == age)
+            pets = pets.loc[pets['age'] == age]
         if color is not None and pets.shape[0] >= num_results:
-            pets = pets.where(pets['color'] == color)
+            pets = pets.loc[pets['color'] == color]
         if coat is not None and pets.shape[0] >= num_results:
-                pets = pets.where(pets['coat'] == coat)
+                pets = pets.loc[pets['coat'] == coat]
         if name is not None and pets.shape[0] >= num_results:
-            pets = pets.where(pets['name'] == name)
+            pets = pets.loc[pets['name'] == name]
         # other attributes...
 
         # if there are not enough results in the cache, run query and cache results
@@ -54,6 +54,6 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
             cache.set('default', pets)
         else:
             # if more results than wanted, drop bottom values until there are proper number of results
-            while pets.shape[0] != num_results:
+            while pets.shape[0] > num_results:
                 pets.drop(pets.index[num_results])
     return pets
