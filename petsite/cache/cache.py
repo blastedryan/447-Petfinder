@@ -35,7 +35,7 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
         if age is not None and pets.shape[0] >= num_results:
             pets = pets.loc[pets['age'] == age]
         if color is not None and pets.shape[0] >= num_results:
-            pets = pets.loc[pets['color'] == color]
+            pets = pets.loc[pets['colors'] == color]
         if coat is not None and pets.shape[0] >= num_results:
                 pets = pets.loc[pets['coat'] == coat]
         if name is not None and pets.shape[0] >= num_results:
