@@ -41,7 +41,7 @@ def main():
 
     geojson_str = json.dumps(geojson_dict, indent=2)
     output_filename = 'pet_results.geojson'
-    with open(os.path.join("../petsite/static/js/",output_filename), 'w') as output_file:
+    with open(os.path.join("../petsite/search_results/",output_filename), 'w') as output_file:
         output_file.write('{}'.format(geojson_str))
 
 
