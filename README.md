@@ -35,7 +35,7 @@ https://www.computerhope.com/issues/ch000549.htm
 #### Instructions for setting up environment variables in mac
 1. Open terminal
 2. Run “nano ~/.bash_profile”
-3. Scroll to the bottom of the file and add these two lines, replacing ``<key>`` and ``<secret key>`` with the key you're given
+3. Scroll to the bottom of the file and add these four lines, replacing ``<key>`` and ``<secret key>`` with the key you're given
 
     * `export PETFINDER_KEY=<key>`
     * `export PETFINDER_SECRET_KEY=<secret key>`
