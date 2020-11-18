@@ -49,6 +49,8 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
             temp = cache.get('default')
             if 'primary_photo_cropped' in pets.columns:
                 del pets['primary_photo_cropped']
+            if 'primary_photo_cropped' in temp.columns:
+                del temp['primary_photo_cropped']
             pets = pets.append(temp,ignore_index=True)
             pets = pets.drop_duplicates(subset=['animal_type','gender','age','coat','name'])
             cache.set('default', pets)
