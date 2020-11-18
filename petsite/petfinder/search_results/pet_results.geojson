@@ -1,0 +1,85 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Rosie",
+        "breeds.primary": "Beagle",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48819552/4/?bust=1597852899&width=300",
+        "description": "<strong>Rosie</strong><br>Young Female<br>Beagle",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48819552/4/?bust=1597852899&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.09024765272724,
+          38.8147596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Rayla",
+        "breeds.primary": "Beagle",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45960510/1/?bust=1584581378&width=300",
+        "description": "<strong>Rayla</strong><br>Young Female<br>Beagle",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45960510/1/?bust=1584581378&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.9575634,
+          39.1791091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Shoeshine",
+        "breeds.primary": "Beagle",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45287914/1/?bust=1563419119&width=300",
+        "description": "<strong>Shoeshine</strong><br>Young Female<br>Beagle",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45287914/1/?bust=1563419119&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0047276,
+          40.2101972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Male",
+        "size": "Small",
+        "name": "Odie",
+        "breeds.primary": "Manchester Terrier",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45287862/1/?bust=1563417472&width=300",
+        "description": "<strong>Odie</strong><br>Young Male<br>Manchester Terrier",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45287862/1/?bust=1563417472&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0047276,
+          40.2101972
+        ]
+      }
+    }
+  ]
+}
