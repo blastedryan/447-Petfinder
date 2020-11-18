@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.template import loader
 import json
 import pathlib
+
+import petfinder_api.query as q
+
 # Create your views here.
 
 def make_dictionary(request):
@@ -14,6 +17,13 @@ def make_dictionary(request):
 
     return query
 
+def open_pet_results():
+    parent_dir = pathlib.Path(__file__).parent.absolute()
+    filename = parent_dir / "search_results"/ "pet_results.geojson"
+    with open(filename, 'r') as f:
+        json_data = json.load(f)
+        return json_data
+
 
 def index(request):
     query = make_dictionary(request)
@@ -22,23 +32,39 @@ def index(request):
     
 def dogs_request(request):
 
-    with open('/Users/monalisaraf/Petfinder/447-Petfinder/petsite/petfinder/pet_results.geojson') as f:
-        json_data = json.load(f)
-    
+    search_queries = {
+        'gender': ['male', 'female'],
+        'age': ['young', 'medium', 'old'],
+        'hair_type': ['hairless', 'short_hair', 'mediumHair', 'longHair', 'wire', 'curly']
+    }
+
+    json_data = open_pet_results()
     
     query = make_dictionary(request)
+
+    pf = q.authenticate(q.key, q.secret_key)
+
+    petfind_query = {
+        'location': 'Baltimore, MD',
+        'breed': 'beagle',
+        'animal_type': 'dog',
+        'size': 'small',
+        'distance': 100,
+        'age': 'young',
+        'coat': 'short'
+    }
+
+    pets, _ = q.find_pets(pf, **petfind_query)
+
+    print(pets)
+
+
     template = loader.get_template('petfinder/Petfinder_style.html')
-    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
-    
-
     #return render(request, 'petfinder/Petfinder_style.html', {'the_json':json_data})
-    
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+
 def cats_request(request):
-
-
-    with open('/Users/monalisaraf/Petfinder/447-Petfinder/petsite/petfinder/pet_results.geojson') as f:
-        json_data = json.load(f)
-
+    json_data = open_pet_results()
     '''
     query = make_dictionary(request)
     return render(request, 'petfinder/Cats.html')
@@ -54,11 +80,14 @@ def cats_request(request):
 
 def birds_request(request):
     query = make_dictionary(request)
+    json_data = open_pet_results()
     return render(request, 'petfinder/Birds.html',  {'the_json':json_data})
 def rabbits_request(request):
     query = make_dictionary(request)
+    json_data = open_pet_results()
     return render(request, 'petfinder/Rabbits.html',  {'the_json':json_data})
 def scales_request(request):
     query = make_dictionary(request)
+    json_data = open_pet_results()
     return render(request, 'petfinder/Scales.html',  {'the_json':json_data})
 
