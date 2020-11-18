@@ -8,6 +8,10 @@ import os
 
 # Create your views here.
 
+key = ""
+
+#os.environ.get('MAPBOX_API_KEY')
+
 def open_pet_results():
     parent_dir = pathlib.Path(__file__).parent.absolute()
     filename = parent_dir / "search_results"/ "pet_results.geojson"
@@ -37,7 +41,7 @@ def dogs_request(request):
     
     query = make_dictionary(request)
     template = loader.get_template('petfinder/Petfinder_style.html')
-    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
     
 
     #return render(request, 'petfinder/Petfinder_style.html', {'the_json':json_data})
