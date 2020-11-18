@@ -8,9 +8,6 @@ import os
 
 # Create your views here.
 
-key = ""
-
-#os.environ.get('MAPBOX_API_KEY')
 
 def open_pet_results():
     parent_dir = pathlib.Path(__file__).parent.absolute()
@@ -78,6 +75,9 @@ def index(request):
     return render(request, 'petfinder/HomePage.html')
     
 def dogs_request(request):
+    
+    key = os.environ.get('MAPBOX_API_KEY')
+    
     query = prepare_query(request, 'dog')
 
     print('\n' * 4, query, '\n'*4)
@@ -118,46 +118,40 @@ def dogs_request(request):
 
 def cats_request(request):
     json_data = open_pet_results()
-    '''
-    query = make_dictionary(request)
-    return render(request, 'petfinder/Cats.html')
-    
-    return render(request, 'petfinder/Cats.html', {'the_json':json_data})
-    '''
-
+    key = os.environ.get('MAPBOX_API_KEY')
 
     query = make_dictionary(request)
     template = loader.get_template('petfinder/Cats.html')
-    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
 
 
 def birds_request(request):
 
     json_data = open_pet_results()
-    
+    key = os.environ.get('MAPBOX_API_KEY')
     
     query = make_dictionary(request)
 
     template = loader.get_template('petfinder/Birds.html')
-    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
 
 def rabbits_request(request):
 
     json_data = open_pet_results()
-    
+    key = os.environ.get('MAPBOX_API_KEY')
     
     query = make_dictionary(request)
 
     template = loader.get_template('petfinder/Rabbits.html')
-    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
 
 def scales_request(request):
 
     json_data = open_pet_results()
-    
+    key = os.environ.get('MAPBOX_API_KEY')
     
     query = make_dictionary(request)
 
     template = loader.get_template('petfinder/Scales.html')
-    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
 

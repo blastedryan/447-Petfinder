@@ -305,9 +305,10 @@
     {{ the_json|json_script:"geodata" }}
     
     <script>
+
+      var api_key = "{{MAPBOX_API_KEY}}"
       
-      
-      mapboxgl.accessToken =''
+      mapboxgl.accessToken = api_key;
       
       
       
