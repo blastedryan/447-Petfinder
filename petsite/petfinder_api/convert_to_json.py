@@ -1,4 +1,4 @@
-import query
+from . import query
 import os
 import json
 key = os.environ.get('PETFINDER_KEY')
@@ -44,5 +44,5 @@ def main():
     with open(os.path.join("../petsite/static/js/",output_filename), 'w') as output_file:
         output_file.write('{}'.format(geojson_str))
 
-
-main()
+if __name__ == '__main__':
+    main()

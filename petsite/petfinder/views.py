@@ -4,9 +4,18 @@ from django.template import loader
 import json
 import pathlib
 from petfinder_api.query import find_pets, get_animal_breeds, authenticate, key, secret_key
+from petfinder_api.convert_to_json import df_to_geojson
 import numpy as np
 
 pf = authenticate(key, secret_key)
+
+def save_pet_results(pets):
+    useful_cols = ["age", "gender", "size", "name", "breeds.primary", "primary_photo_cropped.small"]
+    geojson_dict = df_to_geojson(pets, properties=useful_cols,lat="contact.address.lat",lon="contact.address.long")
+    geojson_str = json.dumps(geojson_dict, indent=2)
+    filename = pathlib.Path(__file__).parent.absolute() / "search_results"/ "pet_results.geojson"
+    with open(filename, 'w') as output_file:
+        output_file.write('{}'.format(geojson_str))
 
 # Create your views here.
 def make_dictionary(request):
@@ -54,12 +63,30 @@ def dogs_request(request):
     query = prepare_query(request, 'dog')
 
     search_queries = {
-        'gender': ['male', 'female'],
-        'age': ['young', 'medium', 'old'],
-        'hair_type': ['hairless', 'short_hair', 'mediumHair', 'longHair', 'wire', 'curly']
+        'male': 'gender',
+        'female': 'gender',
+        'small': 'size'
     }
 
-    json_data = open_pet_results()
+    """
+    petfind_query = {
+        'location': 'Baltimore, MD',
+        'breed': 'beagle',
+        'animal_type': 'dog',
+        'size': 'small',
+        'distance': 100,
+        'age': 'young',
+        'coat': 'short'
+    }
+    """
+
+    petfind_query = {'animal_type': 'dog'}
+
+    for k in query:
+        if k in search_queries:
+            petfind_query[search_queries[k]] = k
+
+    petfind_query['location'] = 'Baltimore, MD'
 
     petfind_query = {
         'location': 'Baltimore, MD',
@@ -71,13 +98,18 @@ def dogs_request(request):
         'coat': 'short'
     }
 
-    pets, _ = find_pets(pf, **petfind_query)
+    json_data = {}
+    if len(query) > 0:
+    
+        pets, _ = find_pets(pf, **petfind_query)
 
-    print(pets)
 
+        print('\n'*3, pets.columns, '\n' * 3)
+
+        save_pet_results(pets)
+        json_data = open_pet_results()
 
     template = loader.get_template('petfinder/Petfinder_style.html')
-    #return render(request, 'petfinder/Petfinder_style.html', {'the_json':json_data})
     return HttpResponse(template.render({"search_query": query, 'the_json':json_data}, request))
 
 def cats_request(request):
