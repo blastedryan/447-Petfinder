@@ -62,49 +62,33 @@ def index(request):
 def dogs_request(request):
     query = prepare_query(request, 'dog')
 
+    print('\n' * 4, query, '\n'*4)
+
     search_queries = {
         'male': 'gender',
         'female': 'gender',
         'small': 'size'
     }
 
-    """
-    petfind_query = {
-        'location': 'Baltimore, MD',
-        'breed': 'beagle',
-        'animal_type': 'dog',
-        'size': 'small',
-        'distance': 100,
-        'age': 'young',
-        'coat': 'short'
-    }
-    """
 
     petfind_query = {'animal_type': 'dog'}
 
     for k in query:
-        if k in search_queries:
+        if k == 'location':
+            petfind_query['location'] = None if query[k][0].strip() == '' else query[k][0]
+
+        elif k == 'breed':
+            petfind_query['breed'] = None if query[k][0].strip() == '' else query[k][0]
+
+        elif k in search_queries:
             petfind_query[search_queries[k]] = k
 
-    petfind_query['location'] = 'Baltimore, MD'
-
-    petfind_query = {
-        'location': 'Baltimore, MD',
-        'breed': 'beagle',
-        'animal_type': 'dog',
-        'size': 'small',
-        'distance': 100,
-        'age': 'young',
-        'coat': 'short'
-    }
+    
 
     json_data = {}
     if len(query) > 0:
     
         pets, _ = find_pets(pf, **petfind_query)
-
-
-        print('\n'*3, pets.columns, '\n' * 3)
 
         save_pet_results(pets)
         json_data = open_pet_results()
