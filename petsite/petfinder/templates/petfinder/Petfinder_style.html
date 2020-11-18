@@ -510,11 +510,14 @@
     </div>
 
     {{ the_json|json_script:"geodata" }}
+    
+
 
     <script>
 
-
-      mapboxgl.accessToken ='<--insert key here-->'
+      var api_key = "{{ MAPBOX_API_KEY }}"
+      
+      mapboxgl.accessToken = api_key
 
       var geodata = JSON.parse(document.getElementById('geodata').textContent);
       
