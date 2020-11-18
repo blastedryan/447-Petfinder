@@ -124,7 +124,8 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
     if special_needs is not None:
         ret_pets = ret_pets.loc[ret_pets['attributes.special_needs'] == True]
 
-    ret_pets = __add_coords_col(ret_pets.head(n=MAX_PETS))
+    #ret_pets = __add_coords_col(ret_pets.head(n=MAX_PETS))
+
     return ret_pets, search_count
 
 
