@@ -1,12 +1,17 @@
 from tests.webtests import WebTests
+from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 import time
 import os
 import json
+import unittest
+driverPath = webdriver.Chrome("C:\\Users\\Owner\\Desktop\\Chromedriver\\chromedriver.exe")
+htmlPath = 'http://127.0.0.1:8000/petfinder'
+class WebBones(unittest.TestCase):
 
-class WebBones(WebTests):
     def test_web_bones(self):
-        self.driver.get(self.htmlPath)
+        self.driver =driverPath
+        self.driver.get(htmlPath)
         self.driver.find_element_by_id("dog_button").click()
         self.driver.find_element_by_tag_name("input")
         self.driver.find_element_by_tag_name("label")
@@ -14,7 +19,8 @@ class WebBones(WebTests):
 
     
     def test_search(self):
-        self.driver.get(self.htmlPath)
+        self.driver = driverPath
+        self.driver.get(htmlPath)
         self.driver.find_element_by_id("dog_button").click()
         self.driver.find_element_by_id('headingOne').click()
         time.sleep(2)
@@ -25,17 +31,15 @@ class WebBones(WebTests):
         self.driver.find_element_by_id('headingTwo').click()
         time.sleep(2)
 
-        self.driver.find_element_by_id('young-btn').click()
+        self.driver.find_element_by_id('young_dog_button').click()
         time.sleep(2)
 
         self.driver.find_element_by_id('headingThree').click()
         time.sleep(2)
-        self.driver.find_element_by_id('btn-small').click()
-        self.driver.find_element_by_id('btn-large').click()
+        self.driver.find_element_by_id('small_dog_button').click()
+        self.driver.find_element_by_id('large_dog_button').click()
         time.sleep(2)
 
-        self.driver.find_element_by_id('headingTwelve').click()
-        time.sleep(2)
         self.driver.find_element_by_xpath("//input[@name='location']").send_keys("Baltimore, MD")
 
 

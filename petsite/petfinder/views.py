@@ -36,3 +36,12 @@ def rabbits_request(request):
 def scales_request(request):
     query = make_dictionary(request)
     return render(request, 'petfinder/Scales.html')
+def horse_request(request):
+    query = make_dictionary(request)
+    return render(request, 'petfinder/Horses.html')
+def barn_request(request):
+    query= make_dictionary(request)
+    return render(request, 'petfinder/Barnyard.html')
+def furry_request(request):
+    query = make_dictionary(request)
+    return render(request, 'petfinder/Furry.html')

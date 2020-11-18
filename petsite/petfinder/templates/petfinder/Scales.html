@@ -2,303 +2,522 @@
 {% load static %}
 <html lang="en">
 <head>
+    <!---Stylesheet for bootstrap --->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/scales.css' %}">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
     <meta charset="UTF-8">
     <title>Title</title>
+    <!---To get custom fonts --->
     <link href='https://fonts.googleapis.com/css?family=Archivo Narrow' rel='stylesheet'>
     <style>
         body{
             font-family: 'Archivo Narrow',"Times New Roman",serif;font-size: 22px;
         }
+        [type = "checkbox"]{
+          visibility: hidden;
+        }
+        .body-btn{
+          width: 220px;
+          height:220px;
+        }
+        .verticalcenter{
+          display: inline;
+          height:100px;
+          width: 100px;
+          vertical-align: middle;
+        }
 
         #map {
-            position: absolute;
-	}
-
-
-    .mapboxgl-popup {
-        max-width: 400px;
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    }
-
-
-	.mapboxgl-popup-content {
-	    text-align: center;
-	    font-family: 'Open Sans', sans-serif;
-
-	}
-
-	img{
-            width: 100px;
-            height: auto;
+                position: absolute;
         }
+
+
+        .mapboxgl-popup {
+              max-width: 800px;
+              font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+          }
+
+
+        .mapboxgl-popup-content {
+          text-align: center;
+          font-family: 'Open Sans', sans-serif;
+        }
+
+        img{
+        width: 100px;
+        height: auto;
+        }
+
     </style>
-</head>
+    </head>
 <body>
+    <!-- Code to get the accordian file working-->
     <div class = "jumbotron jumbotron-fluid text-center">
         <div class = "container">
             <h1>Petfinder Geospatial Search</h1>
             <p>Search for pets in your area based on your specifications</p>
         </div>
     </div>
-    <h3 class = "text-center">Searching for: Fish, Reptiles, Amphibians</h3>
+    <h3 class ="text-center">Searching for: Scales,Fins, & Other</h3>
+    <form method="GET" action="">
     <div id="accordion">
+
+  <!--Breed-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          Species
+        <button type = "button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Breed
         </button>
       </h5>
     </div>
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-          <input type = "radio" id = "amphibian" name = "amphibian">
-          <label for = "amphibian">Amphibian</label>
-          <input type = "radio" id = "fish" name = "fish">
-          <label for = "fish">Fish</label>
-          <input type = "radio" id = "Other" name = "other">
-          <label for = "Other">Other Animal</label>
-          <input type = "radio" id = "reptile" name = "reptile">
-          <label for = "reptile">Reptile</label>
-          <input type = "radio" id = "salamander" name = "salamander">
-          <label for = "salamander">Salamander/Newt</label>
-          <input type = "radio" id = "Snake" name = "snake">
-          <label for = "Snake">Snake</label>
-          <input type = "radio" id = "Toad" name = "toad">
-          <label for = "Toad">Toad</label>
-          <input type = "radio" id = "Tortoise" name = "tortoise">
-          <label for = "Tortoise">Tortoise</label>
-          <input type = "radio" id = "Turtle" name = "turtle">
-          <label for = "Turtle">Turtle</label>
+
+        <label for="breed">Breed:</label>
+         <input type="text" id = "breed" name="breed">
       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-header text-center bg-dark text-white" id="headingTwo">
+    <div class="card-header text-center bg-dark text-white" id="headingOneandaHalf">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Breed
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOneandaHalf" aria-expanded="false" aria-controls="collapseOneandaHalf">
+          Species
         </button>
       </h5>
     </div>
-
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+    <div id="collapseOneandaHalf" class="collapse" aria-labelledby="headingOneandaHalf" data-parent="#accordion">
       <div class="card-body">
-          <label for="Breed">Breed</label>
-          <input type="text" id = "Breed" name = "Breed">
+        <h3 style="text-align:center">Age</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class = "container-fluid">
+          <!--This allows the buttons to be clickable and still serve as a checkbox -->
+
+          <div class="btn" data-toggle="buttons" id='amphibian_button'>
+
+            <label class = "amphibian_btn btn btn-outline-dark btn-lg" id="amphibian_btn" for = "amphibian">Amphibian
+              <input type = "checkbox" aria-checked = "false" id = "amphibian" name = "donkey">
+            </label>
+          </div>
+          <div class="btn" data-toggle="buttons" id='fish_button'>
+
+            <label class = "fish_btn btn btn-outline-dark btn-lg" id="horse_" for = "fish">Fish
+              <input type = "checkbox" aria-checked = "false" id = "fish" name = "horse">
+            </label>
+          </div>
+
+
+          <div class = "btn" data-toggle="buttons" id='other_btn'>
+
+            <label class = "other_btn btn btn-outline-dark btn-lg" for = "other">Other Animal
+              <input type = "checkbox" aria-checked = "false" id = "other" name = "medium">
+            </label>
+          </div>
+
+          <div class = "btn" data-toggle="buttons" id='reptile_btn'>
+            <label class = "reptile_btn btn btn-outline-dark btn-lg" for = "reptile">Reptile
+              <input type = "checkbox" aria-checked = "false" id = "reptile" name = "old">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id='salamander_btn'>
+            <label class = "salamander_btn btn btn-outline-dark btn-lg" for = "salamander">Salamander
+              <input type = "checkbox" aria-checked = "false" id = "salamander" name = "old">
+            </label>
+          </div>
+           <div class = "btn" data-toggle="buttons" id='snake_btn'>
+            <label class = "snake_btn btn btn-outline-dark btn-lg" for = "snake">Snake
+              <input type = "checkbox" aria-checked = "false" id = "snake" name = "old">
+            </label>
+          </div>
+           <div class = "btn" data-toggle="buttons" id='toad_btn'>
+            <label class = "toad_btn btn btn-outline-dark btn-lg" for = "toad">Toad
+              <input type = "checkbox" aria-checked = "false" id = "toad" name = "old">
+            </label>
+          </div>
+           <div class = "btn" data-toggle="buttons" id='tortoise_btn'>
+            <label class = "tortoise_btn btn btn-outline-dark btn-lg" for = "tortoise">Tortoise
+              <input type = "checkbox" aria-checked = "false" id = "tortoise" name = "old">
+            </label>
+          </div>
+           <div class = "btn" data-toggle="buttons" id='turtle_btn'>
+            <label class = "turtle_btn btn btn-outline-dark btn-lg" for = "turtle">Turtle
+              <input type = "checkbox" aria-checked = "false" id = "turtle" name = "old">
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <!--Age -->
+  <div class="card">
+    <div class="card-header text-center bg-dark text-white" id="headingTwo">
+      <h5 class="mb-0">
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Age
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <h3 style="text-align:center">Age</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class = "container-fluid">
+          <!--This allows the buttons to be clickable and still serve as a checkbox -->
+
+          <div class="btn" data-toggle="buttons" id='baby_scale_button'>
+
+            <label class = "baby_scale_btn btn btn-outline-dark btn-lg" id="kitten_btn" for = "kitten">Baby
+              <input type = "checkbox" aria-checked = "false" id = "kitten" name = "kitten">
+            </label>
+          </div>
+          <div class="btn" data-toggle="buttons" id='young_scale_button'>
+
+            <label class = "young_scale_btn btn btn-outline-dark btn-lg" id="young_btn" for = "young">Young
+              <input type = "checkbox" aria-checked = "false" id = "young" name = "kitten">
+            </label>
+          </div>
+
+
+          <div class = "btn" data-toggle="buttons" id='adult_scale_btn'>
+
+            <label class = "adult_scale_btn btn btn-outline-dark btn-lg" for = "mediumAge">Adult
+              <input type = "checkbox" aria-checked = "false" id = "mediumAge" name = "medium">
+            </label>
+          </div>
+
+          <div class = "btn" data-toggle="buttons" id='old_scale_btn'>
+            <label class = "senior_scale_btn btn btn-outline-dark btn-lg" for = "old">Senior
+              <input type = "checkbox" aria-checked = "false" id = "old" name = "old">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Size-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Age
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Size
         </button>
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-          <label for="Age">Age</label>
-          <select name = "age" id = "Age">
-              <option value = "Baby">Baby</option>
-              <option value = "Young">Young</option>
-              <option value = "Adult">Adult</option>
-              <option value = "Senior">Senior</option>
-          </select>
+
+        <h3 style = "text-align: center">Size</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class = "container-fluid"></div>
+
+          <div class = "btn" data-toggle="buttons" id='small_scale_button'>
+
+              <label class = "small_scale_btn btn btn-outline-dark btn-lg" for = "small">Small
+                <input type = "checkbox" aria-checked = "false" id = "small" name = "cats">
+              </label>
+          </div>
+
+          <div class = "btn" data-toggle="buttons" id='medium_scale_button'>
+              <label class = "medium_scale_btn btn btn-outline-dark btn-lg" for = "medium">Medium
+                <input type = "checkbox" aria-checked = "false" id = "medium" name = "cats">
+              </label>
+          </div>
+
+          <div class = "btn" data-toggle="buttons" id='large_scale_button'>
+              <label class = "lg_size_scale_btn btn btn-outline-dark btn-lg" for = "large">Large
+                <input type = "checkbox" aria-checked = "false" id = "large" name = "cats">
+              </label>
+          </div>
+
+          <div class = "btn" data-toggle="buttons" id='xlarge_scale_button'>
+
+              <label class = "extra_lg_scale_btn btn btn-outline-dark btn-lg" for = "xlarge">Extra-Large
+                <input type = "checkbox" aria-checked = "false" id = "xlarge" name = "cats">
+              </label>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="card">
+
+  <!--Gender-->
+ <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingFour">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          Size
-        </button>
-      </h5>
-    </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-      <div class="card-body">
-          Size:
-          <input type="checkbox" id = "small" name = "small">
-          <label for="small">Small</label>
-          <input type="checkbox" id = "mediumSize" name = "medium">
-          <label for="mediumSize">Medium</label>
-          <input type="checkbox" id = "large" name = "large">
-          <label for="large">Large</label>
-          <input type = "checkbox" id = "xlarge" name = "xlarge">
-          <label for ="xlarge">Extra Large</label>
-      </div>
-    </div>
-  </div>
-    <div class="card">
-    <div class="card-header text-center bg-dark text-white" id="headingFive">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           Gender
         </button>
       </h5>
     </div>
-
-    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+    <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-          Gender:
-          <input type="checkbox" id = "male" name = "male">
-          <label for="male">Male</label>
-          <input type = "checkbox" id = "female" name = "female">
-          <label for="female">Female</label>
+
+        <h3 style = "text-align: center">Gender</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class = "container-fluid">
+          <div class = "btn" data-toggle="buttons" id="male_scale_button">
+            <label class = "boy_scale_btn btn btn-outline-dark btn-lg" for = "male">Male
+              <input type = "checkbox" aria-checked = "false" id = "male" name = "male">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="female_scale_button">
+            <label class = "girl_scale_btn btn btn-outline-dark btn-lg" for = "female">Female
+              <input type = "checkbox" aria-checked = "false" id = "female" name = "female">
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!--Good With-->
   <div class="card">
-    <div class="card-header text-center bg-dark text-white" id="headingSix">
+    <div class="card-header text-center bg-dark text-white" id="headingFive">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
           Good With
         </button>
       </h5>
     </div>
-    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-          Good With:
-          <input type = "checkbox" id = "kids" name = "kids">
-          <label for="kids">Kids</label>
-          <input type = "checkbox" id = "dogs" name = "dogs">
-          <label for="dogs">Dogs</label>
-          <input type = "checkbox" id = "other cats" name = "other cate">
-          <label for = "other cats">Other Cats</label>
+
+        <h3 style = "text-align:center">Good With:</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class = "container-fluid horizontal scrollable">
+          <div class = "btn" data-toggle="buttons" id="good_with_kids_scale_button">
+            <label class = "good_with_kids_scale_btn btn btn-outline-dark btn-lg" for = "kids">Kids
+              <input type = "checkbox" aria-checked="false"  id = "kids" name = "kids">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="good_with_dogs_scale_button">
+            <label class = "good_with_dogs_scale_btn btn btn-outline-dark btn-lg" for = "dogs">Dogs
+              <input type = "checkbox" aria-checked = "false" id = "dogs" name = "dogs">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="good_with_cats_button">
+            <label class = "good_with_cats_scale_btn btn btn-outline-dark btn-lg" for = "cats">Cats
+              <input type = "checkbox" aria-checked = "false" id = "cats" name = "cats">
+            </label>
+          </div>
+      </div>
+
       </div>
     </div>
   </div>
 
-
-    <div class="card">
-    <div class="card-header text-center bg-dark text-white" id="headingEight">
+  <!--Color-->
+  <div class="card">
+    <div class="card-header text-center bg-dark text-white" id="headingSeven">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-            Scale Color
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          Color
         </button>
       </h5>
     </div>
-
-    <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+    <div id="collapseSeven" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-          Scale Color:
-            <input type = "checkbox" id = "Black" name = "Black">
-            <label for = "Black">Black</label>
-            <input type = "checkbox" id = "Blue" name = "Blue">
-            <label for="Blue">Blue</label>
-            <input type = "checkbox" id = "Brown" name = "Brown">
-            <label for ="Brown">Brown</label>
-            <input type = "checkbox" id = "Gray" name = "Gray">
-            <label for = "Gray">Gray</label>
-            <input type = "checkbox" id = "Green" name = "Green">
-            <label for = "Green">Green</label>
-            <input type = "checkbox" id = "Indescent" name = "Indescent">
-            <label for = "Indescent">Indescent</label>
-            <input type = "checkbox" id = "Orange" name = "Orange">
-            <label for = "Orange">Orange</label>
-            <input type = "checkbox" id = "Purple" name = "Purple">
-            <label for = "Purple">Purple</label>
+        <h3 style = "text-align:center">Color</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class="container-fluid">
+          <div class = "btn" data-toggle="buttons" id="black_scale_button">
+            <label class = "black_scale_btn btn btn-outline-dark btn-lg" for = "tuxedo">Black
+              <input type = "checkbox" aria-checked = "false" id = "tuxedo" name = "tuxedo">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="blue_scale_button">
+            <label class = "blue_color_scale_btn btn btn-outline-dark btn-lg" for = "blue_cream">Blue
+              <input type = "checkbox" aria-checked = "false" id = "blue_cream" name = "blue_cream">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="brown_scale_button">
+            <label class = "brown_color_scale_btn btn btn-outline-dark btn-lg" for = "blue_point">Brown
+              <input type = "checkbox" aria-checked = "false" id = "blue_point" name = "blue_point">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="gray_scale_button">
+            <label class = "gray_scale_btn btn btn-outline-dark btn-lg" for = "brown">Gray
+              <input type = "checkbox" aria-checked = "false" id = "brown" name = "brown">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="green_scale_button">
+            <label class = "green_scale_btn btn btn-outline-dark btn-lg" for = "buff_white">Green
+              <input type = "checkbox" aria-checked = "false" id = "buff_white" name = "buff_white">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="iridescent_scale_button">
+            <label class = "iridescent_btn btn btn-outline-dark btn-lg" for = "tan">Iridescent
+              <input type = "checkbox" aria-checked = "false" id = "tan" name = "buff/tan/fawn">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="orange_scale_button">
+            <label class = "orange_scale_btn btn btn-outline-dark btn-lg" for = "calico">Orange
+              <input type = "checkbox" aria-checked = "false" id = "calico" name = "calico">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="purple_scale_button">
+            <label class = "purple_scale_btn btn btn-outline-dark btn-lg" for = "chocolate_pt">Purple
+              <input type = "checkbox" aria-checked = "false" id = "chocolate_pt" name = "chocolate_pt">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="red_scale_button">
+            <label class = "red_scale_btn btn btn-outline-dark btn-lg" for = "cream">Red
+              <input type = "checkbox" aria-checked = "false" id = "cream" name = "cream">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="tan_scale_button">
+            <label class = "tan_scale_btn btn btn-outline-dark btn-lg" for = "red">Tan
+              <input type = "checkbox" aria-checked = "false" id = "red" name = "red_chestnut_orange">
+            </label>
+          </div>
+          <div class = "btn" data-toggle="buttons" id="white_scale_button">
+            <label class = "white_scale_btn btn btn-outline-dark btn-lg" for = "sable">White
+              <input type = "checkbox" aria-checked = "false" id = "sable" name = "sable">
+            </label>
+          </div>
+        <div class = "btn" data-toggle="buttons" id="yellow_scale_button">
+            <label class = "yellow_scale_btn btn btn-outline-dark btn-lg" for = "tricolor">Yellow
+              <input type = "checkbox" aria-checked = "false" id = "tricolor" name = "tricolor">
+            </label>
+        </div>
+
 
       </div>
     </div>
   </div>
+
+  <!--Care + Behavior(Is the pet house-trained or have some kind of injury)-->
+  <div class="card">
+    <div class="card-header text-center bg-dark text-white" id="headingEight">
+      <h5 class="mb-0">
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          Care+Behavior
+        </button>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" aria-labelledby="headingeight" data-parent="#accordion">
+      <div class="card-body">
+        <h3 style = "text-align: center">Care+Behavior</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multiple things-->
+        <div class = "container-fluid">
+          <div class = "btn" data-toggle="buttons" id="house_trained_scale_button">
+              <label class = "house_trained_scale_btn btn btn-outline-dark btn-lg" for = "house-trained">House Trained
+                <input type = "checkbox" aria-checked = "false" id = "house-trained" name = "house-trained">
+              </label>
+          </div>
+            <div class = "btn" data-toggle="buttons" id="special_needs_scale_button">
+              <label class = "special_needs_scale_btn btn btn-outline-dark btn-lg" for = "special needs">Special Needs
+                <input type = "checkbox" aria-checked = "false" id = "special needs" name = "special needs">
+              </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Days on Petfinder-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingNine">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-            Care & Behavior
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          Days on Petfinder
         </button>
       </h5>
     </div>
     <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
       <div class="card-body">
-          Care & Behavior
-          <input type = "checkbox" id = "House-Trained" name = "House Trained">
-          <label for="House-Trained">House-Trained</label>
-
-          <input type = "checkbox" id = "Special Needs" name = "Special Needs">
-          <label for = "Special Needs">Special Needs</label>
+        <h3 style = "text-align:center">Days on Petfinder</h3>
+        <!--Each Card acts as a checkbox, allowing the user to select multple things-->
+        <div class = "btn" data-toggle="buttons" id="1_day_scale_button">
+            <label class = "body-btn btn btn-outline-dark btn-lg" for = "1day">1
+              <input type = "checkbox" aria-checked = "false" id = "1day" name = "1day">
+            </label>
+        </div>
+        <div class = "btn" data-toggle="buttons" id="1_week_scale_button">
+            <label class = "body-btn btn btn-outline-dark btn-lg" for = "1week">7
+              <input type = "checkbox" aria-checked = "false" id = "1week" name = "1week">
+            </label>
+        </div>
+        <div class = "btn" data-toggle="buttons" id="2_week_scale_button">
+            <label class = "body-btn btn btn-outline-dark btn-lg" for = "2weeks">14
+              <input type = "checkbox" aria-checked = "false" id = "2weeks" name = "2weeks">
+            </label>
+        </div>
+        <div class = "btn" data-toggle="buttons" id="1_month_scale_button">
+            <label class = "body-btn btn btn-outline-dark btn-lg" for = "1month">30+
+              <input type = "checkbox" aria-checked = "false" id = "1month" name = "1month">
+            </label>
+        </div>
+        <div class = "btn" data-toggle="buttons" id="any_scale_button">
+            <label class = "body-btn btn btn-outline-dark btn-lg" for = "any">Any
+              <input type = "checkbox" aria-checked = "false" id = "any" name = "any">
+            </label>
+        </div>
       </div>
     </div>
   </div>
+  <!--Allow the user to search specific shelters for pets-->
   <div class="card">
     <div class="card-header text-center bg-dark text-white" id="headingTen">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-            Days on Petfinder
+        <button type = "button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+          Shelter
         </button>
       </h5>
     </div>
-    <div id="collapseTen" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+    <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
       <div class="card-body">
-          Days on Petfinder:
-          <input type = "radio" id = "any" name = "any">
-          <label for = "any">Any</label>
-          <input type = "radio" id = "oneDay" name = "one">
-          <label for = "oneDay">1</label>
-          <input type = "radio" id = "oneWeek" name = "oneweek">
-          <label for = "oneWeek">7</label>
-          <input type = "radio" id = "twoWeek" name = "twoWeek">
-          <label for = "twoWeek">14</label>
-          <input type = "radio" id = "Longer" name = "longer">
-          <label for = "Longer">30+</label>
+        <h3 style="text-align: center">Name of Shelter or Rescue Organization:</h3>
+        <input type="text" class = "form-control" placeholder = "Enter the name of the Organization" aria-label = "small">
       </div>
     </div>
   </div>
-    <div class="card">
-    <div class="card-header text-center bg-dark text-white" id="headingEleven">
+  <!--Allow the user to search for specific pets by name-->
+  <div class = "card">
+    <div class = "card-header text-center bg-dark text-white" id = "headingEleven">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
-            Shelter or Rescue
+        <button type = "button" class = "btn btn-link collapsed" data-toggle = "collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+          Name of Pet
         </button>
       </h5>
     </div>
-
-    <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
-      <div class="card-body">
-            Name of Shelter or Rescue Organization:
-            <input type = "text" class = "form-control" aria-label = "small" placeholder="Please Enter Organization's Name">
+    <div id = "collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
+      <div class = "card-body">
+        <h3 style = "text-align: center">Pet Name:</h3>
+        <input type = "text" class="form-control" placeholder="Enter the name of the pet you wish to search for" aria-label="small">
       </div>
     </div>
   </div>
-  <div class="card" >
-      <div class="card-header text-center bg-dark text-white" id = "headingTwelve">
-          <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
-                  Pet Name
-              </button>
-          </h5>
+   </div>
+    </div>
+      <!--Ask the user for their location-->
+      <div class = "card-body">
+        <h3>Location</h3>
+        <input type = "text" class="form-control" placeholder="Enter Your Location" aria-label="small" name="location" id = 'location'>
       </div>
-      <div id = "collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
-          <div class="card-body">
-              Name of Pet:
-              <input type="text" class="form-control" aria-label = "small" placeholder="Please Enter Pet Name You Wish to Search For">
-          </div>
-      </div>
-  </div>
-  <div class="card">
-      <div class="card-header text-center bg-dark text-white" id = "headingThirteen">
-          <h5 class="mb-0">
-              <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
-                  Location
-              </button>
-          </h5>
-      </div>
-      <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordion">
-          <div class="card-body">
-              Location:
-              <input type = "text" class="form-control" aria-label="small" placeholder="Enter Your Location">
-          </div>
-      </div>
-  </div>
-</div>
- <button type="submit">Search</button>
+  <!--If the user does not supply their location and still tries to search, block them until they give it-->
+  <script>
+    function blockSearch(){
+      document.getElementById('location').required = true
+      document.getElementById('invalid').innerHTML = "Please enter a valid location"
+    }
+  </script>
+  <button onclick = "blockSearch()">
+  <input type="submit" value="search">
+  </button>
+  </form>
+  {% if search_query %}
+    <p>The most recent search is:
+  {% for field, value in search_query.items %}
+    <span style="font-weight: bold;">{{field}}</span>: {{value}}
+  {% endfor %}
+  {% endif %}
+  </p>
 
     <div class = "container">
       <h2 class = "text-center">
@@ -310,7 +529,8 @@
 
     <script>
 
-      mapboxgl.accessToken ="<--insert API key here-->"
+
+      mapboxgl.accessToken ='<--insert API key here-->'
 
 
       var map = new mapboxgl.Map({
@@ -412,11 +632,11 @@
 	      closeButton: false,
 	      closeOnClick: false
 	  });
-	  
+
 	  map.on('mouseenter', 'pets_found', function (e) {
 	      // Change the cursor style as a UI indicator.
 	      map.getCanvas().style.cursor = 'pointer';
-	      
+
 	      var coordinates = e.features[0].geometry.coordinates.slice();
 	      var description = e.features[0].properties.description;
 	      var image = e.features[0].properties.image;
@@ -427,12 +647,12 @@
 	      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
 		  coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
 	      }
-	      
+
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
 	      popup.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
 	  });
-	  
+
 	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
 	      popup.remove();
@@ -443,10 +663,20 @@
 
 
 
-    </script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
+      </script>
+
+
+
+
+
+   <!--Scripts for bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+
 </body>
 </html>
