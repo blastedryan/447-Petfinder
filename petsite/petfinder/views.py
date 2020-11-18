@@ -3,6 +3,23 @@ from django.http import HttpResponse
 from django.template import loader
 import json
 import pathlib
+import os
+
+
+# Create your views here.
+
+key = ""
+
+#os.environ.get('MAPBOX_API_KEY')
+
+def open_pet_results():
+    parent_dir = pathlib.Path(__file__).parent.absolute()
+    filename = parent_dir / "search_results"/ "pet_results.geojson"
+    with open(filename, 'r') as f:
+        json_data = json.load(f)
+        return json_data
+
+
 from petfinder_api.query import find_pets, get_animal_breeds, authenticate, key, secret_key
 from petfinder_api.convert_to_json import df_to_geojson
 import numpy as np
@@ -18,6 +35,7 @@ def save_pet_results(pets):
         output_file.write('{}'.format(geojson_str))
 
 # Create your views here.
+
 def make_dictionary(request):
     query = {k: v for k,v in request.GET.lists()}
     return query
@@ -83,7 +101,8 @@ def dogs_request(request):
         elif k in search_queries:
             petfind_query[search_queries[k]] = k
 
-    
+
+  
 
     json_data = {}
     if len(query) > 0:
@@ -94,7 +113,8 @@ def dogs_request(request):
         json_data = open_pet_results()
 
     template = loader.get_template('petfinder/Petfinder_style.html')
-    return HttpResponse(template.render({"search_query": query, 'the_json':json_data}, request))
+    return HttpResponse(template.render({"search_query": query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
+
 
 def cats_request(request):
     json_data = open_pet_results()
@@ -112,15 +132,32 @@ def cats_request(request):
 
 
 def birds_request(request):
-    query = make_dictionary(request)
+
     json_data = open_pet_results()
-    return render(request, 'petfinder/Birds.html',  {'the_json':json_data})
+    
+    
+    query = make_dictionary(request)
+
+    template = loader.get_template('petfinder/Birds.html')
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+
 def rabbits_request(request):
-    query = make_dictionary(request)
+
     json_data = open_pet_results()
-    return render(request, 'petfinder/Rabbits.html',  {'the_json':json_data})
+    
+    
+    query = make_dictionary(request)
+
+    template = loader.get_template('petfinder/Rabbits.html')
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+
 def scales_request(request):
-    query = make_dictionary(request)
+
     json_data = open_pet_results()
-    return render(request, 'petfinder/Scales.html',  {'the_json':json_data})
+    
+    
+    query = make_dictionary(request)
+
+    template = loader.get_template('petfinder/Scales.html')
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
 

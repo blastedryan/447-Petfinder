@@ -510,11 +510,16 @@
     </div>
 
     {{ the_json|json_script:"geodata" }}
+    
+
 
     <script>
 
 
-      mapboxgl.accessToken = 'pk.eyJ1IjoibW9uYWxpc2EyMTkiLCJhIjoiY2toMmF6d2Y1MDA4bzJ1bmFpcm02ZWpyaSJ9.5JtQysLZXel6Bd11z7SQvQ';
+      var api_key = "{{ MAPBOX_API_KEY }}"
+      
+      mapboxgl.accessToken = api_key
+
 
       var geodata = JSON.parse(document.getElementById('geodata').textContent);
       
