@@ -3,7 +3,17 @@ from django.http import HttpResponse
 from django.template import loader
 import json
 import pathlib
+import os
+
+
 # Create your views here.
+
+def open_pet_results():
+    parent_dir = pathlib.Path(__file__).parent.absolute()
+    filename = parent_dir / "search_results"/ "pet_results.geojson"
+    with open(filename, 'r') as f:
+        json_data = json.load(f)
+        return json_data
 
 def make_dictionary(request):
     parent_dir = pathlib.Path(__file__).parent.parent.parent.absolute()
@@ -22,8 +32,7 @@ def index(request):
     
 def dogs_request(request):
 
-    with open('/Users/monalisaraf/Petfinder/447-Petfinder/petsite/petfinder/pet_results.geojson') as f:
-        json_data = json.load(f)
+    json_data = open_pet_results()
     
     
     query = make_dictionary(request)
@@ -35,9 +44,7 @@ def dogs_request(request):
     
 def cats_request(request):
 
-
-    with open('/Users/monalisaraf/Petfinder/447-Petfinder/petsite/petfinder/pet_results.geojson') as f:
-        json_data = json.load(f)
+    json_data = open_pet_results()
 
     '''
     query = make_dictionary(request)
@@ -53,12 +60,32 @@ def cats_request(request):
 
 
 def birds_request(request):
+
+    json_data = open_pet_results()
+    
+    
     query = make_dictionary(request)
-    return render(request, 'petfinder/Birds.html',  {'the_json':json_data})
+    template = loader.get_template('petfinder/Birds.html')
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+
+
 def rabbits_request(request):
+
+    json_data = open_pet_results()
+    
+    
     query = make_dictionary(request)
-    return render(request, 'petfinder/Rabbits.html',  {'the_json':json_data})
+    template = loader.get_template('petfinder/Rabbits.html')
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+
+    
 def scales_request(request):
+
+    json_data = open_pet_results()
+    
+    
     query = make_dictionary(request)
-    return render(request, 'petfinder/Scales.html',  {'the_json':json_data})
+    template = loader.get_template('petfinder/Scales.html')
+    return HttpResponse(template.render({"search_query":query, 'the_json':json_data}, request))
+
 
