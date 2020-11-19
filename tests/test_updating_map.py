@@ -5,17 +5,8 @@ import os
 import json
 
 
-class WebBones(WebTests):
+class UpdatingMap(WebTests):
 
-    '''
-    def test_web_bones(self):
-        self.driver.get(self.htmlPath)
-        self.driver.find_element_by_id("dog_button").click()
-        self.driver.find_element_by_tag_name("input")
-        self.driver.find_element_by_tag_name("label")
-        self.driver.find_element_by_tag_name("button")
-    
-    '''
     def test_search(self):
         self.driver.get(self.htmlPath)
         time.sleep(2)
@@ -35,15 +26,4 @@ class WebBones(WebTests):
 
         time.sleep(30)
 
-        '''
 
-        search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/search.json')
-        with open('search.json', 'r') as fp:
-            search = json.load(fp)
-
-        time.sleep(3)
-        assert search["breed"] == ["Boxer"]
-        assert search ["location"] == ["Baltimore, MD"]
-
-        
-        '''
