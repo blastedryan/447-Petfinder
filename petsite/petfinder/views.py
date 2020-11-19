@@ -57,7 +57,7 @@ def prepare_query(request, pet_type):
     if 'breed' in query and query['breed'][0] != '':
         breed_error = not validate_breed(pet_type, query['breed'][0])
     if breed_error:
-        query['breed'] = 'NOT FOUND'
+        query['breed'] = ['NOT FOUND']
     write_dictionary(query, 'test_breed_search.json')
     return query
 
@@ -97,6 +97,7 @@ def dogs_request(request):
 
         elif k == 'breed':
             petfind_query['breed'] = None if query[k][0].strip() == '' else query[k][0]
+            petfind_query['breed'] = 'NOT FOUND' if query[k][0] == 'NOT FOUND' else query[k][0]
 
         elif k in search_queries:
             petfind_query[search_queries[k]] = k
@@ -105,7 +106,7 @@ def dogs_request(request):
   
 
     json_data = {}
-    if len(query) > 0:
+    if len(query) > 0 and petfind_query['breed'] != 'NOT FOUND':
     
         pets, _ = find_pets(pf, **petfind_query)
 
