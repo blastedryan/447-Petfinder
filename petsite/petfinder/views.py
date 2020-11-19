@@ -103,7 +103,7 @@ def dogs_request(request):
             petfind_query[search_queries[k]] = k
 
 
-    write_dictionary(petfind_query, 'petfind_query')
+    write_dictionary(petfind_query, 'petfind_query.json')
 
   
 

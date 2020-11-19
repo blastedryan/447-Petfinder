@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import Select
 import time
 import os
 import json
-
+import pathlib
 class WebBones(WebTests):
     def test_web_bones(self):
         self.driver.get(self.htmlPath)
@@ -44,8 +44,10 @@ class WebBones(WebTests):
 
         
 
-        search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/search.json')
-        with open('search.json', 'r') as fp:
+        parentdir = pathlib.Path(__file__).parent.absolute()
+
+        search_json_path = parentdir / 'petsite/search.json'
+        with open(parentdir / 'search.json', 'r') as fp:
             search = json.load(fp)
 
         time.sleep(3)
@@ -55,7 +57,7 @@ class WebBones(WebTests):
 
     
         # Make sure the search for the petfinder is formatted correctly
-        with open('petfind_query.json', 'r') as fp:
+        with open(parentdir / 'petfind_query.json', 'r') as fp:
             petfind_query = json.load(fp)
 
         assert petfind_query["breed"] == 'Boxer'
