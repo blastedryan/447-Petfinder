@@ -25,17 +25,17 @@ class WebBones(WebTests):
         self.driver.find_element_by_id('headingTwo').click()
         time.sleep(2)
 
-        self.driver.find_element_by_id('young-btn').click()
+        self.driver.find_element_by_id('young_dog_button').click()
         time.sleep(2)
 
         self.driver.find_element_by_id('headingThree').click()
         time.sleep(2)
-        self.driver.find_element_by_id('btn-small').click()
-        self.driver.find_element_by_id('btn-large').click()
+        self.driver.find_element_by_id('small_dog_button').click()
+        self.driver.find_element_by_id('large_dog_button').click()
         time.sleep(2)
 
-        self.driver.find_element_by_id('headingTwelve').click()
-        time.sleep(2)
+        # self.driver.find_element_by_id('headingTwelve').click()
+        # time.sleep(2)
         self.driver.find_element_by_xpath("//input[@name='location']").send_keys("Baltimore, MD")
 
 
