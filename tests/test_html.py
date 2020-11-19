@@ -53,4 +53,13 @@ class WebBones(WebTests):
         assert search["young"] == ['on']
         assert search ["location"] == ["Baltimore, MD"]
 
+    
+        # Make sure the search for the petfinder is formatted correctly
+        with open('petfind_query.json', 'r') as fp:
+            petfind_query = json.load(fp)
+
+        assert petfind_query["breed"] == 'Boxer'
+        assert petfind_query["location"] == "Baltimore, MD"
+
+
         
