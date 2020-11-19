@@ -30,7 +30,7 @@ class BreedValidation(WebTests):
         search = self.breed_send('dog_button', 'American Bulldog')
         assert search['breed'] == ['American Bulldog']
         search = self.breed_send('dog_button', 'hello')
-        assert search['breed'] == 'NOT FOUND'
+        assert search['breed'][0] == 'NOT FOUND'
 
     # def test_cat(self):
     #     search = self.breed_send('cat_button', 'Toyger')
