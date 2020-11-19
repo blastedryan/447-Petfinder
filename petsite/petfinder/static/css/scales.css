@@ -1,0 +1,331 @@
+.baby_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/baby.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.young_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/young.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.adult_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/adult.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.senior_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/old.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.small_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/small.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.medium_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/medium.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.lg_size_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.extra_lg_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/extra large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.boy_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/boy.png");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.girl_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/girl.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_kids_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/good with kids.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_dogs_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/good with dog.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_cats_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/good with cat.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.house_trained_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/house trained.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+.special_needs_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/specail needs.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+
+.blue_color_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.black_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.brown_color_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.gray_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.green_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.iridescent_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.orange_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.purple_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.red_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.tan_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.white_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.yellow_scale_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+
+.amphibian_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/amphibian.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.fish_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/fish.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.other_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/other.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.reptile_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/reptile.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.salamander_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/salamander.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.snake_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/snake.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.toad_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/toad.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.tortoise_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/tortoise.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.turtle_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Scale Images/turtle.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+
