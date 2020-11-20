@@ -10,16 +10,6 @@ Go to the [Python website](https://www.python.org/downloads/) and install Python
 ### Install Dependencies
 Type `pip install -r requirements.txt` to install other dependencies
 
-### Retrieving MapBox API Key
-In order for the map to render, you must use the MapBox API key that is found in our team's Google Drive. Upon retrieving the key, navigate to `447-Petfinder/petsite/petfinder/templates/petfinder/` and insert the key into`mapboxgl.accessToken ='<insert key here>'` at the followings locations:
-
-Birds.html, line 316
-Cats.html, line 304
-Petfinder_style.html, line 514
-Rabbits.html, line 237
-Scales.html, line 313
-
-Only after updating the key will the map become visible. In later iterations, a more secure and efficient method of key encryption will be available.
 
 ## Opening Site
 Open your console and navigate to the directory.
@@ -36,7 +26,7 @@ Go to your browser and put in the address `http://127.0.0.1:8000/petfinder`
 
 ## Running Tests
 
-Set up new environment variables: PETFINDER_KEY , PETFINDER_SECRET_KEY , PETSITE_SECRET_KEY
+Set up new environment variables: PETFINDER_KEY , PETFINDER_SECRET_KEY , PETSITE_SECRET_KEY, MAPBOX_API_KEY
 The values for the variables can be found in the google drive folder.
 
 #### Instructions for setting up environment variables in windows 
@@ -45,11 +35,12 @@ https://www.computerhope.com/issues/ch000549.htm
 #### Instructions for setting up environment variables in mac
 1. Open terminal
 2. Run “nano ~/.bash_profile”
-3. Scroll to the bottom of the file and add these two lines, replacing ``<key>`` and ``<secret key>`` with the key you're given
+3. Scroll to the bottom of the file and add these four lines, replacing ``<key>`` and ``<secret key>`` with the key you're given
 
     * `export PETFINDER_KEY=<key>`
     * `export PETFINDER_SECRET_KEY=<secret key>`
     * `export PETSITE_SECRET_KEY=<secret key>`
+    * `export MAPBOX_API_KEY=<key>`
 
 4. Type “CONTROL+X”, then “Y” and “enter”
 5. Restart your ide or terminal and the variables should be setup properly
@@ -73,4 +64,4 @@ with your version of Chrome ie. 87, 86, or 85)
 5. You can run selenium tests with either Pytest or Unittest depending on your preference 
 
 
-In order to test the MapBox API: The map should render at the bottom of the web page. You should be able to hover your mouse the existing markers, and you should see windows popup over those markers with information of the dogs. These are the dogs that were found from a test run of using the query feature of the Petfinder API. This is purely for Iteration 2 testing purposes, as later iterations will have more markers on the map, based on search results. Before testing, you must first insert the MapBox API Key, as specified in the "Retrieving MapBox API Key" section above.
+In order to test the MapBox API: The map should render at the bottom of the web page. You should be able to hover your mouse the existing markers, and you should see windows popup over those markers with information of the dogs. These are the dogs that were found from a test run of using the query feature of the Petfinder API. This is purely for Iteration 2 testing purposes, as later iterations will have more markers on the map, based on search results.

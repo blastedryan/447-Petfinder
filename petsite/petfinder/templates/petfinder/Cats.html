@@ -583,7 +583,7 @@
   {% endif %}
   </p>
 
-    <div class = "container">
+<div class = "container">
       <h2 class = "text-center">
 	Pets within 10 mile radius
       </h2>
@@ -591,11 +591,21 @@
       <div id='map' style='width: 800px; height: 600px;'></div>
     </div>
 
+
+    {{ the_json|json_script:"geodata" }}
+
     <script>
 
+      var api_key = "{{MAPBOX_API_KEY}}"
 
-      mapboxgl.accessToken ='<--insert API key here-->'
+      mapboxgl.accessToken = api_key;
 
+
+
+
+     //var data_from_json = JSON.parse({{ json_string }}.textContent);
+      var geodata = JSON.parse(document.getElementById('geodata').textContent);
+      console.log(geodata)
 
       var map = new mapboxgl.Map({
 	  container: 'map',
@@ -606,18 +616,18 @@
 
 
 
-      map.on('load', function () {
-	  map.loadImage(
-	      'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+     map.on('load', function () {
+	 map.loadImage(
+	     'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
 
-	      // Add an image to use as a custom marker
-	      function (error, image) {
+	     // Add an image to use as a custom marker
+	     function (error, image) {
 		  if (error) throw error;
 		  map.addImage('custom-marker', image);
 
 		  map.addSource('pets', {
 		      type: 'geojson',
-		      data:"{% static 'js/pet_results.geojson' %}",
+		      data: geodata,
 		      cluster: true,
 		      clusterMaxZoom: 14, // Max zoom to cluster points on
 		      clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
