@@ -4,8 +4,8 @@ import os
 from selenium import webdriver
 class WebTests(unittest.TestCase):
     def setUp(self):
-        port = '8232'
-        driverPath = '/Users/jordantroutman/Downloads/chromedriver'
+        port = '8000'
+        driverPath = '/Users/monalisaraf/Downloads/chromedriver'
         manage_py_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/manage.py')
         self.process = subprocess.Popen(['python', manage_py_path , 'runserver', port])
         self.htmlPath = 'http://127.0.0.1:{}/petfinder'.format(port)
