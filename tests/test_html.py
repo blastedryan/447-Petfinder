@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import Select
 import time
 import os
 import json
-
+import pathlib
 class WebBones(WebTests):
     def test_web_bones(self):
         self.driver.get(self.htmlPath)
@@ -25,17 +25,17 @@ class WebBones(WebTests):
         self.driver.find_element_by_id('headingTwo').click()
         time.sleep(2)
 
-        self.driver.find_element_by_id('young-btn').click()
+        self.driver.find_element_by_id('young_dog_button').click()
         time.sleep(2)
 
         self.driver.find_element_by_id('headingThree').click()
         time.sleep(2)
-        self.driver.find_element_by_id('btn-small').click()
-        self.driver.find_element_by_id('btn-large').click()
+        self.driver.find_element_by_id('small_dog_button').click()
+        self.driver.find_element_by_id('large_dog_button').click()
         time.sleep(2)
 
-        self.driver.find_element_by_id('headingTwelve').click()
-        time.sleep(2)
+        # self.driver.find_element_by_id('headingTwelve').click()
+        # time.sleep(2)
         self.driver.find_element_by_xpath("//input[@name='location']").send_keys("Baltimore, MD")
 
 
@@ -44,13 +44,24 @@ class WebBones(WebTests):
 
         
 
-        search_json_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/search.json')
-        with open('search.json', 'r') as fp:
+        parentdir = pathlib.Path(__file__).parent.absolute()
+
+        search_json_path = parentdir / 'petsite/search.json'
+        with open(parentdir / 'search.json', 'r') as fp:
             search = json.load(fp)
 
         time.sleep(3)
         assert search["breed"] == ["Boxer"]
         assert search["young"] == ['on']
         assert search ["location"] == ["Baltimore, MD"]
+
+    
+        # Make sure the search for the petfinder is formatted correctly
+        with open(parentdir / 'petfind_query.json', 'r') as fp:
+            petfind_query = json.load(fp)
+
+        assert petfind_query["breed"] == 'Boxer'
+        assert petfind_query["location"] == "Baltimore, MD"
+
 
         

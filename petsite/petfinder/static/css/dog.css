@@ -343,3 +343,12 @@
       background-position: center bottom;
 
 }
+.young_dog_btn{
+      width:220px;
+      height:220px;
+      background-image: url("Dogs_Images/young.jfif");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}

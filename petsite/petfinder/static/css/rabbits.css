@@ -1,0 +1,263 @@
+.baby_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/baby.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.young_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/young.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.adult_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/adult.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.senior_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/senior.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.small_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/small.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.medium_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/medium.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.lg_size_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.extra_lg_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/extra large.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.boy_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/bay.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.girl_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/girl.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_kids_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/good with kids.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_dogs_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/good with dogs.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.good_with_cats_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/good with cats.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.house_trained_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/house trained.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+.special_needs_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/special needs.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.short_coat_length_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/short haired.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+
+.long_coat_length_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Rabbit Images/long haired.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.agouti_color_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.black_color_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.blue_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.brown_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.cream_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.lilac_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.orange_red_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.sable_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.silver_marten_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.tan_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.tortoise_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
+.white_rabbit_btn{
+      width:220px;
+      height: 220px;
+      background-image: url("Dogs_Images/puppy.jpg");
+      background-size: 100px 100px;
+      background-repeat: no-repeat;
+      padding-left:41px;
+      background-position: center bottom;
+}
