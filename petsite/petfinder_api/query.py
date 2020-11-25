@@ -30,6 +30,15 @@ def authenticate(key_val, secret_key_val):
     pf = Petfinder(key=key_val, secret=secret_key_val)
     return pf
 
+'''
+Retrieves the coordinates for a particular location
+Input: String for the location
+Output: A tuple representing the (lat, long)
+'''
+
+def get_coords(location):
+    loc = geocode(location)
+    return loc.latitude, loc.longitude
 
 """
 Returns a tuple of a pandas data-frame of pets based on certain parameters specified and the number of API queries 
