@@ -96,23 +96,27 @@ def dogs_request(request):
             petfind_query['location'] = None if query[k][0].strip() == '' else query[k][0]
 
         elif k == 'breed':
-            petfind_query['breed'] = None
+            # petfind_query['breed'] = query[k][0]
             petfind_query['breed'] = 'NOT FOUND' if query[k][0] == 'NOT FOUND' else query[k][0]
+            if petfind_query['breed'] == '':
+                del petfind_query['breed']
 
         elif k in search_queries:
             petfind_query[search_queries[k]] = k
 
-    petfind_query['breed'] = None
-    del petfind_query['breed']
+
     print('\n' * 4, petfind_query, '\n' * 4)
 
     write_dictionary(petfind_query, 'petfind_query.json')
 
     center_lat = 38.907
     center_long = -77.04
+    breed_not_found = False
+    if 'breed' in petfind_query and petfind_query['breed'] == 'NOT FOUND':
+        breed_not_found = True
 
     json_data = {}
-    if len(query) > 0 :
+    if len(query) > 0 and not breed_not_found:
     
         pets, _ = find_pets(pf, **petfind_query)
         center_lat, center_long = get_coords(petfind_query['location'])
