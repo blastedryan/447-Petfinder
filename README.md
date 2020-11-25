@@ -47,6 +47,8 @@ https://www.computerhope.com/issues/ch000549.htm
 
 Run the tests for test_html.py before this test (search.json must have something in it). Using Pytest either in Pycharm or Terminal you can run every test in the file tests/test_query.py or individual tests. 
 
+Tests can also be run with Pytest inside of tests/test_default.py and tests/test_types_breeds.py
+
 Each test is its own function inside of the file starting with the word ‘test’. 
 
 Information on how to use Pytest in Pycharm can be found here: https://www.jetbrains.com/help/pycharm/pytest.html#enable-pytest and 
