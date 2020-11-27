@@ -525,7 +525,7 @@
   </p>
     <div class = "container">
       <h2 class = "text-center">
-	Pets within 10 mile radius
+	Pets within 100 mile radius
       </h2>
 
       <div id='map' style='width: 800px; height: 600px;'></div>
@@ -540,6 +540,9 @@
 
       var api_key = '{{MAPBOX_API_KEY}}'
 
+      var center_lat = {{ CENTER_LAT }}
+      var center_long = {{ CENTER_LONG }}
+
       mapboxgl.accessToken = api_key
 
 
@@ -548,8 +551,8 @@
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/streets-v11',
-	  center:[-77.04, 38.907],
-	  zoom: 11.5
+	  center:[center_long, center_lat],
+	  zoom: 9.0
       });
 
 

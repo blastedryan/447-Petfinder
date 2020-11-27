@@ -17,7 +17,7 @@ def open_pet_results():
         return json_data
 
 
-from petfinder_api.query import find_pets, get_animal_breeds, authenticate, key, secret_key
+from petfinder_api.query import find_pets, get_animal_breeds, authenticate, get_coords, key, secret_key
 from petfinder_api.convert_to_json import df_to_geojson
 import numpy as np
 
@@ -96,27 +96,35 @@ def dogs_request(request):
             petfind_query['location'] = None if query[k][0].strip() == '' else query[k][0]
 
         elif k == 'breed':
-            petfind_query['breed'] = None if query[k][0].strip() == '' else query[k][0]
+            # petfind_query['breed'] = query[k][0]
             petfind_query['breed'] = 'NOT FOUND' if query[k][0] == 'NOT FOUND' else query[k][0]
+            if petfind_query['breed'] == '':
+                del petfind_query['breed']
 
         elif k in search_queries:
             petfind_query[search_queries[k]] = k
 
 
+    print('\n' * 4, petfind_query, '\n' * 4)
+
     write_dictionary(petfind_query, 'petfind_query.json')
 
-  
+    center_lat = 38.907
+    center_long = -77.04
+    breed_not_found = False
+    if 'breed' in petfind_query and petfind_query['breed'] == 'NOT FOUND':
+        breed_not_found = True
 
     json_data = {}
-    if len(query) > 0 and petfind_query['breed'] != 'NOT FOUND':
+    if len(query) > 0 and not breed_not_found:
     
         pets, _ = find_pets(pf, **petfind_query)
-
+        center_lat, center_long = get_coords(petfind_query['location'])
         save_pet_results(pets)
         json_data = open_pet_results()
 
     template = loader.get_template('petfinder/Petfinder_style.html')
-    return HttpResponse(template.render({"search_query": query, 'the_json':json_data, 'MAPBOX_API_KEY':key}, request))
+    return HttpResponse(template.render({"search_query": petfind_query, 'the_json':json_data, 'MAPBOX_API_KEY':key, 'CENTER_LAT':round(center_lat, 3), 'CENTER_LONG':round(center_long, 3)}, request))
 
 
 def cats_request(request):
