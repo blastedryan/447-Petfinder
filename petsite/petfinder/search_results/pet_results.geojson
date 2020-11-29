@@ -1,0 +1,325 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Adult",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Pumpkin - 13 pounds",
+        "breeds.primary": "Boston Terrier",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49811235/3/?bust=1605590568&width=300",
+        "description": "<strong>Pumpkin - 13 pounds</strong><br>Adult Female<br>Boston Terrier",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49811235/3/?bust=1605590568&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.5074542,
+          38.3004029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Senior",
+        "gender": "Male",
+        "size": "Medium",
+        "name": "MAYHEM JONES",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49807483/1/?bust=1605559701&width=300",
+        "description": "<strong>MAYHEM JONES</strong><br>Senior Male<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49807483/1/?bust=1605559701&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.7519753,
+          38.8165274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Male",
+        "size": "Small",
+        "name": "Peyton",
+        "breeds.primary": "Chihuahua",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49737684/1/?bust=1605673843&width=300",
+        "description": "<strong>Peyton</strong><br>Young Male<br>Chihuahua",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49737684/1/?bust=1605673843&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.483409,
+          38.2967927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Adult",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Gei Gei and Mai Mai",
+        "breeds.primary": "Miniature Pinscher",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49402924/5/?bust=1605136712&width=300",
+        "description": "<strong>Gei Gei and Mai Mai</strong><br>Adult Female<br>Miniature Pinscher",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49402924/5/?bust=1605136712&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.7202641,
+          39.6419219
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Adult",
+        "gender": "Male",
+        "size": "Small",
+        "name": "LaFayette",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49328417/2/?bust=1601771064&width=300",
+        "description": "<strong>LaFayette</strong><br>Adult Male<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49328417/2/?bust=1601771064&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1710914,
+          38.882334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Senior",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Sophie",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49258967/1/?bust=1605484173&width=300",
+        "description": "<strong>Sophie</strong><br>Senior Female<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/49258967/1/?bust=1605484173&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Senior",
+        "gender": "Male",
+        "size": "Small",
+        "name": "Ralph (Pug)",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48935140/1/?bust=1605484179&width=300",
+        "description": "<strong>Ralph (Pug)</strong><br>Senior Male<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48935140/1/?bust=1605484179&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Female",
+        "size": "Medium",
+        "name": "Cleo",
+        "breeds.primary": "German Shepherd Dog",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48179523/2/?bust=1603991410&width=300",
+        "description": "<strong>Cleo</strong><br>Young Female<br>German Shepherd Dog",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/48179523/2/?bust=1603991410&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.5645446,
+          39.1154496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Female",
+        "size": "Medium",
+        "name": "Miss Otis",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47680383/1/?bust=1605207688&width=300",
+        "description": "<strong>Miss Otis</strong><br>Young Female<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/47680383/1/?bust=1605207688&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Senior",
+        "gender": "Female",
+        "size": "Medium",
+        "name": "Sadie the pug",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46862896/1/?bust=1605484186&width=300",
+        "description": "<strong>Sadie the pug</strong><br>Senior Female<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46862896/1/?bust=1605484186&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Senior",
+        "gender": "Female",
+        "size": "Medium",
+        "name": "Sweetie",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46239083/1/?bust=1605484179&width=300",
+        "description": "<strong>Sweetie</strong><br>Senior Female<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/46239083/1/?bust=1605484179&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Bayla",
+        "breeds.primary": "Beagle",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45960510/1/?bust=1584581378&width=300",
+        "description": "<strong>Bayla</strong><br>Young Female<br>Beagle",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/45960510/1/?bust=1584581378&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.9575634,
+          39.1791091
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Male",
+        "size": "Small",
+        "name": "Curly",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/43726345/1/?bust=1605484179&width=300",
+        "description": "<strong>Curly</strong><br>Young Male<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/43726345/1/?bust=1605484179&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Male",
+        "size": "Small",
+        "name": "Larry",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/43726344/1/?bust=1605484183&width=300",
+        "description": "<strong>Larry</strong><br>Young Male<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/43726344/1/?bust=1605484183&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Young",
+        "gender": "Male",
+        "size": "Small",
+        "name": "Nova",
+        "breeds.primary": "Chihuahua",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/38424817/1/?bust=1497302258&width=300",
+        "description": "<strong>Nova</strong><br>Young Male<br>Chihuahua",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/38424817/1/?bust=1497302258&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "age": "Senior",
+        "gender": "Female",
+        "size": "Small",
+        "name": "Bella McKenzie",
+        "breeds.primary": "Pug",
+        "primary_photo_cropped.small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/37607108/1/?bust=1489236333&width=300",
+        "description": "<strong>Bella McKenzie</strong><br>Senior Female<br>Pug",
+        "image": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/37607108/1/?bust=1489236333&width=300"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.6042521,
+          40.153364
+        ]
+      }
+    }
+  ]
+}

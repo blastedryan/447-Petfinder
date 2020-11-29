@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 <head>
     <!---Stylesheet for bootstrap --->
@@ -526,23 +527,34 @@
   </p>
     <div class = "container">
       <h2 class = "text-center">
-	Pets within 10 mile radius
+	Pets within 100 mile radius
       </h2>
 
       <div id='map' style='width: 800px; height: 600px;'></div>
     </div>
 
+    {{ the_json|json_script:"geodata" }}
+
+
+
     <script>
 
 
-      mapboxgl.accessToken ='<--insert API key here-->'
+      var api_key = '{{MAPBOX_API_KEY}}'
 
+      var center_lat = {{ CENTER_LAT }}
+      var center_long = {{ CENTER_LONG }}
+
+      mapboxgl.accessToken = api_key
+
+
+      var geodata = JSON.parse(document.getElementById('geodata').textContent);
 
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/streets-v11',
-	  center:[-77.04, 38.907],
-	  zoom: 11.5
+	  center:[center_long, center_lat],
+	  zoom: 9.0
       });
 
 
@@ -558,7 +570,7 @@
 
 		  map.addSource('pets', {
 		      type: 'geojson',
-		      data:"{% static 'js/pet_results.geojson' %}",
+		      data:geodata,
 		      cluster: true,
 		      clusterMaxZoom: 14, // Max zoom to cluster points on
 		      clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
