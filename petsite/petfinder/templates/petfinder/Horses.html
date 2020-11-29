@@ -23,6 +23,16 @@
           width: 220px;
           height:220px;
         }
+        .btn > .btn{
+            width:320px;
+            height:320px;
+            background-size: 200px 200px;
+        }
+        .submit_horse_btn{
+            padding:0;
+            border:none;
+            background:none;
+        }
         .verticalcenter{
           display: inline;
           height:100px;
@@ -548,7 +558,7 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()">
+  <button class= "submit_horse_btn" onclick = "blockSearch()">
   <input type="submit" value="search">
   </button>
   </form>

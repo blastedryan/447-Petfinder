@@ -24,6 +24,16 @@
           width: 220px;
           height:220px;
     }
+    .btn > .btn{
+      width: 320px;
+      height:320px;
+      background-size:200px 200px;
+    }
+    .submit_furry_btn{
+      padding:0;
+      border:none;
+      background:none;
+    }
     .mapboxgl-popup {
         max-width: 400px;
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -559,7 +569,7 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()">
+  <button class="submit_furry_btn" onclick = "blockSearch()">
   <input type="submit" value="search">
   </button>
   </form>
