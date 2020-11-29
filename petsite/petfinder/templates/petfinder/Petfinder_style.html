@@ -24,22 +24,24 @@
           width: 220px;
           height:220px;
         }
-        .young_dog_btn{
-            width:220px;
-            height: 220px;
-            background-image: url("/petsite/petfinder/static/css/Dogs_Images/young.jfif");
-            background-size: 100px 100px;
-            background-repeat: no-repeat;
-            padding-left:41px;
-            background-position: center bottom;
-        }
+
         .verticalcenter{
           display: inline;
           height:100px;
           width: 100px;
           vertical-align: middle;
         }
+        .btn > .btn{
+            width:320px;
+            height:320px;
+            background-size: 200px 200px;
 
+        }
+        .submit_dog_btn{
+            padding:0;
+            border:none;
+            background:none;
+        }
         #map {
                 position: absolute;
         }
@@ -512,7 +514,7 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()" id="search_button">
+  <button class="submit_dog_btn" onclick = "blockSearch()" id="search_button">
   <input type="submit" value="search">
   </button>
   </form>
