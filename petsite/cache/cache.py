@@ -5,7 +5,7 @@ This is basically my first time writing python code so don't expect anything out
 import os
 import numpy as np
 from django.core.cache import cache
-from petsite.petfinder_api.query import find_pets, authenticate, key, secret_key
+from petsite.petfinder_api.query import find_pets
 from petpy.api import Petfinder
 from geopy.geocoders import Nominatim
 from geopy.distance import geodesic
@@ -53,11 +53,18 @@ def find_pets_with_cache(pf: Petfinder, location=None, animal_type=None, breed=N
             curr_location = locator.geocode(location)
             curr_latlong = (curr_location.latitude, curr_location.longitude)
             # remove results with no latlong
-            pets = pets.loc[(np.isnan(pets['contact.address.lat']) == False) &
-                            (np.isnan(pets['contact.address.long']) == False)]
-            #pets = pets.loc[((geodesic(curr_latlong, (pets['contact.address.lat'], pets['contact.address.long'])).miles) < distance)]
-            pets['new'] = geodesic((pets['contact.address.lat'], pets['contact.address.long']),curr_latlong).miles
-
+            pets = pets.loc[(np.isnan(pets['contact.address.lat']) is False) &
+                            (np.isnan(pets['contact.address.long']) is False)]
+            # pets = pets.loc[((geodesic(curr_latlong, (pets['contact.address.lat'],
+            # pets['contact.address.long'])).miles) < distance)]
+            
+            # there's probably a better way but this works
+            pets['new'] = 0
+            for index in pets.index:
+                pets.loc[index, 'new'] = geodesic(curr_latlong, (pets.loc[index, 'contact.address.lat'],
+                                                                 pets.loc[index, 'contact.address.long'])).miles
+            pets = pets.loc[pets['new'] < distance]
+            del pets['new']
         # if there are not enough results in the cache, run query and cache results
         if pets.shape[0] < num_results:
             pets, _ = find_pets(pf, location, animal_type, breed, size, gender, age, color,
