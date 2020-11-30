@@ -30,15 +30,6 @@ def authenticate(key_val, secret_key_val):
     pf = Petfinder(key=key_val, secret=secret_key_val)
     return pf
 
-'''
-Retrieves the coordinates for a particular location
-Input: String for the location
-Output: A tuple representing the (lat, long)
-'''
-
-def get_coords(location):
-    loc = geocode(location)
-    return loc.latitude, loc.longitude
 
 """
 Returns a tuple of a pandas data-frame of pets based on certain parameters specified and the number of API queries 
@@ -60,7 +51,7 @@ Currently only 50 pets max will be returned but in the future more can be return
 
 def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=None, gender=None, age=None, color=None,
               coat=None, org_name=None, distance=None, name=None, good_with=[], house_trained=None, special_needs=None,
-              sort=None, lat_long = False):
+              sort=None):
     # Create a boolean list of values related to what the animal is good_with
     actual_compatible = [None, None, None]
     possible_compatible = ['cat', 'dog', 'children']
@@ -133,9 +124,9 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
     if special_needs is not None:
         ret_pets = ret_pets.loc[ret_pets['attributes.special_needs'] == True]
 
-    ret_pets = __add_coords_col(ret_pets.head(n=MAX_PETS), location, lat_long)
-    ret_pets['primary_photo_cropped.small'] = ret_pets['primary_photo_cropped.small'].fillna('default')
-
+    ret_pets = __add_coords_col(ret_pets.head(n=MAX_PETS))
+    if 'primary_photo_cropped' in pets.columns:
+        del pets['primary_photo_cropped']
     return ret_pets, search_count
 
 
@@ -171,38 +162,27 @@ Optimized to only find lat and long of unique addresses and replicate the output
 '''
 
 
-def __add_coords_col(pets: DataFrame, location, lat_long):
-
-    # Adding default location to pets that do not have a location able to be geocoded
-    def_lat = None
-    def_long = None
-    if location:
-        if lat_long:
-            loc_split = location.split(',')
-            def_lat = float(loc_split[0])
-            def_long = float(loc_split[1][1:])
-        else:
-            loc_tuple = geocode(location)
-            def_lat = loc_tuple.latitude
-            def_long = loc_tuple.longitude
-
-    pets['contact.address.address'] = pets['contact.address.city'].fillna('') + ', ' + \
-                                      pets['contact.address.state'].fillna('') + ', ' + \
-                                      pets['contact.address.postcode'].fillna('')
-    unique_addresses = pets['contact.address.address'].unique()
-    location_list = np.array([geocode(x) for x in unique_addresses], dtype=object)
-    lat_long_tup = location_list
-    for i in range(len(unique_addresses)):
-        if not (lat_long_tup[i] is None):
-            pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
-                                                                          'contact.address.long']] = \
-            lat_long_tup[i][1][0], lat_long_tup[i][1][1]
-        else:
-            pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+def __add_coords_col(pets: DataFrame):
+    try:
+        pets['contact.address.address'] = pets['contact.address.city'].fillna('') + ', ' + \
+                                          pets['contact.address.state'].fillna('') + ', ' + \
+                                          pets['contact.address.postcode'].fillna('')
+        unique_addresses = pets['contact.address.address'].unique()
+        location_list = np.array([geocode(x) for x in unique_addresses], dtype=object)
+        lat_long_tup = location_list
+        for i in range(len(unique_addresses)):
+            if not (lat_long_tup[i] is None):
+                pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
                                                                               'contact.address.long']] = \
-                def_lat, def_long
+                lat_long_tup[i][1][0], lat_long_tup[i][1][1]
+            else:
+                pets.loc[pets['contact.address.address'] == unique_addresses[i], ['contact.address.lat',
+                                                                                  'contact.address.long']] = \
+                    np.NaN, np.NaN
 
-    return pets
+        return pets
+    except:
+        return -1
 
 
 '''

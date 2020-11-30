@@ -40,5 +40,12 @@ def test_petfind_complex_with_cache():
     cache_result = cache.get('default')
     assert cache_result.shape[0] > num_results
     pets2 = find_pets_with_cache(pf, animal_type='dog')  # find dogs in cache and return them
-    pets2.reset_index(inplace=True, drop=True)
+    pets2.reset_index(inplace=True, drop=True) #reset index so they match
+    assert pets.equals(pets2)
+
+def test_petfind_loc():
+    cache.clear()
+    pets = find_pets_with_cache(pf, location='Baltimore, MD', distance=50)
+    assert pets.shape[0] == num_results
+    pets2 = find_pets_with_cache(pf, location='Baltimore, MD', distance=100)
     assert pets.equals(pets2)
