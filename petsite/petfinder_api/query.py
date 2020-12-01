@@ -134,6 +134,8 @@ def find_pets(pf: Petfinder, location=None, animal_type=None, breed=None, size=N
         ret_pets = ret_pets.loc[ret_pets['attributes.special_needs'] == True]
 
     ret_pets = __add_coords_col(ret_pets.head(n=MAX_PETS), location, lat_long)
+    if 'primary_photo_cropped' in pets.columns:
+        del pets['primary_photo_cropped']
     ret_pets['primary_photo_cropped.small'] = ret_pets['primary_photo_cropped.small'].fillna('default')
 
     return ret_pets, search_count
