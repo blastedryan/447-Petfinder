@@ -49,3 +49,4 @@ def test_petfind_loc():
     assert pets.shape[0] == num_results
     pets2 = find_pets_with_cache(pf, location='Baltimore, MD', distance=100)
     assert pets.equals(pets2)
+    
