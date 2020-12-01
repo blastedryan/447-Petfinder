@@ -36,14 +36,16 @@
 
 
         .mapboxgl-popup {
-              max-width: 800px;
+            max-width: 800px;
+	    max-height: 400px;
               font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
           }
 
 
         .mapboxgl-popup-content {
-          text-align: center;
-          font-family: 'Open Sans', sans-serif;
+	    overflow-y: scroll;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
         }
 
         img{
@@ -561,8 +563,9 @@
 		      type: 'geojson',
 		      data: geodata,
 		      cluster: true,
-		      clusterMaxZoom: 14, // Max zoom to cluster points on
-		      clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
+		      clusterMinPoints: 1,
+		      clusterMaxZoom: 100, // Max zoom to cluster points on
+		      clusterRadius: 25 // Radius of each cluster when clustering points (defaults to 50)
 		  });
 
 
@@ -634,11 +637,50 @@
 	  );
 
 	  // Create a popup, but don't add it to the map yet.
-	  var popup = new mapboxgl.Popup({
+	  var popup_one = new mapboxgl.Popup({
 	      closeButton: false,
 	      closeOnClick: false
 	  });
 
+	  var popup_cluster = new mapboxgl.Popup({
+	      closeButton: true,
+	      closeOnClick: false
+	  });
+
+	  map.on('click', 'clusters', function (e){
+	      console.log("hi monu");
+	      var features = map.queryRenderedFeatures(e.point, {
+		  layers: ['clusters']
+	      });
+	      var clusterId = features[0].properties.cluster_id;
+	      console.log("clusterID: ", clusterId);
+	      var pointCount = features[0].properties.point_count;
+	      console.log("pointCount: ", pointCount);
+	      var clusterLoc = e.features[0].geometry.coordinates;
+	      console.log("cluster location: ",clusterLoc);
+	      var clusterSource = map.getSource('pets');
+	      
+	      clusterSource.getClusterLeaves(clusterId, pointCount, 0, function(error, features) {
+		  // Print cluster leaves in the console
+		  console.log("num features: ", features.length);
+		  console.log('Cluster leaves:', error, features);
+
+		  let htmlString = "";
+		  var p = 0
+		  for(p = 0; p < features.length; p++){
+		      var image = features[p].properties.image;
+		      var description = features[p].properties.description;
+		      htmlString += '<p><img src='+image+'></p>'+description+"<hr>";
+		  }
+		  
+		  popup_cluster.setLngLat(clusterLoc).setHTML(htmlString).addTo(map);
+		  
+		  
+	      })
+	      
+	      
+	  });
+	  
 	  map.on('mouseenter', 'pets_found', function (e) {
 	      // Change the cursor style as a UI indicator.
 	      map.getCanvas().style.cursor = 'pointer';
@@ -656,12 +698,12 @@
 
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
-	      popup.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
+	      popup_one.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
 	  });
 
 	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
-	      popup.remove();
+	      popup_one.remove();
 	  });
       });
 
