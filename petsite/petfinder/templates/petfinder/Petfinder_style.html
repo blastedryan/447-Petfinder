@@ -650,12 +650,17 @@
 	  );
 
 	  // Create a popup, but don't add it to the map yet.
-	  var popup = new mapboxgl.Popup({
+	  var popup_one = new mapboxgl.Popup({
+	      closeButton: false,
+	      closeOnClick: false
+	  });
+
+	  var popup_cluster = new mapboxgl.Popup({
 	      closeButton: true,
 	      closeOnClick: false
 	  });
 
-	  map.on('mouseenter', 'clusters', function (e){
+	  map.on('click', 'clusters', function (e){
 	      console.log("hi monu");
 	      var features = map.queryRenderedFeatures(e.point, {
 		  layers: ['clusters']
@@ -681,13 +686,13 @@
 		      htmlString += '<p><img src='+image+'></p>'+description+"<hr>";
 		  }
 
-		  popup.setLngLat(clusterLoc).setHTML(htmlString).addTo(map);
+		  popup_cluster.setLngLat(clusterLoc).setHTML(htmlString).addTo(map);
 
 
 	      })
 
 		  
-	      });
+	  });
 	     
 	     
 	  
@@ -709,12 +714,12 @@
 	      
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
-	      popup.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
+	      popup_one.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
 	  });
 
 	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
-	      popup.remove();
+	      popup_one.remove();
 	  });
       });
 
