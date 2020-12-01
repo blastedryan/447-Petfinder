@@ -6,8 +6,8 @@
     <!---Stylesheet for bootstrap --->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type = "text/css" href="{% static 'css/dog.css' %}">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css' rel='stylesheet' />
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -24,36 +24,42 @@
           width: 220px;
           height:220px;
         }
-        .young_dog_btn{
-            width:220px;
-            height: 220px;
-            background-image: url("/petsite/petfinder/static/css/Dogs_Images/young.jfif");
-            background-size: 100px 100px;
-            background-repeat: no-repeat;
-            padding-left:41px;
-            background-position: center bottom;
-        }
+
         .verticalcenter{
           display: inline;
           height:100px;
           width: 100px;
           vertical-align: middle;
         }
+        .btn > .btn{
+            width:320px;
+            height:320px;
+            background-size: 200px 200px;
 
+        }
+        .submit_dog_btn{
+            padding:0;
+            border:none;
+            background:none;
+        }
         #map {
                 position: absolute;
         }
 
 
         .mapboxgl-popup {
-              max-width: 800px;
-              font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+            max-width: 800px;
+	    max-height: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
           }
 
 
         .mapboxgl-popup-content {
-          text-align: center;
-          font-family: 'Open Sans', sans-serif;
+	    overflow-y: scroll;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
         }
 
         img{
@@ -512,7 +518,7 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()" id="search_button">
+  <button class="submit_dog_btn" onclick = "blockSearch()" id="search_button">
   <input type="submit" value="search">
   </button>
   </form>
@@ -525,7 +531,7 @@
   </p>
     <div class = "container">
       <h2 class = "text-center">
-	Pets within 10 mile radius
+	Pets within 100 mile radius
       </h2>
 
       <div id='map' style='width: 800px; height: 600px;'></div>
@@ -540,6 +546,9 @@
 
       var api_key = '{{MAPBOX_API_KEY}}'
 
+      var center_lat = {{ CENTER_LAT }}
+      var center_long = {{ CENTER_LONG }}
+
       mapboxgl.accessToken = api_key
 
 
@@ -548,8 +557,8 @@
       var map = new mapboxgl.Map({
 	  container: 'map',
 	  style: 'mapbox://styles/mapbox/streets-v11',
-	  center:[-77.04, 38.907],
-	  zoom: 11.5
+	  center:[center_long, center_lat],
+	  zoom: 9.0
       });
 
 
@@ -567,8 +576,9 @@
 		      type: 'geojson',
 		      data:geodata,
 		      cluster: true,
-		      clusterMaxZoom: 14, // Max zoom to cluster points on
-		      clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
+		      clusterMinPoints: 1,
+		      clusterMaxZoom: 100, // Max zoom to cluster points on
+		      clusterRadius: 25 // Radius of each cluster when clustering points (defaults to 50)
 		  });
 
 
@@ -620,8 +630,8 @@
 			  'text-size': 12
 		      }
 		  });
-
-
+		  
+		  
 		  // Add a layer showing the places.
 		  map.addLayer({
 		      'id': 'pets_found',
@@ -640,10 +650,52 @@
 	  );
 
 	  // Create a popup, but don't add it to the map yet.
-	  var popup = new mapboxgl.Popup({
+	  var popup_one = new mapboxgl.Popup({
 	      closeButton: false,
 	      closeOnClick: false
 	  });
+
+	  var popup_cluster = new mapboxgl.Popup({
+	      closeButton: true,
+	      closeOnClick: false
+	  });
+
+	  map.on('click', 'clusters', function (e){
+	      console.log("hi monu");
+	      var features = map.queryRenderedFeatures(e.point, {
+		  layers: ['clusters']
+	      });
+	      var clusterId = features[0].properties.cluster_id;
+	      console.log("clusterID: ", clusterId);
+	      var pointCount = features[0].properties.point_count;
+	      console.log("pointCount: ", pointCount);
+	      var clusterLoc = e.features[0].geometry.coordinates;
+	      console.log("cluster location: ",clusterLoc);
+	      var clusterSource = map.getSource('pets');
+	      
+	      clusterSource.getClusterLeaves(clusterId, pointCount, 0, function(error, features) {
+		  // Print cluster leaves in the console
+		  console.log("num features: ", features.length);
+		  console.log('Cluster leaves:', error, features);
+
+		  let htmlString = "";
+		  var p = 0
+		  for(p = 0; p < features.length; p++){
+		      var image = features[p].properties.image;
+		      var description = features[p].properties.description;
+		      htmlString += '<p><img src='+image+'></p>'+description+"<hr>";
+		  }
+
+		  popup_cluster.setLngLat(clusterLoc).setHTML(htmlString).addTo(map);
+
+
+	      })
+
+		  
+	  });
+	     
+	     
+	  
 	  
 	  map.on('mouseenter', 'pets_found', function (e) {
 	      // Change the cursor style as a UI indicator.
@@ -662,12 +714,12 @@
 	      
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
-	      popup.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
+	      popup_one.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
 	  });
-	  
+
 	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
-	      popup.remove();
+	      popup_one.remove();
 	  });
       });
 

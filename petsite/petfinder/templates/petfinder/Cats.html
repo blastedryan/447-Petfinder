@@ -22,12 +22,23 @@
         .body-btn{
           width: 220px;
           height:220px;
+
+        }
+        .btn > .btn{
+            width:320px;
+            height:320px;
+            background-size: 200px 200px;
         }
         .verticalcenter{
           display: inline;
           height:100px;
           width: 100px;
           vertical-align: middle;
+        }
+        .submit_cat_button{
+            padding:0;
+            border:none;
+            background:none;
         }
 
         #map {
@@ -36,14 +47,16 @@
 
 
         .mapboxgl-popup {
-              max-width: 800px;
+            max-width: 800px;
+	    max-height: 400px;
               font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
           }
 
 
         .mapboxgl-popup-content {
-          text-align: center;
-          font-family: 'Open Sans', sans-serif;
+	    overflow-y: scroll;
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
         }
 
         img{
@@ -297,152 +310,152 @@
         <!--Each Card acts as a checkbox, allowing the user to select multiple things-->
         <div class="container-fluid">
           <div class = "btn" data-toggle="buttons" id="black_cat_button">
-            <label class = "black_color_btn btn btn-outline-dark btn-lg" for = "apricot">Black
+            <label class = "black_color_cat_btn btn btn-outline-dark btn-lg" for = "apricot">Black
               <input type = "checkbox" aria-checked = "false" id = "apricot" name = "apricot">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="tuxedo_cat_button">
-            <label class = "tuxedo_btn btn btn-outline-dark btn-lg" for = "tuxedo">Black&White/Tuxedo
+            <label class = "tuxedo_cat_btn btn btn-outline-dark btn-lg" for = "tuxedo">Black&White/Tuxedo
               <input type = "checkbox" aria-checked = "false" id = "tuxedo" name = "tuxedo">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="blue_cream_cat_button">
-            <label class = "blue_cream_btn btn btn-outline-dark btn-lg" for = "blue_cream">Blue Cream
+            <label class = "blue_cream_cat_btn btn btn-outline-dark btn-lg" for = "blue_cream">Blue Cream
               <input type = "checkbox" aria-checked = "false" id = "blue_cream" name = "blue_cream">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="blue_point_cat_button">
-            <label class = "blue_ptn_btn btn btn-outline-dark btn-lg" for = "blue_point">Blue Point
+            <label class = "blue_ptn_cat_btn btn btn-outline-dark btn-lg" for = "blue_point">Blue Point
               <input type = "checkbox" aria-checked = "false" id = "blue_point" name = "blue_point">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="brown_cat_button">
-            <label class = "brown_color_btn btn btn-outline-dark btn-lg" for = "brown">Brown/ Chocolate
+            <label class = "brown_color_cat_btn btn btn-outline-dark btn-lg" for = "brown">Brown/ Chocolate
               <input type = "checkbox" aria-checked = "false" id = "brown" name = "brown">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="buff_cat_button">
-            <label class = "buff_btn btn btn-outline-dark btn-lg" for = "buff_white">Buff & White
+            <label class = "buff_cat_btn btn btn-outline-dark btn-lg" for = "buff_white">Buff & White
               <input type = "checkbox" aria-checked = "false" id = "buff_white" name = "buff_white">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="buff_tan_cat_button">
-            <label class = "tan_btn btn btn-outline-dark btn-lg" for = "tan">Buff/Tan/Fawn
+            <label class = "tan_cat_btn btn btn-outline-dark btn-lg" for = "tan">Buff/Tan/Fawn
               <input type = "checkbox" aria-checked = "false" id = "tan" name = "buff/tan/fawn">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="calico_cat_button">
-            <label class = "calico_btn btn btn-outline-dark btn-lg" for = "calico">Calico
+            <label class = "calico_cat_btn btn btn-outline-dark btn-lg" for = "calico">Calico
               <input type = "checkbox" aria-checked = "false" id = "calico" name = "calico">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="chocolate_point_cat_button">
-            <label class = "chocolate_point_btn btn btn-outline-dark btn-lg" for = "chocolate_pt">Chocolate Point
+            <label class = "chocolate_point_cat_btn btn btn-outline-dark btn-lg" for = "chocolate_pt">Chocolate Point
               <input type = "checkbox" aria-checked = "false" id = "chocolate_pt" name = "chocolate_pt">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="cream_cat_button">
-            <label class = "cream_btn btn btn-outline-dark btn-lg" for = "cream">Cream/Ivory
+            <label class = "cream_cat_btn btn btn-outline-dark btn-lg" for = "cream">Cream/Ivory
               <input type = "checkbox" aria-checked = "false" id = "cream" name = "cream">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="cream_point_cat_button">
-            <label class = "cream_ptn_btn btn btn-outline-dark btn-lg" for = "red">Cream Point
+            <label class = "cream_ptn_cat_btn btn btn-outline-dark btn-lg" for = "red">Cream Point
               <input type = "checkbox" aria-checked = "false" id = "red" name = "red_chestnut_orange">
             </label>
           </div>
           <div class = "btn" data-toggle="buttons" id="dilute_calico_cat_button">
-            <label class = "dilute_btn btn btn-outline-dark btn-lg" for = "sable">Dilute Calico
+            <label class = "dilute_cat_btn btn btn-outline-dark btn-lg" for = "sable">Dilute Calico
               <input type = "checkbox" aria-checked = "false" id = "sable" name = "sable">
             </label>
           </div>
         <div class = "btn" data-toggle="buttons" id="tortoiseshell_cat_button">
-            <label class = "tortoise_color_btn btn btn-outline-dark btn-lg" for = "tricolor">Dilute Tortoiseshell
+            <label class = "tortoise_color_cat_btn btn btn-outline-dark btn-lg" for = "tricolor">Dilute Tortoiseshell
               <input type = "checkbox" aria-checked = "false" id = "tricolor" name = "tricolor">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="flame_point_cat_button">
-            <label class = "flame_ptn_btn btn btn-outline-dark btn-lg" for = "flame">Flame Point
+            <label class = "flame_ptn_cat_btn btn btn-outline-dark btn-lg" for = "flame">Flame Point
               <input type = "checkbox" aria-checked = "false" id = "flame" name = "white_cream">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="gray_cat_button">
-            <label class = "gray_white_color_btn btn btn-outline-dark btn-lg" for = "yellow">Gray & White
+            <label class = "gray_white_color_cat_btn btn btn-outline-dark btn-lg" for = "yellow">Gray & White
               <input type = "checkbox" aria-checked = "false" id = "yellow" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="gray_blue_cat_button">
-            <label class = "gray_blue_color_btn btn btn-outline-dark btn-lg" for = "gray_blue">Gray/Blue/Silver
+            <label class = "gray_blue_color_cat_btn btn btn-outline-dark btn-lg" for = "gray_blue">Gray/Blue/Silver
               <input type = "checkbox" aria-checked = "false" id = "gray_blue" name = "yellow_tan_blond_fawn">
             </label>
         </div>
          <div class = "btn" data-toggle="buttons" id="lilac_point_cat_button">
-            <label class = "lilac_color_btn btn btn-outline-dark btn-lg" for = "lilac">Lilac Point
+            <label class = "lilac_color_cat_btn btn btn-outline-dark btn-lg" for = "lilac">Lilac Point
               <input type = "checkbox" aria-checked = "false" id = "lilac" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="orange_white_cat_button">
-            <label class = "orange_whtie_color_btn btn btn-outline-dark btn-lg" for = "yellow">Orange & White
+            <label class = "orange_whtie_color_cat_btn btn btn-outline-dark btn-lg" for = "yellow">Orange & White
               <input type = "checkbox" aria-checked = "false" id = "orange_white" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="orange_red_cat_button">
-            <label class = "orange_red_color_btn btn btn-outline-dark btn-lg" for = "orange_red">Orange/Red
+            <label class = "orange_red_color_cat_btn btn btn-outline-dark btn-lg" for = "orange_red">Orange/Red
               <input type = "checkbox" aria-checked = "false" id = "orange_red" name = "yellow_tan_blond_fawn">
             </label>
         </div>
          <div class = "btn" data-toggle="buttons" id="seal_point_cat_button">
-            <label class = "seal_ptn_btn btn btn-outline-dark btn-lg" for = "seal_point">Seal Point
+            <label class = "seal_ptn_cat_btn btn btn-outline-dark btn-lg" for = "seal_point">Seal Point
               <input type = "checkbox" aria-checked = "false" id = "seal_point" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="smoke_cat_button">
-            <label class = "smoke_btn btn btn-outline-dark btn-lg" for = "smoke">Smoke
+            <label class = "smoke_cat_btn btn btn-outline-dark btn-lg" for = "smoke">Smoke
               <input type = "checkbox" aria-checked = "false" id = "smoke" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tabby_cat_button">
-            <label class = "tabby_brown_btn btn btn-outline-dark btn-lg" for = "tabby_brown">Tabby(Brown/Chocolate)
+            <label class = "tabby_brown_cat_btn btn btn-outline-dark btn-lg" for = "tabby_brown">Tabby(Brown/Chocolate)
               <input type = "checkbox" aria-checked = "false" id = "tabby_brown" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tabby_buff_cat_button">
-            <label class = "tabby_buff_btn btn btn-outline-dark btn-lg" for = "tabby_buff">Tabby(Buff/Tan/Fawn)
+            <label class = "tabby_buff_cat_btn btn btn-outline-dark btn-lg" for = "tabby_buff">Tabby(Buff/Tan/Fawn)
               <input type = "checkbox" aria-checked = "false" id = "tabby_buff" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tabby_gray_cat_button">
-            <label class = "tabby_gray_btn btn btn-outline-dark btn-lg" for = "tabby_gray">Tabby(Gray/Blue/Silver)
+            <label class = "tabby_gray_cat_btn btn btn-outline-dark btn-lg" for = "tabby_gray">Tabby(Gray/Blue/Silver)
               <input type = "checkbox" aria-checked = "false" id = "tabby_gray" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tabby_spotted_cat_button">
-            <label class = "tabby_spotted_btn btn btn-outline-dark btn-lg" for = "tabby_spotted">Tabby(Leopard/Spotted)
+            <label class = "tabby_spotted_cat_btn btn btn-outline-dark btn-lg" for = "tabby_spotted">Tabby(Leopard/Spotted)
               <input type = "checkbox" aria-checked = "false" id = "tabby_spotted" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tabby_orange_cat_button">
-            <label class = "tabby_orange_btn btn btn-outline-dark btn-lg" for = "tabby_orange">Tabby(Orange)
+            <label class = "tabby_orange_cat_btn btn btn-outline-dark btn-lg" for = "tabby_orange">Tabby(Orange)
               <input type = "checkbox" aria-checked = "false" id = "tabby_orange" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tabby_tiger_cat_button">
-            <label class = "tabby_tiger_btn btn btn-outline-dark btn-lg" for = "tabby_tiger">Tabby(Tiger Striped)
+            <label class = "tabby_tiger_cat_btn btn btn-outline-dark btn-lg" for = "tabby_tiger">Tabby(Tiger Striped)
               <input type = "checkbox" aria-checked = "false" id = "tabby_tiger" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="torbie_cat_button">
-            <label class = "torbie_btn btn btn-outline-dark btn-lg" for = "torbie">Torbie
+            <label class = "torbie_cat_btn btn btn-outline-dark btn-lg" for = "torbie">Torbie
               <input type = "checkbox" aria-checked = "false" id = "torbie" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="tortoise_cat_button">
-            <label class = "tortoise_color_btn btn btn-outline-dark btn-lg" for = "tortoiseshell">Tortoiseshell
+            <label class = "tortoise_color_cat_btn btn btn-outline-dark btn-lg" for = "tortoiseshell">Tortoiseshell
               <input type = "checkbox" aria-checked = "false" id = "tortoiseshell" name = "yellow_tan_blond_fawn">
             </label>
         </div>
         <div class = "btn" data-toggle="buttons" id="white_cat_button">
-            <label class = "white_btn btn btn-outline-dark btn-lg" for = "white">White
+            <label class = "white_cat_btn btn btn-outline-dark btn-lg" for = "white">White
               <input type = "checkbox" aria-checked = "false" id = "white" name = "yellow_tan_blond_fawn">
             </label>
         </div>
@@ -571,8 +584,8 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()">
-  <input type="submit" value="search">
+  <button class = "submit_cat_button" onclick = "blockSearch()">
+  <input  type="submit" value="search">
   </button>
   </form>
   {% if search_query %}
@@ -585,7 +598,7 @@
 
 <div class = "container">
       <h2 class = "text-center">
-	Pets within 10 mile radius
+	Pets within 100 mile radius
       </h2>
 
       <div id='map' style='width: 800px; height: 600px;'></div>
@@ -629,8 +642,9 @@
 		      type: 'geojson',
 		      data: geodata,
 		      cluster: true,
-		      clusterMaxZoom: 14, // Max zoom to cluster points on
-		      clusterRadius: 100 // Radius of each cluster when clustering points (defaults to 50)
+		      clusterMinPoints: 1,
+		      clusterMaxZoom: 100, // Max zoom to cluster points on
+		      clusterRadius: 25 // Radius of each cluster when clustering points (defaults to 50)
 		  });
 
 
@@ -702,11 +716,50 @@
 	  );
 
 	  // Create a popup, but don't add it to the map yet.
-	  var popup = new mapboxgl.Popup({
+	  var popup_one = new mapboxgl.Popup({
 	      closeButton: false,
 	      closeOnClick: false
 	  });
 
+	 var popup_cluster = new mapboxgl.Popup({
+	     closeButton: true,
+	     closeOnClick: false
+	 });
+
+	 map.on('click', 'clusters', function (e){
+	     console.log("hi monu");
+	     var features = map.queryRenderedFeatures(e.point, {
+		 layers: ['clusters']
+	     });
+	     var clusterId = features[0].properties.cluster_id;
+	     console.log("clusterID: ", clusterId);
+	     var pointCount = features[0].properties.point_count;
+	     console.log("pointCount: ", pointCount);
+	     var clusterLoc = e.features[0].geometry.coordinates;
+	     console.log("cluster location: ",clusterLoc);
+	     var clusterSource = map.getSource('pets');
+	     
+	     clusterSource.getClusterLeaves(clusterId, pointCount, 0, function(error, features) {
+		 // Print cluster leaves in the console
+		 console.log("num features: ", features.length);
+		 console.log('Cluster leaves:', error, features);
+		 
+		 let htmlString = "";
+		 var p = 0
+		 for(p = 0; p < features.length; p++){
+		     var image = features[p].properties.image;
+		     var description = features[p].properties.description;
+		     htmlString += '<p><img src='+image+'></p>'+description+"<hr>";
+		 }
+		 
+		 popup_cluster.setLngLat(clusterLoc).setHTML(htmlString).addTo(map);
+		 
+		 
+	     })
+	     
+	     
+	 });
+	 
 	  map.on('mouseenter', 'pets_found', function (e) {
 	      // Change the cursor style as a UI indicator.
 	      map.getCanvas().style.cursor = 'pointer';
@@ -724,12 +777,12 @@
 
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
-	      popup.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
+	      popup_one.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
 	  });
 
 	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
-	      popup.remove();
+	      popup_one.remove();
 	  });
       });
 

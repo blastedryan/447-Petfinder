@@ -47,6 +47,8 @@ https://www.computerhope.com/issues/ch000549.htm
 
 Run the tests for test_html.py before this test (search.json must have something in it). Using Pytest either in Pycharm or Terminal you can run every test in the file tests/test_query.py or individual tests. 
 
+Tests can also be run with Pytest inside of tests/test_default.py and tests/test_types_breeds.py
+
 Each test is its own function inside of the file starting with the word ‘test’. 
 
 Information on how to use Pytest in Pycharm can be found here: https://www.jetbrains.com/help/pycharm/pytest.html#enable-pytest and 
@@ -64,4 +66,4 @@ with your version of Chrome ie. 87, 86, or 85)
 5. You can run selenium tests with either Pytest or Unittest depending on your preference 
 
 
-In order to test the MapBox API: The map should render at the bottom of the web page. You should be able to hover your mouse the existing markers, and you should see windows popup over those markers with information of the dogs. These are the dogs that were found from a test run of using the query feature of the Petfinder API. This is purely for Iteration 2 testing purposes, as later iterations will have more markers on the map, based on search results.
+In order to test the new scrollable popup feature, run test_scroll_popups.py. After the actions take place, you should be able to interact with the map and and click on the clusters. You should be able to scroll through the popup to see the pets in that location. 
