@@ -64,4 +64,4 @@ with your version of Chrome ie. 87, 86, or 85)
 5. You can run selenium tests with either Pytest or Unittest depending on your preference 
 
 
-In order to test the MapBox API: The map should render at the bottom of the web page. You should be able to hover your mouse the existing markers, and you should see windows popup over those markers with information of the dogs. These are the dogs that were found from a test run of using the query feature of the Petfinder API. This is purely for Iteration 2 testing purposes, as later iterations will have more markers on the map, based on search results.
+In order to test the new scrollable popup feature, run test_scroll_popups.py. After the actions take place, you should be able to interact with the map and and click on the clusters. You should be able to scroll through the popup to see the pets in that location. 
