@@ -4,7 +4,7 @@ from django.template import loader
 import json
 import pathlib
 import os
-
+from .models import Card
 
 # Create your views here.
 
@@ -75,6 +75,8 @@ def index(request):
     return render(request, 'petfinder/HomePage.html')
     
 def dogs_request(request):
+
+    cards = Card.objects.order_by('title')
     
     key = os.environ.get('MAPBOX_API_KEY')
     
@@ -123,8 +125,8 @@ def dogs_request(request):
         save_pet_results(pets)
         json_data = open_pet_results()
 
-    template = loader.get_template('petfinder/Petfinder_style.html')
-    return HttpResponse(template.render({"search_query": petfind_query, 'the_json':json_data, 'MAPBOX_API_KEY':key, 'CENTER_LAT':round(center_lat, 3), 'CENTER_LONG':round(center_long, 3)}, request))
+    template = loader.get_template('petfinder/Petfinder_style_foo.html')
+    return HttpResponse(template.render({"cards": cards, "search_query": petfind_query, 'the_json':json_data, 'MAPBOX_API_KEY':key, 'CENTER_LAT':round(center_lat, 3), 'CENTER_LONG':round(center_long, 3)}, request))
 
 
 def cats_request(request):

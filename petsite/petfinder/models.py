@@ -35,3 +35,24 @@ class Animal(models.Model):
     house_trained = models.BooleanField()
     special_needs = models.BooleanField()
     sort = models.CharField(max_length=200)
+
+
+class Card(models.Model):
+    title = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
+class CardItem(models.Model):
+    FORMS = (
+        ('checkbox', 'checkbox'),
+        ('text', 'text')
+    )
+    card = models.ForeignKey(Card, on_delete=models.CASCADE, default=None)
+    name = models.CharField(max_length=200, default=None)
+    form = models.CharField(max_length=200, choices=FORMS, default=None)
+    image = models.CharField(max_length=500, default=None)
+
+    def __str__(self):
+        return self.name
