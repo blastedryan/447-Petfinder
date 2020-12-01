@@ -23,6 +23,16 @@
           width: 220px;
           height:220px;
         }
+        .submit_bird_button{
+            padding:0;
+            border:none;
+            background:none;
+        }
+        .btn > .btn{
+            width:320px;
+            height:320px;
+            background-size: 200px 200px;
+        }
         .verticalcenter{
           display: inline;
           height:100px;
@@ -566,7 +576,7 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()">
+  <button class="submit_bird_button" onclick = "blockSearch()">
   <input type="submit" value="search">
   </button>
   </form>
