@@ -15,7 +15,7 @@ class WebTests(unittest.TestCase):
         manage_py_path = os.path.join(os.path.dirname((os.path.dirname(os.path.abspath(__file__)))), 'petsite/manage.py')
         self.process = subprocess.Popen(['python', manage_py_path , 'runserver', port])
         self.htmlPath = 'http://127.0.0.1:{}/petfinder'.format(port)
-        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROME_DRIVER_PATH"), chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
     def tearDown(self):
         self.process.kill()
