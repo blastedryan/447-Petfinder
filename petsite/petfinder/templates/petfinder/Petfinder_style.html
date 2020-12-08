@@ -6,8 +6,10 @@
     <!---Stylesheet for bootstrap --->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type = "text/css" href="{% static 'css/dog.css' %}">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/banner.css' %}">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -71,10 +73,10 @@
     </head>
 <body>
     <!-- Code to get the accordian file working-->
-    <div class = "jumbotron jumbotron-fluid text-center">
+    <div class = "jumbotron jumbotron-fluid text-right banner">
         <div class = "container">
-            <h1>Petfinder Geospatial Search</h1>
-            <p>Search for pets in your area based on your specifications</p>
+            <h1 class="display-4">Petfinder Geospatial Search</h1>
+            <p class="lead">Search for pets in your area based on your specifications</p>
         </div>
     </div>
     <h3 class ="text-center">Searching for: Dogs</h3>
