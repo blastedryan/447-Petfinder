@@ -24,6 +24,16 @@
           width: 220px;
           height:220px;
         }
+        .btn > .btn{
+          width: 320px;
+          height: 320px;
+          background-size: 200px 200px;
+        }
+        .submit_barn_button{
+          padding:0;
+          background: none;
+          border:none;
+        }
         .verticalcenter{
           display: inline;
           height:100px;
@@ -527,7 +537,7 @@
       document.getElementById('invalid').innerHTML = "Please enter a valid location"
     }
   </script>
-  <button onclick = "blockSearch()">
+  <button class = "submit_barn_button" onclick = "blockSearch()">
   <input type="submit" value="search">
   </button>
   </form>
@@ -541,7 +551,7 @@
 
     <div class = "container">
       <h2 class = "text-center">
-	Pets within 10 mile radius
+	Pets within 100 mile radius
       </h2>
 
       <div id='map' style='width: 800px; height: 600px;'></div>

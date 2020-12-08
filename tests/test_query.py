@@ -1,4 +1,4 @@
-from petfinder_api.query import find_pets, authenticate, key, secret_key
+from petsite.petfinder_api.query import find_pets, authenticate, key, secret_key
 from pandas import DataFrame, Series
 import pytest
 from petpy.exceptions import PetfinderInvalidCredentials
@@ -68,7 +68,7 @@ def test_petfind_location():
     loc2_pets, _ = find_pets(pf, location=loc2, distance=25)
     # lat, long
     loc3 = '39.258, -76.713'
-    loc3_pets, _ = find_pets(pf, location=loc3, distance=25)
+    loc3_pets, _ = find_pets(pf, location=loc3, distance=25, lat_long=True)
 
     assert isinstance(loc1_pets, DataFrame)
     assert Series(['contact.address.address', 'contact.address.lat', 'contact.address.long']). \
