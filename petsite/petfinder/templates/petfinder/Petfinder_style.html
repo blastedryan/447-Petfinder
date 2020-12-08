@@ -6,8 +6,10 @@
     <!---Stylesheet for bootstrap --->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type = "text/css" href="{% static 'css/dog.css' %}">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/banner.css' %}">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 
     <meta charset="UTF-8">
     <title>Title</title>
@@ -43,7 +45,10 @@
             background:none;
         }
         #map {
-                position: absolute;
+            position: abosolute;
+	    top: 0;
+	    bottom: 0;
+	    width: 100%;
         }
 
 
@@ -67,14 +72,27 @@
         height: auto;
         }
 
+	.img-modal{
+	    width: auto;
+	    height: auto;
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	    
+	}
+
+	.modal-title{
+	    text-align: center;
+	}
+
     </style>
     </head>
 <body>
     <!-- Code to get the accordian file working-->
-    <div class = "jumbotron jumbotron-fluid text-center">
+    <div class = "jumbotron jumbotron-fluid text-right banner">
         <div class = "container">
-            <h1>Petfinder Geospatial Search</h1>
-            <p>Search for pets in your area based on your specifications</p>
+            <h1 class="display-4">Petfinder Geospatial Search</h1>
+            <p class="lead">Search for pets in your area based on your specifications</p>
         </div>
     </div>
     <h3 class ="text-center">Searching for: Dogs</h3>
@@ -537,6 +555,28 @@
       <div id='map' style='width: 800px; height: 600px;'></div>
     </div>
 
+        <div class="modal fade" id="fullInfoModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2  class="modal-title" id="modal_pet_name"></h2>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+	</div>
+
+
+
+    
     {{ the_json|json_script:"geodata" }}
 
 
@@ -548,6 +588,10 @@
 
       var center_lat = {{ CENTER_LAT }}
       var center_long = {{ CENTER_LONG }}
+      var modal_pet_name = "";
+
+      
+      
 
       mapboxgl.accessToken = api_key
 
@@ -651,7 +695,7 @@
 
 	  // Create a popup, but don't add it to the map yet.
 	  var popup_one = new mapboxgl.Popup({
-	      closeButton: false,
+	      closeButton: true,
 	      closeOnClick: false
 	  });
 
@@ -666,24 +710,27 @@
 		  layers: ['clusters']
 	      });
 	      var clusterId = features[0].properties.cluster_id;
-	      console.log("clusterID: ", clusterId);
+	      //console.log("clusterID: ", clusterId);
 	      var pointCount = features[0].properties.point_count;
-	      console.log("pointCount: ", pointCount);
+	      //console.log("pointCount: ", pointCount);
 	      var clusterLoc = e.features[0].geometry.coordinates;
-	      console.log("cluster location: ",clusterLoc);
+	      //console.log("cluster location: ",clusterLoc);
 	      var clusterSource = map.getSource('pets');
 	      
 	      clusterSource.getClusterLeaves(clusterId, pointCount, 0, function(error, features) {
 		  // Print cluster leaves in the console
-		  console.log("num features: ", features.length);
-		  console.log('Cluster leaves:', error, features);
+		  //console.log("num features: ", features.length);
+		  //console.log('Cluster leaves:', error, features);
 
 		  let htmlString = "";
 		  var p = 0
 		  for(p = 0; p < features.length; p++){
 		      var image = features[p].properties.image;
-		      var description = features[p].properties.description;
-		      htmlString += '<p><img src='+image+'></p>'+description+"<hr>";
+		      var description = features[p].properties.short_description;
+		      var name =  features[p].properties.name;
+		      var onclick_event = "createModal(\'"+name+"\')";
+		      document.getElementById("modal_pet_name").innerHTML = features[p].properties.name;
+		      htmlString += '<p><img src='+image+'></p>'+description+ '<br/><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullInfoModal" id='+name+'_modal_open_button value='+name+' onClick =' + onclick_event + ' >More information</button>' + '<hr>';
 		  }
 
 		  popup_cluster.setLngLat(clusterLoc).setHTML(htmlString).addTo(map);
@@ -702,8 +749,10 @@
 	      map.getCanvas().style.cursor = 'pointer';
 	      
 	      var coordinates = e.features[0].geometry.coordinates.slice();
-	      var description = e.features[0].properties.description;
+	      var description = e.features[0].properties.short_description;
 	      var image = e.features[0].properties.image;
+	      var name =  e.features[0].properties.name;
+	      document.getElementById("modal_pet_name").innerHTML = e.features[0].properties.name;
 
 	      // If the map is zoomed out such that multiple
 	      // copies of the feature are visible, the popup appears
@@ -714,21 +763,77 @@
 	      
 	      // Populate the popup and set its coordinates
 	      // based on the feature found.
-	      popup_one.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description).addTo(map);
+	      var onclick_event = "createModal(\'"+name+"\')";
+	      popup_one.setLngLat(coordinates).setHTML('<p><img src='+image+'></p>'+description+ '<br/><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullInfoModal" onClick =' + onclick_event + ' ">More information</button>').addTo(map);
 	  });
 
 	  map.on('mouseleave', 'pets_found', function () {
 	      map.getCanvas().style.cursor = '';
-	      popup_one.remove();
+	      //popup_one.remove();
 	  });
       });
 
+      function createModal(petName){
+	  document.getElementById("modal_pet_name").innerHTML = petName;
+	  console.log(petName);
+	  //console.log(geodata.features.length);
+	  console.log(geodata.features[1].properties)
 
 
+	  var pet_index = 0;
+	  
+	  for (pet_index = 0; pet_index < geodata.features.length; pet_index++){
+	      
+	      if (geodata.features[pet_index].properties.name == petName) {
+		  break;
+		  }
 
+	  }
 
+	  console.log(geodata.features[pet_index].properties);
 
+	  
 
+	  
+	  var modal_body_html = '<p><img src='+geodata.features[pet_index].properties.large_image+' class="img-modal"></p>';
+
+	  var isSpayed = geodata.features[pet_index].properties["attributes.spayed_neutered"];
+	  var is_house_trained = geodata.features[pet_index].properties["attributes.house_trained"];
+	  var is_shots_current = geodata.features[pet_index].properties["attributes.shots_current"];
+	  var stringSpayed = "";
+	  var stringHouseTrained = "";
+	  var stringShots = "";
+	  
+	  if (isSpayed){
+	      stringSpayed = "This animal is spayed/neutered,";
+	  }
+	  else{
+	      stringSpayed = "This animal is not spayed/neutered,"
+	  }
+
+	  if (is_house_trained){
+	      stringHouseTrained = "Yes";
+	  }
+	  else{
+	      stringHouseTrained = "No.";
+	  }
+
+	  if (is_shots_current){
+	      stringShots = " and up to date on vaccinations.";
+	  }
+	  else{
+	      stringShots = " and not up to date on vaccinations.";
+	  }
+	  
+	  modal_body_html += "<p>"+geodata.features[pet_index].properties["breeds.primary"]+" - "+geodata.features[pet_index].properties["contact.address.city"]+"<\p><hr>"
+	  
+	  modal_body_html += "<p>"+geodata.features[pet_index].properties.age+" - "+geodata.features[pet_index].properties.gender+" - "+geodata.features[pet_index].properties.size+" - "+geodata.features[pet_index].properties["colors.primary"]+" - "+geodata.features[pet_index].properties.coat+" coat</p><hr>";
+	  modal_body_html += "<p>More about " + petName + "</p> <p>Health: "+stringSpayed + stringShots+"</p> <p>House-trained: "+stringHouseTrained+"</p><hr>";
+	  modal_body_html += "<p>" + geodata.features[pet_index].properties.description + "</p>";
+	  
+	  document.getElementById("modal-body").innerHTML = modal_body_html;
+	  
+      }
 
       </script>
 
