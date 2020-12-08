@@ -66,4 +66,4 @@ with your version of Chrome ie. 87, 86, or 85)
 5. You can run selenium tests with either Pytest or Unittest depending on your preference 
 
 
-In order to test the new scrollable popup feature, run test_scroll_popups.py. After the actions take place, you should be able to interact with the map and and click on the clusters. You should be able to scroll through the popup to see the pets in that location. 
+In order to test the new descript modals feature, run test_full_info_window.py. After the actions take place, you should be able to interact with the map and and click on the clusters. You should be able to scroll through the popup to see the pets in that location. Click on any of the "More information" buttons, and you will see a modal popup with a bigger picture of the dog, as more information about the dog.

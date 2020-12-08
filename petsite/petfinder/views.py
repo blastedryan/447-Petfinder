@@ -24,7 +24,7 @@ import numpy as np
 pf = authenticate(key, secret_key)
 
 def save_pet_results(pets):
-    useful_cols = ["age", "gender", "size", "name", "breeds.primary", "primary_photo_cropped.small"]
+    useful_cols = ["age", "gender", "size", "name", "breeds.primary", "primary_photo_cropped.small", "description", "colors.primary", "attributes.spayed_neutered", "attributes.house_trained", "primary_photo_cropped.large", "coat", "attributes.shots_current", "contact.address.city"]
     geojson_dict = df_to_geojson(pets, properties=useful_cols,lat="contact.address.lat",lon="contact.address.long")
     geojson_str = json.dumps(geojson_dict, indent=2)
     filename = pathlib.Path(__file__).parent.absolute() / "search_results"/ "pet_results.geojson"
